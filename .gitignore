@@ -1,0 +1,10 @@
+#ignore all files witout directories
+/*.*
+!/.gitignore
+!/Nalashtuvania.xml
+#ignore all files in directories
+/*/*
+#not ignore assets directory
+!/[Aa]ssets/*
+#ignore meta files
+*.meta

@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<XML xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <riven>0</riven>
+  <mova>0</mova>
+  <vazhkist>1</vazhkist>
+  <yakistText>0</yakistText>
+  <yakistSpets>0</yakistSpets>
+  <rozmirEkrana>3</rozmirEkrana>
+  <zvuk>1</zvuk>
+  <muzika>0.5</muzika>
+  <strilba>0.5</strilba>
+  <zvukBotiv>0.5</zvukBotiv>
+  <xodba>0.5</xodba>
+  <udary>0.5</udary>
+  <shum>0.5</shum>
+  <vpered>W</vpered>
+  <nazadR>S</nazadR>
+  <vlivo>A</vlivo>
+  <vpravo>D</vpravo>
+  <pauza>Escape</pauza>
+  <strilbaK>Mouse0</strilbaK>
+  <prytsil>Mouse1</prytsil>
+  <Rsp>Tab</Rsp>
+  <big>LeftShift</big>
+  <povzania>LeftControl</povzania>
+  <Zbroya1>Alpha1</Zbroya1>
+  <Zbroya2>Alpha2</Zbroya2>
+  <Zbroya3>Alpha3</Zbroya3>
+  <Zbroya4>Alpha4</Zbroya4>
+  <Rvceb>Z</Rvceb>
+  <strybok>Space</strybok>
+  <maybStrybok>E</maybStrybok>
+  <SPauk>F</SPauk>
+  <DdoZbroyi>Q</DdoZbroyi>
+  <x>true</x>
+</XML>
