@@ -1,17 +1,30 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using GameArchitecture;
+using System;
 
 public class SaveManager : ISaveManager
 {
-    private Dictionary<string,object> dictionary;
+    private Dictionary<string, string> dictionary;
 
-    public void Initialize() {
-        dictionary = new Dictionary<string, object>();
+    public void Initialize()
+    {
+        dictionary = new Dictionary<string, string>();
     }
 
-    public bool Set<T>(T element, string key) { return false; }
-    public bool Get<T>(out T element, string key) { element = default; return false; }
+    public void Set<T>(T element, string key) => dictionary[key] = element.ToString();
+
+    public bool TryGet<T>(out T element, string key) where T : class
+    {
+        try
+        {
+            element = Convert.ChangeType(dictionary[key], typeof(T)) as T;
+        }
+        catch
+        {
+            element = null;
+            return false;
+        }
+
+        return true;
+    }
     public void Save() { }
 }

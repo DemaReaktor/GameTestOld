@@ -10,14 +10,13 @@ public interface ISaveManager : IManager
     /// </summary>
     /// <param name="element">element that is added</param>
     /// <param name="key">name of this element</param>
-    /// <returns>true if adding is successfull</returns>
-    public bool Set<T>(T element,string key);
+    public void Set<T>(T element,string key);
     /// <summary>
     /// load element
     /// </summary>
     /// <param name="element">element that should be load</param>
     /// <param name="key">name of this element</param>
     /// <returns>true if loading is successfull</returns>
-    public bool Get<T>(out T element,string key);
+    public bool TryGet<T>(out T element, string key) where T : class;
     public void Save();
 }
