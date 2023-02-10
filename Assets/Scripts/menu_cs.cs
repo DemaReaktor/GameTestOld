@@ -46,7 +46,6 @@ public class menu_cs : MonoBehaviour
        
         // p.GetComponent<RectTransform>().localPosition = new Vector3( Screen.width, Screen.height);
         // knop[6] = this.transform.GetChild(6);
-        child(transform);
        
         //   transform.GetComponent<RectTransform>().localScale = new Vector3(Screen.width/1280, Screen.height / 720,1);
     }
@@ -695,17 +694,6 @@ public class menu_cs : MonoBehaviour
                 o = new KeyCode();
         }
 }
-    void child(Transform n) {
-         for (int i = 0; i < n.childCount; i++)
-                child(n.GetChild(i));
-         if(n.GetComponent<Image>())
-        {
-            n.GetComponent<RectTransform>().sizeDelta = new Vector2(n.GetComponent<RectTransform>().sizeDelta.x*x*0.1f, n.GetComponent<RectTransform>().sizeDelta.y * x * 0.1f);
-            n.GetComponent<RectTransform>().localPosition = new Vector2(n.GetComponent<RectTransform>().localPosition.x/1280*Screen.width, n.GetComponent<RectTransform>().localPosition.y/720 * Screen.height);
-        }
-        if (n.GetComponent<Text>())
-            n.GetComponent<Text>().fontSize = (int)(n.GetComponent<Text>().fontSize*x*0.1f) ;
-    }
     void mousepos(Transform n)
     {
         for (int i = 0; i < n.childCount; i++)
