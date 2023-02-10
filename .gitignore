@@ -1,10 +1,12 @@
-#ignore all files witout directories
-/*.*
+#ignore all files and directories
+/*
+
+#not ignore gitignore assets and settings
 !/.gitignore
 !/Nalashtuvania.xml
-#ignore all files in directories
-/*/*
-#not ignore assets directory
-!/[Aa]ssets/*
+!/[Aa]ssets
+
 #ignore meta files
 *.meta
+#too big file
+/[Aa]ssets/riveny1.avi
