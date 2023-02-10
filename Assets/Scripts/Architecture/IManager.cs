@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace GameArchitecture
 {
     public interface IManager
@@ -5,6 +7,7 @@ namespace GameArchitecture
         /// <summary>
         /// this method will be invoked at awake if this manager is added to gameInitializer
         /// </summary>
-        void Initialize();
+        /// <param name="value"> this dictionary set setting to this manager</param>
+        void Initialize(Dictionary<string,object> value);
     }
 }

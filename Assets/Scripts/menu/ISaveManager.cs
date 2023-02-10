@@ -12,11 +12,18 @@ public interface ISaveManager : IManager
     /// <param name="key">name of this element</param>
     public void Set<T>(T element,string key);
     /// <summary>
-    /// load element
+    /// load element as class
     /// </summary>
     /// <param name="element">element that should be load</param>
     /// <param name="key">name of this element</param>
     /// <returns>true if loading is successfull</returns>
     public bool TryGet<T>(out T element, string key) where T : class;
+    /// <summary>
+    /// load string
+    /// </summary>
+    /// <param name="element">element that should be load</param>
+    /// <param name="key">name of this element</param>
+    /// <returns>true if loading is successfull</returns>
+    public bool TryGet(out string element, string key);
     public void Save();
 }

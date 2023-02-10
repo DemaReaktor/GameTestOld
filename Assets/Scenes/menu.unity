@@ -5220,7 +5220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   managers:
-  - ISaveManager
+  - {fileID: 11500000, guid: 4133b7698baf5b5408e666fbac1f89d3, type: 3}
 --- !u!1 &606398829
 GameObject:
   m_ObjectHideFlags: 0
@@ -10861,7 +10861,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1408459726
 RectTransform:
   m_ObjectHideFlags: 0
