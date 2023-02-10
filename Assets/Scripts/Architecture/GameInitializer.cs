@@ -15,6 +15,7 @@ namespace GameArchitecture
     {
         [Tooltip("managers of this scene")]
         [SerializeField] private MonoScript[] managers;
+        [SerializeField] private ManagerConfiguration ManagerConfiguration;
 
         private void Awake()
         {

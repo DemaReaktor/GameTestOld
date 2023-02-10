@@ -13,7 +13,7 @@ public class SaveManagerTests
     public void SetUp()
     {
         saveManager = new SaveManager();
-        saveManager.Initialize();
+        saveManager.Initialize(null);
     }
     [Test]
     public void SetAndGetString()

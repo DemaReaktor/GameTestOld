@@ -8,7 +8,7 @@ public class SaveManager : ISaveManager
     private Dictionary<string, string> dictionary;
     private Dictionary<string, string> LoadDictionary;
 
-    public void Initialize()
+    public void Initialize(Dictionary<string,object> Configuration)
     {
         dictionary  = new Dictionary<string, string>();
         LoadDictionary = new Dictionary<string, string>();
