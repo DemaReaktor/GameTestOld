@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using GameArchitecture;
 
-public class menu_cs : MonoBehaviour
+public class Menu : MonoBehaviour
 {
     //public int scenen;
     // [SerializeField] int dovzh;
@@ -505,6 +506,9 @@ public class menu_cs : MonoBehaviour
         else
         if(Input.anyKeyDown)
         {
+                               //Input.
+            //Input.inputString
+
             if (Input.GetKeyDown(KeyCode.A)) o = KeyCode.A;
             else
             if (Input.GetKeyDown(KeyCode.Q)) o = KeyCode.Q;
