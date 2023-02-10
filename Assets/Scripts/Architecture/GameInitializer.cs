@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using System;
+using System.Linq;
 
 namespace GameArchitecture
 {
@@ -11,17 +12,22 @@ namespace GameArchitecture
     [AddComponentMenu("Game/Initializer")]
     public class GameInitializer : MonoBehaviour
     {
-        [Tooltip("names of mana")]
+        [Tooltip("managers of this scene")]
         [SerializeField] private MonoScript[] managers;
-        private LinkedList<IManager> classes;
 
         private void Awake()
         {
-            classes = new LinkedList<IManager>();
+            LinkedList<IManager> classes = new LinkedList<IManager>();
 
-            //find every element in 
             foreach (var element in managers)
-                classes.AddLast(element.GetClass().GetConstructor(new Type[] { }).Invoke(new Type[] { }) as IManager);
+            {
+                Type type = element.GetClass();
+
+                if (!type.GetInterfaces().Contains(typeof(IManager)))
+                    throw new Exception("every monoscript should has interface IManager");
+
+                classes.AddLast(type.GetConstructor(new Type[] { }).Invoke(new Type[] { }) as IManager);
+            }
 
             Game.Initialize(classes);
         }
