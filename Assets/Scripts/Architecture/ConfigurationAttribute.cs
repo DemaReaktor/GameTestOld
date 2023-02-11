@@ -11,8 +11,8 @@ namespace GameArchitecture
     {
         private Type Type;
         public ConfigurationAttribute(Type type) {
-            if (!type.GetInterfaces().Contains(typeof(IManager)))
-                throw new ArgumentException("type should have interface IManager");
+            //if (!type.GetInterfaces().Contains(typeof(IManager)))
+            //    throw new ArgumentException("type should have interface IManager");
             Type = type;
         }
         public Type ManagerType => Type;

@@ -5219,8 +5219,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac287b73a5733fa4ca4d830e7de4d3ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  managers:
-  - {fileID: 11500000, guid: 4133b7698baf5b5408e666fbac1f89d3, type: 3}
+  con:
+    Dj: 
+    Value: 
+  ManagerConfiguration:
+  - MonoScript: {fileID: 0}
+    Configuration:
+      Dj: 
 --- !u!1 &606398829
 GameObject:
   m_ObjectHideFlags: 0

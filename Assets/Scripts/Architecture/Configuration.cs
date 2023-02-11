@@ -8,6 +8,5 @@ namespace GameArchitecture
     [Serializable]
     public class Configuration
     {
-               //public internal void  
     }
 }

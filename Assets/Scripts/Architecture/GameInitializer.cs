@@ -14,21 +14,22 @@ namespace GameArchitecture
     public class GameInitializer : MonoBehaviour
     {
         [Tooltip("managers of this scene")]
-        [SerializeField] private MonoScript[] managers;
-        //[SerializeField] private ManagerConfiguration ManagerConfiguration;
+        //[SerializeField] private MonoScript[] managers;
+        public SaveConfiguration con;
+        [SerializeField] private ManagerConfiguration[] ManagerConfiguration;
 
         private void Awake()
         {
             LinkedList<IManager> classes = new LinkedList<IManager>();
 
-            foreach (var element in managers)
+            foreach (var element in ManagerConfiguration)
             {
-                Type type = element.GetClass();
+                Type type = element.MonoScript.GetClass();
 
                 if (!type.GetInterfaces().Contains(typeof(IManager)))
                     throw new Exception("every monoscript should has interface IManager");
 
-                classes.AddLast(type.GetConstructor(new Type[] { }).Invoke(new Type[] { }) as IManager);
+                classes.AddLast(type.GetConstructor(new Type[] { typeof(Configuration) }).Invoke(new Type[] { element.Configuration.GetType() }) as IManager);
             }
 
             Game.Initialize(classes);

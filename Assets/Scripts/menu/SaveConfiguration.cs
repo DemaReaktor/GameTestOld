@@ -1,9 +1,11 @@
+using System;
 using UnityEngine;
 using GameArchitecture;
 
-[SelectionBase]
-[Configuration(typeof(IManager))]
+[Serializable]
+[Configuration(typeof(SaveManager))]
 public class SaveConfiguration : Configuration
 {
+    [SerializeField]
     public string Value;
 }

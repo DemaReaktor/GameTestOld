@@ -6,12 +6,13 @@ using GameArchitecture;
 
 public class SaveManager : ISaveManager
 {
-    public Configuration Configuration { get; }
+    public Configuration Configuration { get; private set; }
     private Dictionary<string, string> dictionary;
     private Dictionary<string, string> LoadDictionary;
 
-    public void Initialize(Dictionary<string,object> Configuration)
+    public void Initialize(Configuration configuration)
     {
+        Configuration = configuration;
         dictionary  = new Dictionary<string, string>();
         LoadDictionary = new Dictionary<string, string>();
     }
