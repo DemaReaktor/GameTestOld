@@ -14,8 +14,6 @@ namespace GameArchitecture
     public class GameInitializer : MonoBehaviour
     {
         [Tooltip("managers of this scene")]
-        //[SerializeField] private MonoScript[] managers;
-        public SaveConfiguration con;
         [SerializeField] private ManagerConfiguration[] ManagerConfiguration;
 
         private void Awake()
@@ -29,7 +27,7 @@ namespace GameArchitecture
                 if (!type.GetInterfaces().Contains(typeof(IManager)))
                     throw new Exception("every monoscript should has interface IManager");
 
-                classes.AddLast(type.GetConstructor(new Type[] { typeof(Configuration) }).Invoke(new Type[] { element.Configuration.GetType() }) as IManager);
+                classes.AddLast(type.GetConstructor(new Type[] { typeof(System.Object) }).Invoke(new Type[] { element.Configuration.GetType() }) as IManager);
             }
 
             Game.Initialize(classes);

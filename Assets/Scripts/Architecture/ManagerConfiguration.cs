@@ -1,39 +1,43 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-using UnityEditor.UIElements;
 using System;
 using System.Linq;
-using Unity;
-using UnityEngine.UIElements;
 
 namespace GameArchitecture
 {
     [Serializable]
     public class ManagerConfiguration
     {
-        //public IManager Manager;
-        //public Con
         public MonoScript MonoScript;
-        [SerializeReference] public Configuration Configuration;
+        [SerializeReference] public object Configuration;
     }
 
     [CustomPropertyDrawer(typeof(ManagerConfiguration))]
     public class ManagerConfigurationEditor : PropertyDrawer
     {
-        public MonoScript MonoScript = null;
-        public Configuration Configuration = null;
+        private MonoScript MonoScript = null;
+        private MonoScript NewMonoScript = null;
         private bool isClickedButton = false;
 
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
             EditorGUI.BeginProperty(position, label, property);
+
             MonoScript = EditorGUI.ObjectField(new Rect(position.x, position.y, position.width, EditorGUIUtility.singleLineHeight), "Manager", MonoScript, typeof(MonoScript), false) as MonoScript;
+
+            if (MonoScript!=null&& !MonoScript.GetClass().GetInterfaces().Contains(typeof(IManager)) && !MonoScript.GetClass().GetInterfaces().Any(t => t.Name.Substring(0, t.Name.IndexOf('`')) == typeof(IManager).Name))
+                MonoScript = null;
+
+            if (MonoScript != NewMonoScript)
+            {
+                property.FindPropertyRelative("Configuration").managedReferenceValue = null;
+                isClickedButton = false;
+                NewMonoScript = MonoScript;
+            }
 
             if (MonoScript != null)
             {
-                if (GUI.Button(new Rect(position.x, position.y + EditorGUIUtility.singleLineHeight, position.width, EditorGUIUtility.singleLineHeight), "Configuration") && !isClickedButton)
+                if (!isClickedButton && GUI.Button(new Rect(position.x, position.y + EditorGUIUtility.singleLineHeight, position.width, EditorGUIUtility.singleLineHeight), "Add existing configuration"))
                 {
                     Type type = MonoScript.GetClass();
                     string[] assets = AssetDatabase.GetAllAssetPaths().Where(name => name.EndsWith(".cs")).ToArray();
@@ -44,31 +48,40 @@ namespace GameArchitecture
 
                         if (element != null && element.GetClass() != null)
                         {
-                            ConfigurationAttribute attribute = Attribute.GetCustomAttribute(element.GetClass(), typeof(ConfigurationAttribute)) as ConfigurationAttribute;
+                            Attribute attribute = Attribute.GetCustomAttribute(element.GetClass(), typeof(ConfigurationAttribute));
 
-                            if (attribute != null && attribute.ManagerType == type)
+                            if (attribute != null && attribute as ConfigurationAttribute !=null && (attribute as ConfigurationAttribute).ManagerType == type)
                             {
                                 property.FindPropertyRelative("Configuration").managedReferenceValue = Activator.CreateInstance(element.GetClass());
+                                isClickedButton = true;
                                 break;
                             }
                         }
                     }
-                    isClickedButton = true;
+
+                    //if (!isClickedButton)
+                        //Debug.LogWarning("configuration class for this IManager is not ");
+                    //    EditorGUI.HelpBox(new Rect(position.x, position.y + EditorGUIUtility.singleLineHeight * 2, position.width, EditorGUIUtility.singleLineHeight),"this class is not derived of IManager",MessageType.Warning);
+                        //EditorGUI.HelpBox(new Rect(position.x, position.y + EditorGUIUtility.singleLineHeight * 2, position.width, EditorGUIUtility.singleLineHeight),"this class does not have attribute Configuration",MessageType.Warning);
                 }
 
                 if (isClickedButton)
                     EditorGUI.PropertyField(new Rect(position.x, position.y + EditorGUIUtility.singleLineHeight * 2, position.width, EditorGUIUtility.singleLineHeight), property.FindPropertyRelative("Configuration"), true);
             }
+            else
+                isClickedButton = false;
+
             EditorGUI.EndProperty();
         }
         public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
         {
-            float count = 0;
-            if (MonoScript != null)
-                count += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
             if (isClickedButton)
-                count += EditorGUI.GetPropertyHeight(property.FindPropertyRelative("Configuration"));
-            return EditorGUIUtility.singleLineHeight + count;
+                return EditorGUIUtility.singleLineHeight*2 + EditorGUI.GetPropertyHeight(property.FindPropertyRelative("Configuration")) + EditorGUIUtility.standardVerticalSpacing;
+
+            if (MonoScript != null)
+                return EditorGUIUtility.singleLineHeight *2 + EditorGUIUtility.standardVerticalSpacing;
+
+            return EditorGUIUtility.singleLineHeight;
         }
     }
 

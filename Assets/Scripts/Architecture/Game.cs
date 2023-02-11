@@ -15,7 +15,7 @@ namespace GameArchitecture
         {
             Game.managers = managers;
             foreach (var element in managers)
-                element.Initialize(null);
+                element.Initialize();
 
             IsInitialized = true;
         }

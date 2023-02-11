@@ -28,7 +28,7 @@ public class Menu : MonoBehaviour
     [SerializeField] Material pr2;
     void Start()
     {
-        Debug.Log(Game.GetManager<SaveManager>().Configuration as SaveConfiguration);
+        //Debug.Log(Game.GetManager<SaveManager>().Configuration as SaveConfiguration);
         ff = 0;
         pos = 0;
         if (SceneManager.GetActiveScene().buildIndex == 1)

@@ -3,9 +3,8 @@ using UnityEngine;
 using GameArchitecture;
 
 [Serializable]
-[Configuration(typeof(SaveManager))]
-public class SaveConfiguration : Configuration
+//[Configuration(typeof(Game))]
+public class SaveConfiguration
 {
-    [SerializeField]
     public string Value;
 }
