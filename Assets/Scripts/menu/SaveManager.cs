@@ -2,9 +2,11 @@ using System.Collections.Generic;
 using System;
 using System.IO;
 using System.Xml.Serialization;
+using GameArchitecture;
 
 public class SaveManager : ISaveManager
 {
+    public Configuration Configuration { get; }
     private Dictionary<string, string> dictionary;
     private Dictionary<string, string> LoadDictionary;
 
