@@ -5290,15 +5290,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac287b73a5733fa4ca4d830e7de4d3ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ManagerConfiguration:
-  - MonoScript: {fileID: 0}
-    Configuration:
-      rid: -2
+  ManagerConfiguration: []
   references:
     version: 2
-    RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    RefIds: []
 --- !u!1 &606398829
 GameObject:
   m_ObjectHideFlags: 0
