@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Collections.Generic;
 
 namespace GameArchitecture
@@ -8,19 +9,16 @@ namespace GameArchitecture
     /// </summary>
     public class Game
     {
-        private static LinkedList<IManager> managers;
+        private static LinkedList<Object> managers;
         public static bool IsInitialized { get; private set; } = false;
 
-        internal static void Initialize(LinkedList<IManager> managers)
+        internal static void Initialize(LinkedList<Object> managers)
         {
             Game.managers = managers;
-            foreach (var element in managers)
-                element.Initialize();
-
             IsInitialized = true;
         }
 
-        public static T GetManager<T>() where T:IManager
+        public static T GetManager<T>()
         {                            
             if(!IsInitialized)
                 throw new Exception("Game is not initialized. Add GameInitializer to Scene to initialize Game");
@@ -31,7 +29,7 @@ namespace GameArchitecture
 
             throw new Exception("manager of this type does not exist");
         }
-        public static bool TryGetManager<T>(out T value) where T : IManager
+        public static bool TryGetManager<T>(out T value)
         {
             if (!IsInitialized)
                 throw new Exception("Game is not initialized. Add GameInitializer to Scene to initialize Game");

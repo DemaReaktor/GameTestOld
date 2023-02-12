@@ -4,7 +4,7 @@ using GameArchitecture;
 /// save and load different things
 /// </summary>
 public interface ISaveManager<T> : IManager<T>
-    where T : class
+    where T:class
 {
     /// <summary>
     /// set element to other elements

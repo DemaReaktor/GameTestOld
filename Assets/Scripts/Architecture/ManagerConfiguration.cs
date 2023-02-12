@@ -34,12 +34,16 @@ namespace GameArchitecture
         {
             EditorGUI.BeginProperty(position, label, property);
 
+            string name = "Null";
+            if(property.FindPropertyRelative("MonoScript").objectReferenceValue != null)
+            name = property.FindPropertyRelative("MonoScript").objectReferenceValue.name;
+
             //get value of class
             MonoScript MonoScript = EditorGUI.ObjectField(new Rect(position.x, position.y, position.width, EditorGUIUtility.singleLineHeight),
-                new GUIContent("Manager", "class should be direved by IManager"), property.FindPropertyRelative("MonoScript").objectReferenceValue, typeof(MonoScript), false) as MonoScript;
+                new GUIContent(name, "class should be direved by IManager or IManager<(any object)>"), property.FindPropertyRelative("MonoScript").objectReferenceValue, typeof(MonoScript), false) as MonoScript;
 
             //check if this class is derived by IManager otherwise property dont change value
-            if (MonoScript != null && !MonoScript.GetClass().GetInterfaces().Contains(typeof(IManager)) && !MonoScript.GetClass().GetInterfaces().Any(t => t.Name.Substring(0, t.Name.IndexOf('`')) == typeof(IManager).Name))
+            if (MonoScript != null && (!MonoScript.GetClass().IsClass ||( !MonoScript.GetClass().GetInterfaces().Any(i => i.Name == "IManager") && !MonoScript.GetClass().GetInterfaces().Any(t => t.Name.Substring(0, t.Name.IndexOf('`')) == "IManager"))))
                     MonoScript = OldMonoScript.Keys.Contains(property.propertyPath)? OldMonoScript[property.propertyPath]: null;
 
             //set value
@@ -51,10 +55,10 @@ namespace GameArchitecture
                 isConfiguration[property.propertyPath] = false;
 
                 //if manager has configuration ( if manager has generic argument)
-                if (MonoScript != null && MonoScript.GetClass().GetInterfaces().Any(t => t.Name.Substring(0, t.Name.IndexOf('`')) == typeof(IManager).Name))
+                if (MonoScript != null && !MonoScript.GetClass().GetInterfaces().Any(i => i.Name == "IManager"))
                 {
                     //crete this configuration and set into value
-                    property.FindPropertyRelative("Configuration").managedReferenceValue = Activator.CreateInstance(MonoScript.GetClass().GetInterfaces().Where(t => t.Name.Substring(0, t.Name.IndexOf('`')) == typeof(IManager).Name).First().GenericTypeArguments[0]);
+                    property.FindPropertyRelative("Configuration").managedReferenceValue = Activator.CreateInstance(MonoScript.GetClass().GetInterfaces().Where(t => t.Name.Substring(0, t.Name.IndexOf('`')) == "IManager").First().GenericTypeArguments[0]);
 
                     isConfiguration[property.propertyPath] = true;
                 }
