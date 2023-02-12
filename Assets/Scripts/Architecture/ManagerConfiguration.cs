@@ -34,9 +34,10 @@ namespace GameArchitecture
         {
             EditorGUI.BeginProperty(position, label, property);
 
+            //set name to Monoscript proverty by name of class
             string name = "Null";
             if(property.FindPropertyRelative("MonoScript").objectReferenceValue != null)
-            name = property.FindPropertyRelative("MonoScript").objectReferenceValue.name;
+                name = property.FindPropertyRelative("MonoScript").objectReferenceValue.name;
 
             //get value of class
             MonoScript MonoScript = EditorGUI.ObjectField(new Rect(position.x, position.y, position.width, EditorGUIUtility.singleLineHeight),
