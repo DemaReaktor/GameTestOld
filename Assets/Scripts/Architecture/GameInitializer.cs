@@ -24,10 +24,10 @@ namespace GameArchitecture
             {
                 Type type = element.MonoScript.GetClass();
 
-                if (!type.GetInterfaces().Contains(typeof(IManager)))
-                    throw new Exception("every monoscript should has interface IManager");
-
-                classes.AddLast(type.GetConstructor(new Type[] { typeof(System.Object) }).Invoke(new Type[] { element.Configuration.GetType() }) as IManager);
+                if(type.GetInterfaces().Any(t => t.Name.Substring(0, t.Name.IndexOf('`')) == typeof(IManager).Name))
+                classes.AddLast(type.GetConstructor(new Type[] { typeof(object) }).Invoke(new Type[] { element.Configuration.GetType() }) as IManager);
+                else
+                classes.AddLast(type.GetConstructor(new Type[] {}).Invoke(new Type[] {}) as IManager);
             }
 
             Game.Initialize(classes);
