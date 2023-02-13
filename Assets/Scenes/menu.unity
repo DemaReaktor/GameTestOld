@@ -5293,12 +5293,12 @@ MonoBehaviour:
   Managers:
   - MonoScript: {fileID: 11500000, guid: 4133b7698baf5b5408e666fbac1f89d3, type: 3}
     Configuration:
-      rid: 1053532556301697132
+      rid: 1053532556301697189
   references:
     version: 2
     RefIds:
-    - rid: 1053532556301697132
-      type: {class: SaveConfiguration, ns: , asm: Scripts}
+    - rid: 1053532556301697189
+      type: {class: SettingsConfiguration, ns: GameArchitecture.Save, asm: Scripts}
       data:
         FileName: Settings
 --- !u!1 &606398829
