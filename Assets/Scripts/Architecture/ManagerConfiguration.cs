@@ -26,58 +26,78 @@ namespace GameArchitecture
     [CustomPropertyDrawer(typeof(ManagerConfiguration))]
     public class ManagerConfigurationEditor : PropertyDrawer
     {
-        //dictionaries that save parametres of every SerializedProperty
-        private Dictionary<string, MonoScript> OldMonoScript = new Dictionary<string, MonoScript>();
-        private Dictionary<string, bool> isConfiguration = new Dictionary<string, bool>();
+        private class PropertyDrawerObject
+        {
+            public MonoScript MonoScript { 
+                get => monoScript; 
+                set {
+                    MonoScript old = monoScript;
+
+                    if (value is null || (value.GetClass().IsClass && (value.GetClass().GetInterfaces().Any(i => i.Name == "IManager") || value.GetClass().GetInterfaces().Any(t => t.Name.Substring(0, t.Name.IndexOf('`')) == "IManager"))))
+                        monoScript = value;
+
+                    if(monoScript != old)
+                    {
+                        IsConfiguration = false;
+
+                        if (monoScript != null && !monoScript.GetClass().GetInterfaces().Any(i => i.Name == "IManager"))
+                        {
+                            IsConfiguration = true;
+                            Configuration = Activator.CreateInstance(monoScript.GetClass().GetInterfaces().Where(t => t.Name.Substring(0, t.Name.IndexOf('`')) == "IManager").First().GenericTypeArguments[0]);
+                        }
+                    }
+                } 
+            }
+            private MonoScript monoScript;
+            private bool isNeedChangeConfiguration = true;
+            public bool IsConfiguration { get; private set; }
+            public object Configuration;
+            public bool IsNeedChangeConfiguration
+            {
+                get
+                {
+                    if(isNeedChangeConfiguration)
+                    {
+                        isNeedChangeConfiguration = false;
+                        return true;
+                    }
+
+                    return false;
+                }
+            }
+        }
+
+        private Dictionary<string, PropertyDrawerObject> objects = new Dictionary<string, PropertyDrawerObject>();
 
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
             EditorGUI.BeginProperty(position, label, property);
+            if (!objects.Keys.Contains(property.propertyPath))
+                objects[property.propertyPath] = new PropertyDrawerObject();
 
-            //set name to Monoscript proverty by name of class
-            string name = "Null";
-            if(property.FindPropertyRelative("MonoScript").objectReferenceValue != null)
-                name = property.FindPropertyRelative("MonoScript").objectReferenceValue.name;
+            objects[property.propertyPath].MonoScript = EditorGUI.ObjectField(new Rect(position.x, position.y, position.width, EditorGUIUtility.singleLineHeight),
+            new GUIContent(objects[property.propertyPath].MonoScript is null?"Null": objects[property.propertyPath].MonoScript.name, "class should be direved by IManager or IManager<(any object)>"), property.FindPropertyRelative("MonoScript").objectReferenceValue, typeof(MonoScript), false) as MonoScript;
 
-            //get value of class
-            MonoScript MonoScript = EditorGUI.ObjectField(new Rect(position.x, position.y, position.width, EditorGUIUtility.singleLineHeight),
-                new GUIContent(name, "class should be direved by IManager or IManager<(any object)>"), property.FindPropertyRelative("MonoScript").objectReferenceValue, typeof(MonoScript), false) as MonoScript;
+            property.FindPropertyRelative("MonoScript").objectReferenceValue = objects[property.propertyPath].MonoScript;
 
-            //check if this class is derived by IManager otherwise property dont change value
-            if (MonoScript != null && (!MonoScript.GetClass().IsClass ||( !MonoScript.GetClass().GetInterfaces().Any(i => i.Name == "IManager") && !MonoScript.GetClass().GetInterfaces().Any(t => t.Name.Substring(0, t.Name.IndexOf('`')) == "IManager"))))
-                    MonoScript = OldMonoScript.Keys.Contains(property.propertyPath)? OldMonoScript[property.propertyPath]: null;
-
-            //set value
-            property.FindPropertyRelative("MonoScript").objectReferenceValue = MonoScript;
-
-            //if propery value of manager is changed
-            if ((!OldMonoScript.Keys.Contains(property.propertyPath) && MonoScript != null) || (OldMonoScript.Keys.Contains(property.propertyPath) && MonoScript != OldMonoScript[property.propertyPath]))
+            if (objects[property.propertyPath].IsConfiguration)
             {
-                isConfiguration[property.propertyPath] = false;
+                EditorGUI.PropertyField(new Rect(position.x, position.y + EditorGUIUtility.singleLineHeight, position.width, EditorGUIUtility.singleLineHeight), property.FindPropertyRelative("Configuration"), new GUIContent(
+                    objects[property.propertyPath].Configuration.GetType().Name), true);
 
-                //if manager has configuration ( if manager has generic argument)
-                if (MonoScript != null && !MonoScript.GetClass().GetInterfaces().Any(i => i.Name == "IManager"))
-                {
-                    //crete this configuration and set into value if configuration is not created yet
-                    property.FindPropertyRelative("Configuration").managedReferenceValue = property.FindPropertyRelative("Configuration").managedReferenceValue??
-                        Activator.CreateInstance(MonoScript.GetClass().GetInterfaces().Where(t => t.Name.Substring(0, t.Name.IndexOf('`')) == "IManager").First().GenericTypeArguments[0]);
+                if (objects[property.propertyPath].IsNeedChangeConfiguration)
+                    property.FindPropertyRelative("Configuration").managedReferenceValue = objects[property.propertyPath].Configuration;
 
-                    isConfiguration[property.propertyPath] = true;
-                }
+                objects[property.propertyPath].Configuration = property.FindPropertyRelative("Configuration").managedReferenceValue;
             }
-
-            OldMonoScript[property.propertyPath] = MonoScript;
-
-            //show property
-            if (isConfiguration.Keys.Contains(property.propertyPath) && isConfiguration[property.propertyPath])
-                EditorGUI.PropertyField(new Rect(position.x, position.y + EditorGUIUtility.singleLineHeight, position.width, EditorGUIUtility.singleLineHeight), property.FindPropertyRelative("Configuration"), true);
 
             EditorGUI.EndProperty();
         }
+
         public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
         {
             //if configuration is
-            if (isConfiguration.Keys.Contains(property.propertyPath) && isConfiguration[property.propertyPath])
+            if (objects.Keys.Contains(property.propertyPath)&& objects[property.propertyPath].IsConfiguration)
                 return EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing + EditorGUI.GetPropertyHeight(property.FindPropertyRelative("Configuration"));
 
             return EditorGUIUtility.singleLineHeight;
