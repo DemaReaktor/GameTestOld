@@ -2627,7 +2627,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &356179326
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5293,14 +5293,14 @@ MonoBehaviour:
   Managers:
   - MonoScript: {fileID: 11500000, guid: 4133b7698baf5b5408e666fbac1f89d3, type: 3}
     Configuration:
-      rid: 1053532531940656026
+      rid: 1053532556301697132
   references:
     version: 2
     RefIds:
-    - rid: 1053532531940656026
+    - rid: 1053532556301697132
       type: {class: SaveConfiguration, ns: , asm: Scripts}
       data:
-        FileName: 
+        FileName: Settings
 --- !u!1 &606398829
 GameObject:
   m_ObjectHideFlags: 0
@@ -11019,7 +11019,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1408459726
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11062,7 +11062,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c07142908326d3246a2ce996da77f61f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vs: {fileID: 0}
   zn1: {fileID: 2100000, guid: b0c175aa6a9648b43a370ad0c87346c1, type: 2}
   zn2: {fileID: 2100000, guid: 5c2c01faac35e9f43a487b70ef569abf, type: 2}
   zn3: {fileID: 2100000, guid: 58d67f72523ab304ca9f09c88c951c2d, type: 2}
@@ -12207,7 +12206,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1528577142
 RectTransform:
   m_ObjectHideFlags: 0

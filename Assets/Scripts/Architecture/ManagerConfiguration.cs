@@ -58,8 +58,9 @@ namespace GameArchitecture
                 //if manager has configuration ( if manager has generic argument)
                 if (MonoScript != null && !MonoScript.GetClass().GetInterfaces().Any(i => i.Name == "IManager"))
                 {
-                    //crete this configuration and set into value
-                    property.FindPropertyRelative("Configuration").managedReferenceValue = Activator.CreateInstance(MonoScript.GetClass().GetInterfaces().Where(t => t.Name.Substring(0, t.Name.IndexOf('`')) == "IManager").First().GenericTypeArguments[0]);
+                    //crete this configuration and set into value if configuration is not created yet
+                    property.FindPropertyRelative("Configuration").managedReferenceValue = property.FindPropertyRelative("Configuration").managedReferenceValue??
+                        Activator.CreateInstance(MonoScript.GetClass().GetInterfaces().Where(t => t.Name.Substring(0, t.Name.IndexOf('`')) == "IManager").First().GenericTypeArguments[0]);
 
                     isConfiguration[property.propertyPath] = true;
                 }

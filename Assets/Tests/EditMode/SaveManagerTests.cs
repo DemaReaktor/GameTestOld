@@ -7,13 +7,13 @@ using GameArchitecture;
 
 public class SaveManagerTests
 {
-    ISaveManager<SaveConfiguration> saveManager;
+    ISaveManager<SettingsConfiguration> saveManager;
 
     [SetUp]
     public void SetUp()
     {
-        saveManager = new SaveManager();
-        saveManager.Initialize(new SaveConfiguration() { FileName = "Settings"});
+        saveManager = new SettingsManager();
+        saveManager.Initialize(new SettingsConfiguration() { FileName = "Settings"});
     }
     [Test]
     public void SetAndGetString()

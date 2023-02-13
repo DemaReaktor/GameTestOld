@@ -4,7 +4,7 @@ using System.Xml.Serialization;
 using System.IO;
 using System.Linq;
 
-public class SaveManager : ISaveManager<SaveConfiguration>
+public class SettingsManager : ISaveManager<SettingsConfiguration>
 {
     public class Pair
     {
@@ -15,11 +15,11 @@ public class SaveManager : ISaveManager<SaveConfiguration>
         public static explicit operator Pair(KeyValuePair<string,string> value) => new Pair() { Key = value.Key, Value = value.Value };
     }
 
-    public SaveConfiguration Configuration { get; private set; }
+    public SettingsConfiguration Configuration { get; private set; }
     private Dictionary<string, string> dictionary;
     private Dictionary<string, string> LoadDictionary;
 
-    public void Initialize(SaveConfiguration configuration)
+    public void Initialize(SettingsConfiguration configuration)
     {
         if (!configuration.FileName.EndsWith(".xml"))
             configuration.FileName += ".xml";

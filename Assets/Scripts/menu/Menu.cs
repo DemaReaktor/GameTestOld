@@ -9,11 +9,11 @@ public class Menu : MonoBehaviour
 {
     //public int scenen;
     // [SerializeField] int dovzh;
-    public VoidSystem_cs vs;
+    //public VoidSystem_cs vs;
     //Scene menu;
     // Scene gra;
-    bool menuh;
-    float x;
+    //bool menuh;
+    //float x;
     int pos;
     int h;
    // float vx, vy;
@@ -31,38 +31,44 @@ public class Menu : MonoBehaviour
         //Debug.Log(Game.GetManager<SaveManager>().Configuration as SaveConfiguration);
         ff = 0;
         pos = 0;
-        if (SceneManager.GetActiveScene().buildIndex == 1)
-        {
-            menuh = true;
-          xm=  GetComponent<xml_cs>().pryrivnity(GetComponent<xml_cs>().nal);
-        }
-        else {
-          xm=  vs.xml.pryrivnity(vs.xml.nal);
-            menuh = false;
-        }
-        x = Screen.width / 128;
-        if (x * 9 > Screen.height / 8)
-            x = Screen.height / 9 / 8;
+        //if (SceneManager.GetActiveScene().buildIndex == 0)
+        //{
+        //    menuh = true;
+
+        //  //xm=  GetComponent<xml_cs>().pryrivnity(GetComponent<xml_cs>().nal);
+        //}
+        //else {
+        //  //xm=  vs.xml.pryrivnity(vs.xml.nal);
+        //    menuh = false;
+        //}
+        //x = Screen.width / 128;
+        //if (x * 9 > Screen.height / 8)
+        //    x = Screen.height / 9 / 8;
 
         //  transform.localScale = new Vector3(1.5f,1.5f,1.5f);
-       
+
         // p.GetComponent<RectTransform>().localPosition = new Vector3( Screen.width, Screen.height);
         // knop[6] = this.transform.GetChild(6);
-       
+
         //   transform.GetComponent<RectTransform>().localScale = new Vector3(Screen.width/1280, Screen.height / 720,1);
+
+        //foreach (var e in (KeyCode[])Enum.GetValues(typeof(KeyCode)))
+        //    if (Input.GetKeyDown(e))
+        //        Debug.Log(e);
     }
     void Update()
     {
         for (int i = 0; i < transform.childCount; i++)
             transform.GetChild(i).gameObject.SetActive(false);
-        transform.GetChild(xm.mova).gameObject.SetActive(true);
+        //transform.GetChild(xm.mova).gameObject.SetActive(true);
 
         for (int i = 0; i < transform.GetChild(xm.mova).childCount; i++)
             transform.GetChild(xm.mova).GetChild(i).gameObject.SetActive(false);
         transform.GetChild(xm.mova).GetChild(pos).gameObject.SetActive(true);
 
         mousepos(transform);
-        switch (pos) {
+        switch (pos)
+        {
             case 0:
                 {
 
@@ -83,9 +89,9 @@ public class Menu : MonoBehaviour
                         switch (h)
                         {
                             case 0:
-                                if (!menuh)
-                                    vs.Pausa();
-                                else
+                                //if (!menuh)
+                                //vs.Pausa();
+                                //else
                                 {
                                     Time.timeScale = 1;
                                     SceneManager.LoadScene(2);
@@ -95,18 +101,18 @@ public class Menu : MonoBehaviour
                                 break;
                             case 2:
                                 pos = 1;
-                                if(menuh)
-                               xm=     GetComponent<xml_cs>().pryrivnity(GetComponent<xml_cs>().nal);
-                                else
-                              xm=  vs.xml.pryrivnity(vs.xml.nal);
+                                // if(menuh)
+                                //xm=     GetComponent<xml_cs>().pryrivnity(GetComponent<xml_cs>().nal);
+                                //else
+                                //xm=  vs.xml.pryrivnity(vs.xml.nal);
                                 break;
                             case 3:
                                 break;
                             case 4:
-                                if (!menuh)
-                                    SceneManager.LoadScene(1);
-                                else
-                                    Application.Quit();
+                                //if (!menuh)
+                                //    SceneManager.LoadScene(1);
+                                //else
+                                //    Application.Quit();
                                 break;
                         }
                     //  if(Input.GetKeyDown(KeyCode.Mouse0)&& Input.mousePosition.y< knop[6].GetComponent<RectTransform>().sizeDelta)
@@ -153,10 +159,10 @@ public class Menu : MonoBehaviour
                     if (h > 4)
                         h = 4;
 
-                    if (!menuh?porivniania(xm, vs.xml.nal): porivniania(xm, GetComponent<xml_cs>().nal))
-                        transform.GetChild(xm.mova).GetChild(1).GetChild(6).GetComponent<Image>().material = pr2;
-                    else
-                        transform.GetChild(xm.mova).GetChild(1).GetChild(6).GetComponent<Image>().material = pr1;
+                    //if (!menuh?porivniania(xm, vs.xml.nal): porivniania(xm, GetComponent<xml_cs>().nal))
+                    //    transform.GetChild(xm.mova).GetChild(1).GetChild(6).GetComponent<Image>().material = pr2;
+                    //else
+                    transform.GetChild(xm.mova).GetChild(1).GetChild(6).GetComponent<Image>().material = pr1;
 
                     // Debug.Log(xm);
                     // Debug.Log(xcs.nal);
@@ -172,10 +178,10 @@ public class Menu : MonoBehaviour
                         {
                             case 0:
                                 pos = 0;
-                                if(menuh)
-                                 xm=   GetComponent<xml_cs>().pryrivnity(GetComponent<xml_cs>().nal);
-                                else
-                              xm=  vs.xml.pryrivnity(vs.xml.nal);
+                                //if(menuh)
+                                // xm=   GetComponent<xml_cs>().pryrivnity(GetComponent<xml_cs>().nal);
+                                //  else
+                                //xm=  vs.xml.pryrivnity(vs.xml.nal);
 
                                 break;
                             case 1:
@@ -196,17 +202,17 @@ public class Menu : MonoBehaviour
                     }
                     if (h == 4 && Input.GetKeyUp(KeyCode.Mouse0) && Input.mousePosition.x > Screen.width * 0.6f)
                     {
-                        if(menuh)
-                            GetComponent<xml_cs>().zmina(xm, porivniania2(GetComponent<xml_cs>().nal, xm));
-                        else
-                        vs.xml.zmina(xm, porivniania2(vs.xml.nal, xm));
+                        //if(menuh)
+                        //    GetComponent<xml_cs>().zmina(xm, porivniania2(GetComponent<xml_cs>().nal, xm));
+                        //else
+                        //vs.xml.zmina(xm, porivniania2(vs.xml.nal, xm));
                     }
 
                     if (transform.GetChild(xm.mova).GetChild(1).childCount == 8)
                     {
-                        ff+=0.3f;
-                        transform.GetChild(xm.mova).GetChild(1).GetChild(7).gameObject.SetActive(h == 4 && Input.mousePosition.x > Screen.width * 0.6f && porivniania2(menuh? GetComponent<xml_cs>().nal : vs.xml.nal, xm));
-                        transform.GetChild(xm.mova).GetChild(1).GetChild(7).GetComponent<Image>().material.SetFloat("_R1",Mathf.Sin(ff)*0.5f+0.5f);
+                        ff += 0.3f;
+                        //transform.GetChild(xm.mova).GetChild(1).GetChild(7).gameObject.SetActive(h == 4 && Input.mousePosition.x > Screen.width * 0.6f && porivniania2(menuh? GetComponent<xml_cs>().nal : vs.xml.nal, xm));
+                        transform.GetChild(xm.mova).GetChild(1).GetChild(7).GetComponent<Image>().material.SetFloat("_R1", Mathf.Sin(ff) * 0.5f + 0.5f);
                     }
                 }
                 break;
@@ -487,8 +493,8 @@ public class Menu : MonoBehaviour
                         }
                         if (transform.GetChild(xm.mova).GetChild(5).GetChild(i).GetChild(0).GetComponent<Text>().text == "JoystickButton1")
                             transform.GetChild(xm.mova).GetChild(5).GetChild(i).GetChild(0).GetComponent<Text>().text = "Mouse3";
-                        if (transform.GetChild(xm.mova).GetChild(5).GetChild(i).GetChild(0).GetComponent<Text>().text=="None")
-                   transform.GetChild(xm.mova).GetChild(5).GetChild(i).GetChild(0).GetComponent<Text>().text = "???";
+                        if (transform.GetChild(xm.mova).GetChild(5).GetChild(i).GetChild(0).GetComponent<Text>().text == "None")
+                            transform.GetChild(xm.mova).GetChild(5).GetChild(i).GetChild(0).GetComponent<Text>().text = "???";
                         if (transform.GetChild(xm.mova).GetChild(5).GetChild(i).GetChild(0).GetComponent<Text>().text == "Return")
                             transform.GetChild(xm.mova).GetChild(5).GetChild(i).GetChild(0).GetComponent<Text>().text = "Enter";
                     }
@@ -498,16 +504,17 @@ public class Menu : MonoBehaviour
 
                 break;
         }
-        if (GetComponent<AudioSource>())
-            GetComponent<AudioSource>().volume = menuh ? GetComponent<xml_cs>().nal.muzika* GetComponent<xml_cs>().nal.zvuk :vs.xml.nal.zvuk*vs.xml.nal.muzika;
+        //if (GetComponent<AudioSource>())
+        //    GetComponent<AudioSource>().volume = menuh ? GetComponent<xml_cs>().nal.muzika* GetComponent<xml_cs>().nal.zvuk :vs.xml.nal.zvuk*vs.xml.nal.muzika;
     }
-    void Keyt(ref KeyCode o){
+    void Keyt(ref KeyCode o)
+    {
         if (Input.GetAxis("Mouse ScrollWheel") != 0)
             o = KeyCode.JoystickButton1;
         else
-        if(Input.anyKeyDown)
+        if (Input.anyKeyDown)
         {
-                               //Input.
+            //Input.
             //Input.inputString
 
             if (Input.GetKeyDown(KeyCode.A)) o = KeyCode.A;
@@ -698,7 +705,7 @@ public class Menu : MonoBehaviour
             else
                 o = new KeyCode();
         }
-}
+    }
     void mousepos(Transform n)
     {
         for (int i = 0; i < n.childCount; i++)
@@ -707,49 +714,49 @@ public class Menu : MonoBehaviour
             n.GetComponent<Image>().material.SetVector("_R", new Vector4(Input.mousePosition.x, Screen.height - Input.mousePosition.y, 0, 0));// = new Vector2(n.GetComponent<RectTransform>().sizeDelta.x * x, n.GetComponent<RectTransform>().sizeDelta.y * x);
 
     }
-    bool porivniania(XML a,XML b) {
-        bool f = !porivniania2(a, b);
-        if (a.mova!=b.mova) f = false;
+    //bool porivniania(XML a,XML b) {
+    //    bool f = !porivniania2(a, b);
+    //    if (a.mova!=b.mova) f = false;
 
-        if ((int)(a.zvuk * 100) != (int)(b.zvuk * 100)) f = false;
-        if ((int)(a.muzika * 100) != (int)(b.muzika * 100)) f = false;
-        if ((int)(a.strilba * 100) != (int)(b.strilba * 100)) f = false;
-        if ((int)(a.zvukBotiv * 100) != (int)(b.zvukBotiv * 100)) f = false;
-        if ((int)(a.xodba * 100) != (int)(b.xodba * 100)) f = false;
-        if ((int)(a.udary * 100) != (int)(b.udary * 100)) f = false;
-        if ((int)(a.shum * 100) != (int)(b.shum * 100)) f = false;
+    //    if ((int)(a.zvuk * 100) != (int)(b.zvuk * 100)) f = false;
+    //    if ((int)(a.muzika * 100) != (int)(b.muzika * 100)) f = false;
+    //    if ((int)(a.strilba * 100) != (int)(b.strilba * 100)) f = false;
+    //    if ((int)(a.zvukBotiv * 100) != (int)(b.zvukBotiv * 100)) f = false;
+    //    if ((int)(a.xodba * 100) != (int)(b.xodba * 100)) f = false;
+    //    if ((int)(a.udary * 100) != (int)(b.udary * 100)) f = false;
+    //    if ((int)(a.shum * 100) != (int)(b.shum * 100)) f = false;
 
-        if (a.vpered != b.vpered) f = false;
-        if (a.nazadR != b.nazadR) f = false;
-        if (a.vlivo != b.vlivo) f = false;
-        if (a.vpravo != b.vpravo) f = false;
-        if (a.pauza != b.pauza) f = false;
-        if (a.strilbaK != b.strilbaK) f = false;
-        if (a.prytsil != b.prytsil) f = false;
-        if (a.Rsp != b.Rsp) f = false;
-        if (a.big != b.big) f = false;
-        if (a.povzania != b.povzania) f = false;
-        if (a.Zbroya1 != b.Zbroya1) f = false;
-        if (a.Zbroya2 != b.Zbroya2) f = false;
-        if (a.Zbroya3 != b.Zbroya3) f = false;
-        if (a.Zbroya4 != b.Zbroya4) f = false;
-        if (a.Rvceb != b.Rvceb) f = false;
-        if (a.strybok != b.strybok) f = false;
-        if (a.maybStrybok != b.maybStrybok) f = false;
-        if (a.SPauk != b.SPauk) f = false;
-        if (a.DdoZbroyi != b.DdoZbroyi) f = false;
-        return f;
-    }
-    bool porivniania2(XML a, XML b)
-    {
-        bool f = false;
+    //    if (a.vpered != b.vpered) f = false;
+    //    if (a.nazadR != b.nazadR) f = false;
+    //    if (a.vlivo != b.vlivo) f = false;
+    //    if (a.vpravo != b.vpravo) f = false;
+    //    if (a.pauza != b.pauza) f = false;
+    //    if (a.strilbaK != b.strilbaK) f = false;
+    //    if (a.prytsil != b.prytsil) f = false;
+    //    if (a.Rsp != b.Rsp) f = false;
+    //    if (a.big != b.big) f = false;
+    //    if (a.povzania != b.povzania) f = false;
+    //    if (a.Zbroya1 != b.Zbroya1) f = false;
+    //    if (a.Zbroya2 != b.Zbroya2) f = false;
+    //    if (a.Zbroya3 != b.Zbroya3) f = false;
+    //    if (a.Zbroya4 != b.Zbroya4) f = false;
+    //    if (a.Rvceb != b.Rvceb) f = false;
+    //    if (a.strybok != b.strybok) f = false;
+    //    if (a.maybStrybok != b.maybStrybok) f = false;
+    //    if (a.SPauk != b.SPauk) f = false;
+    //    if (a.DdoZbroyi != b.DdoZbroyi) f = false;
+    //    return f;
+    //}
+    //bool porivniania2(XML a, XML b)
+    //{
+    //    bool f = false;
 
-        if (a.vazhkist != b.vazhkist) f = true;
+    //    if (a.vazhkist != b.vazhkist) f = true;
 
-        if (a.yakistText != b.yakistText) f = true;
-        if (a.yakistSpets != b.yakistSpets) f = true;
-        if (a.rozmirEkrana != b.rozmirEkrana) f = true;
+    //    if (a.yakistText != b.yakistText) f = true;
+    //    if (a.yakistSpets != b.yakistSpets) f = true;
+    //    if (a.rozmirEkrana != b.rozmirEkrana) f = true;
 
-        return f;
-    }
+    //    return f;
+    //}
 }

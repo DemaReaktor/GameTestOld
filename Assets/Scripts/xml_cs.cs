@@ -101,8 +101,8 @@ public class xml_cs : MonoBehaviour
     {
         var xml = new XmlSerializer(typeof(XML));
          nal = new XML();
-        if (transform.GetComponent<VoidSystem_cs>())
-            transform.GetComponent<VoidSystem_cs>().Star();
+        //if (transform.GetComponent<VoidSystem_cs>())
+        //    transform.GetComponent<VoidSystem_cs>().Star();
         if (File.Exists("Nalashtuvania.xml"))
         {
             using (var c = new FileStream("Nalashtuvania.xml", FileMode.Open, FileAccess.Read))
@@ -110,8 +110,8 @@ public class xml_cs : MonoBehaviour
                 nal = xml.Deserialize(c) as XML;
             }
             zmina(nal);
-            if (transform.GetComponent<VoidSystem_cs>())
-                f();
+            //if (transform.GetComponent<VoidSystem_cs>())
+            //    f();
         }
         else
         {
@@ -126,7 +126,7 @@ public class xml_cs : MonoBehaviour
 
                 //Time.timeScale = 0;
                 vid = true;
-                GetComponent<VoidSystem_cs>().peff.realpause = true;
+                //GetComponent<VoidSystem_cs>().peff.realpause = true;
                 videoObj.GetComponent<VideoPlayer>().Play();
                 for (int i = 0; i < canvasObj.childCount - 2; i++)
                     canvasObj.GetChild(i).gameObject.SetActive(false);
@@ -136,13 +136,13 @@ public class xml_cs : MonoBehaviour
         }
         if (nal.yakistSpets != 2)
         {
-            GetComponent<VoidSystem_cs>().mc.enabled = false;
-            GetComponent<VoidSystem_cs>().pc.enabled = false;
-            if (nal.yakistSpets != 1)
-            {
-                GetComponent<VoidSystem_cs>().mc.enabled = false;
-                GetComponent<VoidSystem_cs>().pc.enabled = false;
-            }
+            //GetComponent<VoidSystem_cs>().mc.enabled = false;
+            //GetComponent<VoidSystem_cs>().pc.enabled = false;
+            //if (nal.yakistSpets != 1)
+            //{
+            //    GetComponent<VoidSystem_cs>().mc.enabled = false;
+            //    GetComponent<VoidSystem_cs>().pc.enabled = false;
+            //}
         }
     }
     public void zmina(XML obj,bool a=false)
@@ -227,7 +227,7 @@ public class xml_cs : MonoBehaviour
     {
         if (videoObj != null)
         {
-            videoObj.GetComponent<VideoPlayer>().SetDirectAudioVolume(0, GetComponent<VoidSystem_cs>().xml.nal.zvuk);
+            //videoObj.GetComponent<VideoPlayer>().SetDirectAudioVolume(0, GetComponent<VoidSystem_cs>().xml.nal.zvuk);
             if ((!videoObj.GetComponent<VideoPlayer>().isPlaying || Input.GetKeyUp(KeyCode.Return)) && vid)
                 f();
         }
@@ -236,18 +236,18 @@ public class xml_cs : MonoBehaviour
     {
         Time.timeScale = 1;
         vid = false;
-        GetComponent<VoidSystem_cs>().peff.realpause = false;
+        //GetComponent<VoidSystem_cs>().peff.realpause = false;
         for (int i = 0; i < canvasObj.childCount - 2; i++) 
             if(i!=3)
             canvasObj.GetChild(i).gameObject.SetActive(true);
-        GetComponent<VoidSystem_cs>().ac.enabled = true;
-        GetComponent<VoidSystem_cs>().bcc.enabled = true;
-        GetComponent<VoidSystem_cs>().gOp.enabled = true;
-        GetComponent<VoidSystem_cs>().mp.enabled = true;
-        GetComponent<VoidSystem_cs>().cnv.enabled = true;
+        //GetComponent<VoidSystem_cs>().ac.enabled = true;
+        //GetComponent<VoidSystem_cs>().bcc.enabled = true;
+        //GetComponent<VoidSystem_cs>().gOp.enabled = true;
+        //GetComponent<VoidSystem_cs>().mp.enabled = true;
+        //GetComponent<VoidSystem_cs>().cnv.enabled = true;
 
-        GetComponent<VoidSystem_cs>().pl.enabled = true;
-        GetComponent<VoidSystem_cs>().pl.transform.GetChild(0).GetComponent<prominfuture>().enabled = true;
+        //GetComponent<VoidSystem_cs>().pl.enabled = true;
+        //GetComponent<VoidSystem_cs>().pl.transform.GetChild(0).GetComponent<prominfuture>().enabled = true;
 
 
         videoObj.gameObject.SetActive(false);
