@@ -1,19 +1,41 @@
 using System.Collections.Generic;
 using System;
-using System.IO;
 using System.Xml.Serialization;
+using System.IO;
+using System.Linq;
 
 public class SaveManager : ISaveManager<SaveConfiguration>
 {
+    public class Pair
+    {
+        public string Key;
+        public string Value;
+
+        public static implicit operator KeyValuePair<string,string>(Pair value) => new KeyValuePair<string, string>(value.Key,value.Value);
+        public static explicit operator Pair(KeyValuePair<string,string> value) => new Pair() { Key = value.Key, Value = value.Value };
+    }
+
     public SaveConfiguration Configuration { get; private set; }
     private Dictionary<string, string> dictionary;
     private Dictionary<string, string> LoadDictionary;
 
     public void Initialize(SaveConfiguration configuration)
     {
+        if (!configuration.FileName.EndsWith(".xml"))
+            configuration.FileName += ".xml";
+
         Configuration = configuration;
-        dictionary  = new Dictionary<string, string>();
+        dictionary = new Dictionary<string, string>();
         LoadDictionary = new Dictionary<string, string>();
+
+        if (File.Exists(Configuration.FileName))
+            using (var xml = new FileStream(Configuration.FileName, FileMode.Open, FileAccess.Read))
+                (new XmlSerializer(typeof(Pair[])).Deserialize(xml) as Pair[]).ToList().ForEach(pair => LoadDictionary[pair.Key] = pair.Value);
+
+        foreach (var element in LoadDictionary)
+            dictionary[element.Key] = element.Value;
+
+        Save();
     }
 
     public void Set<T>(T element, string key) => dictionary[key] = element.ToString();
@@ -36,7 +58,7 @@ public class SaveManager : ISaveManager<SaveConfiguration>
 
         return true;
     }
-    public bool TryGet(out string element, string key) 
+    public bool TryGet(out string element, string key)
     {
         element = null;
 
@@ -46,12 +68,17 @@ public class SaveManager : ISaveManager<SaveConfiguration>
         element = LoadDictionary[key];
         return true;
     }
-    public void Save() {
+    public void Save()
+    {
         LoadDictionary = new Dictionary<string, string>();
 
         foreach (var element in dictionary)
             LoadDictionary[element.Key] = element.Value;
 
-        new XmlSerializer(typeof(Dictionary<string, string>)).Serialize(new FileStream("Settings.xml", FileMode.Create, FileAccess.Write),dictionary);
+        LinkedList<Pair> list = new LinkedList<Pair>();
+        LoadDictionary.ToList().ForEach(keyValuePair => list.AddLast((Pair)keyValuePair));
+
+        using (var xml = new FileStream(Configuration.FileName, FileMode.Create, FileAccess.Write))
+            new XmlSerializer(typeof(Pair[])).Serialize(xml, list.ToArray());
     }
 }

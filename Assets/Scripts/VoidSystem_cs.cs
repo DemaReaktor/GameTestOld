@@ -44,7 +44,7 @@ public class VoidSystem_cs : MonoBehaviour
     }
     private void Update()
     {
-        if ((peff.realpause || cnv.pause)&&!xml.vid)
+        if ((peff is null || peff.realpause || cnv.pause)&&!xml.vid)
             Cursor.visible = true;
         else
             Cursor.visible = false;
