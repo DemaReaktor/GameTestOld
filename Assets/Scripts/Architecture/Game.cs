@@ -15,6 +15,9 @@ namespace GameArchitecture
         /// true if Game is ready to be used
         /// </summary>
         public static bool IsInitialized { get; private set; } = false;
+        /// <summary>
+        /// when Game is ready to be used this will be invoked
+        /// </summary>
         public static event Action OnInitializeFinish;
 
         internal static void Initialize(LinkedList<Object> managers)

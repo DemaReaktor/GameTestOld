@@ -52,7 +52,6 @@ namespace GameArchitecture
             }
 
             Game.Initialize(classes);
-            Debug.Log(AssetDatabase.LoadAssetAtPath("Assets/Materials/gametest1.png", typeof(Texture2D)));
         }
     }
     }
