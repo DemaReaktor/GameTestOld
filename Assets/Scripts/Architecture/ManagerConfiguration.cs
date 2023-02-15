@@ -3,6 +3,7 @@ using UnityEditor;
 using System;
 using System.Linq;
 using System.Collections.Generic;
+using System.Reflection;
 
 namespace GameArchitecture
 {
@@ -42,8 +43,17 @@ namespace GameArchitecture
 
                     if (value != null)
                     {
+                        ManagerConfiguration[] managerConfigurations = (property.serializedObject.targetObject as GameInitializer).Managers;
+                        Type[] managerTypes = new Type[managerConfigurations.Length];
+                        for (int i = 0; i < managerTypes.Length; i++)
+                            if (managerConfigurations[i].MonoScript != null)
+                                managerTypes[i] = managerConfigurations[i].MonoScript.GetClass();
+
                         if (value.GetClass().IsClass && (value.GetClass().GetInterfaces().Any(i => i.Name == "IManager") || value.GetClass().GetInterfaces().Any(t => t.Name.Substring(0, t.Name.IndexOf('`')) == "IManager")))
-                            monoScript = value;
+                        {
+                            if (!value.GetClass().GetInterfaces().Any(i => i.Name == "IManagersValidation") || (bool)(value.GetClass().GetMethod("Validate").Invoke(null, new object[] { managerTypes })))
+                                monoScript = value;
+                        }
                         else
                             Debug.LogWarning("Here can be only classes derived by IManager or IManager<> in this property");
                     }
@@ -99,6 +109,7 @@ namespace GameArchitecture
             new GUIContent(monoScript is null ?"Null": monoScript.name, "class should be direved by IManager or IManager<(any object)>"), property.FindPropertyRelative("MonoScript").objectReferenceValue, typeof(MonoScript), false) as MonoScript;
 
             DeleteCopyElement();
+            property.serializedObject.Update();
 
             property.FindPropertyRelative("MonoScript").objectReferenceValue = manager.MonoScript;
 
@@ -118,7 +129,7 @@ namespace GameArchitecture
             MonoScript monoScript = property.FindPropertyRelative("MonoScript").objectReferenceValue as MonoScript;
 
             //if configuration is
-            if (monoScript !=null && !monoScript.GetClass().GetInterfaces().Any(i => i.Name == "IManager"))
+            if (monoScript != null && !monoScript.GetClass().GetInterfaces().Any(i => i.Name == "IManager"))
                 return EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing + EditorGUI.GetPropertyHeight(property.FindPropertyRelative("Configuration"));
 
             return EditorGUIUtility.singleLineHeight;

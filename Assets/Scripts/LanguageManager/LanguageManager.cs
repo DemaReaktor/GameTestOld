@@ -8,13 +8,14 @@ using GameArchitecture.Save;
 
 namespace Language
 {
-    public class LanguageManager : ILanguageManager
+    public class LanguageManager : ILanguageManager, IManagersValidation
     {
         public LanguageConfiguration Configuration { get; private set; }
         public event Action<string> OnChangeLanguage;
         public string Language { get; private set; }
 
-        public void Initialize(LanguageConfiguration configuration) { 
+        public void Initialize(LanguageConfiguration configuration)
+        {
             Configuration = configuration;
 
             if (Configuration.AllLanguages is null)
@@ -31,7 +32,7 @@ namespace Language
             if (!Game.TryGetManager(out SettingsManager manager))
                 throw new Exception("LanguageManger can`t be initialized because GameInitializer should have SettingsManager(if SettingsManager is in GameInitializer there try set It upper then LanguageManger in list)");
 
-            if(manager.TryGet(out string language,"language"))
+            if (manager.TryGet(out string language, "language"))
             {
                 SetLanguage(language);
                 return;
@@ -40,7 +41,7 @@ namespace Language
             Language = Configuration.DefaulLanguage;
         }
 
-        public void SetLanguage(string value) 
+        public void SetLanguage(string value)
         {
             if (!Configuration.AllLanguages.Contains(value))
                 throw new ArgumentException($"Game have not '{value}' language");
@@ -49,7 +50,15 @@ namespace Language
             OnChangeLanguage?.Invoke(Language);
         }
 
+        public static bool Validate(Type[] managerTypes)
+        {
+            foreach (var managerType in managerTypes)
+                if (managerType == typeof(SettingsManager))
+                    return true;
 
+            Debug.Log("LanguageManger can`t be added because GameInitializer should have SettingsManager for LanguageManger");
+                    return false;
+        }
 
     }
 }
