@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 using System;
 using System.Linq;
 
@@ -12,7 +13,7 @@ namespace GameArchitecture
     public class GameInitializer : MonoBehaviour
     {
         [Tooltip("managers of this scene")]
-        [SerializeField] private ManagerConfiguration[] Managers;
+        [SerializeField] internal ManagerConfiguration[] Managers;
 
         private void Awake()
         {
@@ -53,4 +54,23 @@ namespace GameArchitecture
             Game.Initialize(classes);
         }
     }
-}
+
+    [CustomEditor(typeof(GameInitializer))]
+    public class GameInitializerEditor : Editor
+    {
+        public override void OnInspectorGUI()
+        {
+
+            //            SerializedProperty o;
+            //SerializedProperty managers = serializedObject.FindProperty("Managers");
+            //            o = managers;
+            //            while (managers.Next(true))
+            //                Debug.Log(managers.name);
+            //            EditorGUILayout.PropertyField(o);
+
+
+            base.OnInspectorGUI();
+        }
+
+    }
+    }
