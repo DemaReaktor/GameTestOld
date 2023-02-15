@@ -54,23 +54,4 @@ namespace GameArchitecture
             Game.Initialize(classes);
         }
     }
-
-    [CustomEditor(typeof(GameInitializer))]
-    public class GameInitializerEditor : Editor
-    {
-        public override void OnInspectorGUI()
-        {
-
-            //            SerializedProperty o;
-            //SerializedProperty managers = serializedObject.FindProperty("Managers");
-            //            o = managers;
-            //            while (managers.Next(true))
-            //                Debug.Log(managers.name);
-            //            EditorGUILayout.PropertyField(o);
-
-
-            base.OnInspectorGUI();
-        }
-
-    }
     }

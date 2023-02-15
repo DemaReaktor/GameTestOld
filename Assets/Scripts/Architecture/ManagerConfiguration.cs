@@ -26,23 +26,27 @@ namespace GameArchitecture
     [CustomPropertyDrawer(typeof(ManagerConfiguration))]
     public class ManagerConfigurationEditor : PropertyDrawer
     {
-        private class PropertyDrawerObject
+        private class ManagerProperty
         {
             private SerializedProperty property;
             private MonoScript monoScript;
-            private bool isNeedChangeConfiguration = true;
 
-            public PropertyDrawerObject(SerializedProperty property) { this.property = property; }
+            public ManagerProperty(SerializedProperty property) { this.property = property; }
 
             public MonoScript MonoScript
             {
                 get => monoScript;
                 set
                 {
-                    MonoScript old = monoScript;
+                    MonoScript old = property.FindPropertyRelative("MonoScript").objectReferenceValue as MonoScript;
 
-                    if (value is null || (value.GetClass().IsClass && (value.GetClass().GetInterfaces().Any(i => i.Name == "IManager") || value.GetClass().GetInterfaces().Any(t => t.Name.Substring(0, t.Name.IndexOf('`')) == "IManager"))))
-                        monoScript = value;
+                    if (value != null)
+                    {
+                        if (value.GetClass().IsClass && (value.GetClass().GetInterfaces().Any(i => i.Name == "IManager") || value.GetClass().GetInterfaces().Any(t => t.Name.Substring(0, t.Name.IndexOf('`')) == "IManager")))
+                            monoScript = value;
+                        else
+                            Debug.LogWarning("Here can be only classes derived by IManager or IManager<> in this property");
+                    }
 
                     if (monoScript != old)
                     {
@@ -54,26 +58,17 @@ namespace GameArchitecture
                             Configuration = Activator.CreateInstance(monoScript.GetClass().GetInterfaces().Where(t => t.Name.Substring(0, t.Name.IndexOf('`')) == "IManager").First().GenericTypeArguments[0]);
                         }
                     }
+                    else
+                    {
+                        IsConfiguration = monoScript != null && !monoScript.GetClass().GetInterfaces().Any(i => i.Name == "IManager");
+                        if (IsConfiguration)
+                            Configuration = property.FindPropertyRelative("Configuration").managedReferenceValue;
+                    }
                 }
             }
             public bool IsConfiguration { get; private set; }
             public object Configuration { get; set; }
-            public bool IsNeedChangeConfiguration
-            {
-                get
-                {
-                    if(isNeedChangeConfiguration)
-                    {
-                        isNeedChangeConfiguration = false;
-                        return true;
-                    }
-
-                    return false;
-                }
-            }
         }
-
-        //private Dictionary<string, PropertyDrawerObject> objects = new Dictionary<string, PropertyDrawerObject>();
 
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
@@ -81,43 +76,38 @@ namespace GameArchitecture
 
             ManagerConfiguration[] array = (property.serializedObject.targetObject as GameInitializer).Managers;
 
-            void DeleteCopyElements()
+            void DeleteCopyElement()
             {
                 Type[] list = new Type[array.Length];
                 for (int i = 0; i < array.Length; i++)
-                    list[i] = array[i]!=null? array[i].MonoScript != null ? array[i].MonoScript.GetClass() : null:null;
+                    if (array[i].MonoScript != null)
+                        list[i] = array[i].MonoScript.GetClass();
 
                 for (int x = array.Length - 1; x > 0; x--)
                     for (int i = 0; i < x; i++)
                         if (list[x] == list[i] && list[x] != null)
+                        {
                             array[x] = null;
+                            Debug.LogWarning("GameInitializer can not have the same managers (if you just add new element to array you can ignore this)");
+                        }
             }
 
-            DeleteCopyElements();
-
-            //ManagerConfiguration[] d = GetArray((property.serializedObject.targetObject as GameInitializer).Managers);
-
-
-            //if (!objects.Keys.Contains(property.propertyPath))
-            //    propertyDrawerObject = new PropertyDrawerObject();
-
             MonoScript monoScript = property.FindPropertyRelative("MonoScript").objectReferenceValue as MonoScript;
-            PropertyDrawerObject propertyDrawerObject = new PropertyDrawerObject(property);
+            ManagerProperty manager = new ManagerProperty(property);
 
-            propertyDrawerObject.MonoScript = EditorGUI.ObjectField(new Rect(position.x, position.y, position.width, EditorGUIUtility.singleLineHeight),
+            manager.MonoScript = EditorGUI.ObjectField(new Rect(position.x, position.y, position.width, EditorGUIUtility.singleLineHeight),
             new GUIContent(monoScript is null ?"Null": monoScript.name, "class should be direved by IManager or IManager<(any object)>"), property.FindPropertyRelative("MonoScript").objectReferenceValue, typeof(MonoScript), false) as MonoScript;
 
-            property.FindPropertyRelative("MonoScript").objectReferenceValue = propertyDrawerObject.MonoScript;
+            DeleteCopyElement();
 
-            if (propertyDrawerObject.IsConfiguration)
+            property.FindPropertyRelative("MonoScript").objectReferenceValue = manager.MonoScript;
+
+            if (manager.IsConfiguration)
             {
                 EditorGUI.PropertyField(new Rect(position.x, position.y + EditorGUIUtility.singleLineHeight, position.width, EditorGUIUtility.singleLineHeight), property.FindPropertyRelative("Configuration"), new GUIContent(
-                    propertyDrawerObject.Configuration.GetType().Name), true);
+                    manager.Configuration.GetType().Name), true);
 
-                if (propertyDrawerObject.IsNeedChangeConfiguration)
-                    property.FindPropertyRelative("Configuration").managedReferenceValue = propertyDrawerObject.Configuration;
-
-                propertyDrawerObject.Configuration = property.FindPropertyRelative("Configuration").managedReferenceValue;
+                property.FindPropertyRelative("Configuration").managedReferenceValue = manager.Configuration;
             }
 
             EditorGUI.EndProperty();
@@ -126,9 +116,9 @@ namespace GameArchitecture
         public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
         {
             MonoScript monoScript = property.FindPropertyRelative("MonoScript").objectReferenceValue as MonoScript;
+
             //if configuration is
             if (monoScript !=null && !monoScript.GetClass().GetInterfaces().Any(i => i.Name == "IManager"))
-            //if (objects.Keys.Contains(property.propertyPath)&& propertyDrawerObject.IsConfiguration)
                 return EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing + EditorGUI.GetPropertyHeight(property.FindPropertyRelative("Configuration"));
 
             return EditorGUIUtility.singleLineHeight;
