@@ -15,11 +15,13 @@ namespace GameArchitecture
         /// true if Game is ready to be used
         /// </summary>
         public static bool IsInitialized { get; private set; } = false;
+        public static event Action OnInitializeFinish;
 
         internal static void Initialize(LinkedList<Object> managers)
         {
             Game.managers = managers;
             IsInitialized = true;
+            OnInitializeFinish?.Invoke();
         }
 
         /// <summary>
@@ -28,14 +30,14 @@ namespace GameArchitecture
         /// </summary>
         /// <typeparam name="T">type of manager that is needed</typeparam>
         /// <returns>manager</returns>
-        public static T GetManager<T>()
+        public static T GetManager<T>() where T:class
         {                            
             if(!IsInitialized)
                 throw new Exception("Game is not initialized. Add GameInitializer to Scene to initialize Game or wait when It will be initialized");
 
             foreach (object element in managers)
-                if ((T)element != null)
-                    return (T)element;
+                if (element as T != null)
+                    return element as T;
 
             throw new Exception("manager of this type does not exist");
         }
@@ -46,19 +48,20 @@ namespace GameArchitecture
         /// <typeparam name="T">type of manager</typeparam>
         /// <param name="value"> manager</param>
         /// <returns>true if this manager exist</returns>
-        public static bool TryGetManager<T>(out T value)
+        public static bool TryGetManager<T>(out T value) where T:class
         {
+            value = default;
+
             if (!IsInitialized)
-                throw new Exception("Game is not initialized. Add GameInitializer to Scene to initialize Game or wait when It will be initialized");
+                return false;
 
             foreach (object element in managers)
-                if ((T)element != null)
+                if (element as T != null)
                 {
-                    value = (T)element;
+                    value = element as T;
                     return true;
                 }
 
-            value = default;
             return false;
         }
     }

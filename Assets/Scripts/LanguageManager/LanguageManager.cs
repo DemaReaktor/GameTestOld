@@ -29,16 +29,19 @@ namespace Language
                 Configuration.AllLanguages = languages.ToArray();
             }
 
-            if (!Game.TryGetManager(out SettingsManager manager))
-                throw new Exception("LanguageManger can`t be initialized because GameInitializer should have SettingsManager(if SettingsManager is in GameInitializer there try set It upper then LanguageManger in list)");
+            Language = Configuration.DefaulLanguage;
+
+            Game.OnInitializeFinish += SetLanguage;
+        }
+        private void SetLanguage() {
+            if (!Game.TryGetManager(out ISaveManager<SettingsConfiguration> manager))
+                throw new Exception("LanguageManger can`t be initialized because GameInitializer should have ISaveManager<SettingsConfiguration>");
 
             if (manager.TryGet(out string language, "language"))
             {
-                SetLanguage(language);
-                return;
+                Language = language;
+                OnChangeLanguage?.Invoke(Language);
             }
-
-            Language = Configuration.DefaulLanguage;
         }
 
         public void SetLanguage(string value)
@@ -47,18 +50,21 @@ namespace Language
                 throw new ArgumentException($"Game have not '{value}' language");
 
             Language = value;
+
+            Game.GetManager<ISaveManager<SettingsConfiguration>>().Set(Language, "language");
+            Game.GetManager<ISaveManager<SettingsConfiguration>>().Save();
+
             OnChangeLanguage?.Invoke(Language);
         }
 
         public static bool Validate(ManagerCharacter[] characters)
         {
             foreach (var character in characters)
-                if (character.ManagerType == typeof(SettingsManager))
+                if (character.ManagerType!=null && character.ManagerType.GetInterfaces().Any(i=> i.Name == typeof(ISaveManager<SettingsConfiguration>).Name))
                     return true;
 
-            Debug.Log("LanguageManger can`t be added because GameInitializer should have SettingsManager for LanguageManger");
-                    return false;
+            Debug.Log("LanguageManger can`t be added because GameInitializer should have ISaveManager<SettingsConfiguration> for LanguageManger");
+            return false;
         }
-
     }
 }
