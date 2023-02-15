@@ -50,10 +50,10 @@ namespace Language
             OnChangeLanguage?.Invoke(Language);
         }
 
-        public static bool Validate(Type[] managerTypes)
+        public static bool Validate(ManagerCharacter[] characters)
         {
-            foreach (var managerType in managerTypes)
-                if (managerType == typeof(SettingsManager))
+            foreach (var character in characters)
+                if (character.ManagerType == typeof(SettingsManager))
                     return true;
 
             Debug.Log("LanguageManger can`t be added because GameInitializer should have SettingsManager for LanguageManger");

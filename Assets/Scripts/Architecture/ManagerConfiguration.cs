@@ -44,14 +44,13 @@ namespace GameArchitecture
                     if (value != null)
                     {
                         ManagerConfiguration[] managerConfigurations = (property.serializedObject.targetObject as GameInitializer).Managers;
-                        Type[] managerTypes = new Type[managerConfigurations.Length];
-                        for (int i = 0; i < managerTypes.Length; i++)
-                            if (managerConfigurations[i].MonoScript != null)
-                                managerTypes[i] = managerConfigurations[i].MonoScript.GetClass();
+                        ManagerCharacter[] characters = new ManagerCharacter[managerConfigurations.Length];
+                        for (int i = 0; i < characters.Length; i++)
+                                characters[i] = managerConfigurations[i].MonoScript != null? new ManagerCharacter(managerConfigurations[i].MonoScript.GetClass(),managerConfigurations[i].Configuration): new ManagerCharacter(null, null);
 
                         if (value.GetClass().IsClass && (value.GetClass().GetInterfaces().Any(i => i.Name == "IManager") || value.GetClass().GetInterfaces().Any(t => t.Name.Substring(0, t.Name.IndexOf('`')) == "IManager")))
                         {
-                            if (!value.GetClass().GetInterfaces().Any(i => i.Name == "IManagersValidation") || (bool)(value.GetClass().GetMethod("Validate").Invoke(null, new object[] { managerTypes })))
+                            if (!value.GetClass().GetInterfaces().Any(i => i.Name == "IManagersValidation") || (bool)(value.GetClass().GetMethod("Validate").Invoke(null, new object[] { characters })))
                                 monoScript = value;
                         }
                         else
@@ -134,5 +133,11 @@ namespace GameArchitecture
 
             return EditorGUIUtility.singleLineHeight;
         }
+    }
+    public class ManagerCharacter
+    {
+        public Type ManagerType { get; private set; }
+        public object Configuration { get; private set; }
+        public ManagerCharacter(Type managerType, object configuration) { ManagerType = managerType; Configuration = configuration; }
     }
 }

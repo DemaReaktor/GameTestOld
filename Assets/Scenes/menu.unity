@@ -5293,18 +5293,18 @@ MonoBehaviour:
   Managers:
   - MonoScript: {fileID: 11500000, guid: 4133b7698baf5b5408e666fbac1f89d3, type: 3}
     Configuration:
-      rid: 1053532600163631383
+      rid: 1053532600163631398
   - MonoScript: {fileID: 11500000, guid: a67878d19a517e64c9a63f08bd05d269, type: 3}
     Configuration:
-      rid: 1053532600163631384
+      rid: 1053532600163631399
   references:
     version: 2
     RefIds:
-    - rid: 1053532600163631383
+    - rid: 1053532600163631398
       type: {class: SettingsConfiguration, ns: GameArchitecture.Save, asm: Scripts}
       data:
         FileName: Settings
-    - rid: 1053532600163631384
+    - rid: 1053532600163631399
       type: {class: LanguageConfiguration, ns: Language, asm: Scripts}
       data:
         DefaulLanguage: English

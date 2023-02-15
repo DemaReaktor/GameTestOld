@@ -3,6 +3,6 @@ namespace GameArchitecture
 {
     public interface IManagersValidation
     {
-        static bool Validate(Type[] managerTypes) { return true; }
+        static bool Validate(ManagerCharacter[] characters) { return true; }
     }
 }
