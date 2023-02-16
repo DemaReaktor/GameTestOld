@@ -26,16 +26,6 @@ namespace Language.Resources
             }
         }
 
-        private void OnApplicationQuit()
-        {
-            sprite = null;
-        }
-
-        protected override void OnEnable()
-        {
-            sprite = null;
-        }
-
         /// <summary>
         /// set loaded texture into sprite
         /// </summary>

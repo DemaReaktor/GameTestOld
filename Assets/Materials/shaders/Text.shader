@@ -1,11 +1,11 @@
-﻿Shader "Custom/text_sh"
+﻿Shader "Game/Text"
 {
 	Properties
 	{
 		//[PerRendererData] не показує
 		 _MainTex("Sprite Texture", 2D) = "white" {}
 		_Coordinate("Coordinate",Vector) = (0,0,0,0)
-		_Color("Color",Color) = (0,0,0,0)
+		_Col("Color",Color) = (0,0,0,0)
 		_Red("Range",Range(0,1)) = 0
 	}
 
@@ -58,7 +58,7 @@
 
 				sampler2D _MainTex;
 				float4 _Coordinate;
-				float4 _Color;
+				float4 _Col;
 				float _Red;
 				fixed4 frag(v2f IN) : SV_Target
 				{
@@ -66,7 +66,7 @@
 				float4 v = tex2D(_MainTex, IN.texcoord);
 				if (r < 0)
 					r = 0;
-				return float4(r+ v.x+_Red, v.y, v.z,v.w)+_Color;
+				return float4(r+ v.x+_Red, v.y, v.z,v.w)+_Col;
 				}
 			ENDCG
 			}

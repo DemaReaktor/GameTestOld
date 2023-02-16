@@ -13,14 +13,14 @@ public class TextLighter : MonoBehaviour
             return;
         }
 
-        if (transform.TryGetComponent(out Graphic graphic) && graphic.material.shader.name == "Text")
+        if (transform.TryGetComponent(out Graphic graphic) && graphic.material.shader.name == "Game/Text")
             graphic.material.SetVector("_Coordinate", new Vector4(Input.mousePosition.x, Screen.height - Input.mousePosition.y, 0, 0));
     }
     private void LightChildren(Transform transform)
     {
         if (transform.gameObject.activeInHierarchy)
         {
-            if (transform.TryGetComponent(out Graphic graphic) && graphic.material.shader.name == "Text")
+            if (transform.TryGetComponent(out Graphic graphic) && graphic.material.shader.name == "Game/Text")
                 graphic.material.SetVector("_Coordinate", new Vector4(Input.mousePosition.x, Screen.height - Input.mousePosition.y, 0, 0));
 
             foreach (Transform child in transform)
