@@ -68,7 +68,7 @@ public class Menu : MonoBehaviour
         //    transform.GetChild(xm.mova).GetChild(i).gameObject.SetActive(false);
         //transform.GetChild(xm.mova).GetChild(pos).gameObject.SetActive(true);
 
-        mousepos(transform);
+        //mousepos(transform);
         //switch (pos)
         //{
         //    case 0:
