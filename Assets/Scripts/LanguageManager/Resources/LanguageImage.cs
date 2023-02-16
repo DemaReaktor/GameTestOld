@@ -4,7 +4,6 @@ using UnityEditor;
 using UnityEditor.UI;
 using UnityEngine.UI;
 using GameArchitecture;
-using Language;
 
 namespace Language.Resources
 {
@@ -21,25 +20,38 @@ namespace Language.Resources
 
             if (Game.TryGetManager(out ILanguageManager languageManager))
             {
-                languageManager.OnChangeLanguage += (string language) => SetImage(LoadResourceByLanguage.LoadObject(Path, language, typeof(Texture2D)) as Texture2D);
-                SetImage(LoadResourceByLanguage.LoadObject(Path, languageManager.Language, typeof(Texture2D)) as Texture2D);
+                languageManager.OnChangeLanguage += (string language) => SetImage(language,languageManager.Configuration.DefaulLanguage);
+                SetImage(languageManager.Language, languageManager.Configuration.DefaulLanguage);
             }
         }
-        public void SetImage(Texture2D texture)
-        {
-            sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), sprite != null ? sprite.pivot : new Vector2());
-        }
 
-        [CustomEditor(typeof(LanguageImage))]
-        public class LanguageImageEditor : ImageEditor
+        /// <summary>
+        /// set loaded texture into sprite
+        /// </summary>
+        /// <param name="language">language. If texture with this language dont exist texture will be loaded with default language</param>
+        public void SetImage(string language, string defaultLanguage)
         {
-            public override void OnInspectorGUI()
+            //if object exist by path and language
+            if(LoadResourceByLanguage.TryLoadObject(Path, language,out object resource)) 
+                sprite = Sprite.Create(resource as Texture2D, new Rect(0, 0, (resource as Texture2D).width, (resource as Texture2D).height), sprite != null ? sprite.pivot : new Vector2());
+            else
             {
-                base.OnInspectorGUI();
-
-                EditorGUILayout.Space();
-                (serializedObject.targetObject as LanguageImage).Path = EditorGUILayout.TextField("Path", serializedObject.FindProperty("Path").stringValue);
+                //oterwise load object by default language
+                resource = LoadResourceByLanguage.LoadObject(Path, defaultLanguage);
+                sprite = Sprite.Create(resource as Texture2D, new Rect(0, 0, (resource as Texture2D).width, (resource as Texture2D).height), sprite != null ? sprite.pivot : new Vector2());
             }
+        }
+    }
+    [CustomEditor(typeof(LanguageImage))]
+    public class LanguageImageEditor : ImageEditor
+    {
+        public override void OnInspectorGUI()
+        {
+            base.OnInspectorGUI();
+
+            EditorGUILayout.Space();
+            (serializedObject.targetObject as LanguageImage).Path = EditorGUILayout.TextField( new GUIContent("Path", "path to texture." +
+                " If texture with this path and language in ILanguageManager dont exist texture will be loaded with default language"), serializedObject.FindProperty("Path").stringValue);
         }
     }
 }

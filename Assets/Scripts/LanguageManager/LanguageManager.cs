@@ -1,6 +1,5 @@
 using System;
 using System.Linq;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using GameArchitecture;
@@ -11,8 +10,24 @@ namespace Language
     public class LanguageManager : ILanguageManager, IManagersValidation
     {
         public LanguageConfiguration Configuration { get; private set; }
+        /// <summary>
+        /// when language is changed
+        /// </summary>
         public event Action<string> OnChangeLanguage;
-        public string Language { get; private set; }
+        public string Language { get => language;
+            set {
+                if (!Configuration.AllLanguages.Contains(value))
+                    throw new ArgumentException($"Game have not '{value}' language");
+
+                language = value;
+
+                Game.GetManager<ISaveManager<SettingsConfiguration>>().Set(language, "language");
+                Game.GetManager<ISaveManager<SettingsConfiguration>>().Save();
+
+                OnChangeLanguage?.Invoke(language);
+            } }
+
+        private string language;
 
         public void Initialize(LanguageConfiguration configuration)
         {
@@ -21,6 +36,7 @@ namespace Language
             if (Configuration.AllLanguages is null)
                 Configuration.AllLanguages = new string[] { Configuration.DefaulLanguage };
 
+            //if defaulta language is not in array It will be setted
             if (!Configuration.AllLanguages.Contains(Configuration.DefaulLanguage))
             {
                 List<string> languages = Configuration.AllLanguages.ToList();
@@ -29,36 +45,26 @@ namespace Language
                 Configuration.AllLanguages = languages.ToArray();
             }
 
-            Language = Configuration.DefaulLanguage;
+            language = Configuration.DefaulLanguage;
 
+            //when game finish initialization this manager set language which is in ISaveManager
             Game.OnInitializeFinish += SetLanguage;
         }
+
         private void SetLanguage() {
             if (!Game.TryGetManager(out ISaveManager<SettingsConfiguration> manager))
                 throw new Exception("LanguageManger can`t be initialized because GameInitializer should have ISaveManager<SettingsConfiguration>");
 
             if (manager.TryGet(out string language, "language"))
             {
-                Language = language;
+                this.language = language;
                 OnChangeLanguage?.Invoke(Language);
             }
         }
 
-        public void SetLanguage(string value)
-        {
-            if (!Configuration.AllLanguages.Contains(value))
-                throw new ArgumentException($"Game have not '{value}' language");
-
-            Language = value;
-
-            Game.GetManager<ISaveManager<SettingsConfiguration>>().Set(Language, "language");
-            Game.GetManager<ISaveManager<SettingsConfiguration>>().Save();
-
-            OnChangeLanguage?.Invoke(Language);
-        }
-
         public static bool Validate(ManagerCharacter[] characters)
         {
+            //if one of managers is ISaveManager<SettingsConfiguration>
             foreach (var character in characters)
                 if (character.ManagerType!=null && character.ManagerType.GetInterfaces().Any(i=> i.Name == typeof(ISaveManager<SettingsConfiguration>).Name))
                     return true;

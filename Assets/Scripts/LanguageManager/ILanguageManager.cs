@@ -8,7 +8,6 @@ namespace Language {
         /// when language is changed
         /// </summary>
         event Action<string> OnChangeLanguage; 
-        string Language { get; }
-        void SetLanguage(string value);
+        string Language { get; set; }
     }
 }

@@ -3,28 +3,39 @@ using System;
 
 namespace Language.Resources
 {
+    /// <summary>
+    /// has static methods for loading objects by path and language
+    /// </summary>
     public class LoadResourceByLanguage
     {
-        public static object LoadObject(string path, string language, Type type)
+        /// <summary>
+        /// load object by path and language
+        /// can be throwed exception if object of this path is not exist
+        /// </summary>
+        /// <param name="path">path of object
+        /// {{language}} will be changed into value language</param>
+        public static object LoadObject(string path, string language)
         {
             path = path.Replace("{{language}}", language);
+            object resource = AssetDatabase.LoadAssetAtPath(path, typeof(object));
 
-            return AssetDatabase.LoadAssetAtPath(path, type);
+            if (resource is null)
+                throw new Exception($"object of path {path} does not exist");
+
+            return resource;
         }
-        public static bool TryLoadObject(string path, string language, Type type, out object resource)
+        /// <summary>
+        /// load object by path and language 
+        /// </summary>
+        /// <param name="path">path of object</param>
+        /// <param name="resource">loaded object</param>
+        /// <returns>true if object is found and loaded oherwise false</returns>
+        public static bool TryLoadObject(string path, string language, out object resource)
         {
-            resource = null;
-            try
-            {
-                path = path.Replace("{{language}}", language);
-                resource = AssetDatabase.LoadAssetAtPath(path, type);
-            }
-            catch
-            {
-                return false;
-            }
+            path = path.Replace("{{language}}", language).Replace("{{Language}}", language);
+            resource = AssetDatabase.LoadAssetAtPath(path, typeof(object));
 
-            return true;
+            return resource != null;
         }
     }
 }
