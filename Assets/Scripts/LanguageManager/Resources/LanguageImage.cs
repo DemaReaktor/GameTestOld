@@ -12,6 +12,7 @@ namespace Language.Resources
         public string Path = "Assets/";
         protected override void Start()
         {
+            sprite = null;
             StartCoroutine("SetEvent");
         }
         private IEnumerator SetEvent()
@@ -31,15 +32,11 @@ namespace Language.Resources
         /// <param name="language">language. If texture with this language dont exist texture will be loaded with default language</param>
         public void SetImage(string language, string defaultLanguage)
         {
-            //if object exist by path and language
-            if(LoadResourceByLanguage.TryLoadObject(Path, language,out object resource)) 
-                sprite = Sprite.Create(resource as Texture2D, new Rect(0, 0, (resource as Texture2D).width, (resource as Texture2D).height), sprite != null ? sprite.pivot : new Vector2());
-            else
-            {
-                //oterwise load object by default language
+            //if object dont exist by path and language object will be loaded by default language
+            if (!LoadResourceByLanguage.TryLoadObject(Path, language,out object resource))
                 resource = LoadResourceByLanguage.LoadObject(Path, defaultLanguage);
-                sprite = Sprite.Create(resource as Texture2D, new Rect(0, 0, (resource as Texture2D).width, (resource as Texture2D).height), sprite != null ? sprite.pivot : new Vector2());
-            }
+
+            sprite = Sprite.Create(resource as Texture2D, new Rect(0, 0, (resource as Texture2D).width, (resource as Texture2D).height), sprite != null ? sprite.pivot : new Vector2());
         }
     }
     [CustomEditor(typeof(LanguageImage))]
