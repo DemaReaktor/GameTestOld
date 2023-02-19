@@ -399,9 +399,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4725021334289162133}
   - component: {fileID: 4725021334289162135}
-  - component: {fileID: 4725021334289162132}
+  - component: {fileID: 7971914498874344476}
   m_Layer: 5
-  m_Name: graphika
+  m_Name: graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -435,7 +435,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4725021334289162138}
   m_CullTransparentMesh: 0
---- !u!114 &4725021334289162132
+--- !u!114 &7971914498874344476
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -444,10 +444,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4725021334289162138}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: c16b42e699e45d647ae3cff972587017, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 42631ca3e97c58c4ba9e3b5a02dd802f, type: 2}
+  m_Material: {fileID: 2100000, guid: b54be2666c7e07647b9e99c1c072e64e, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -465,6 +465,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+  Path: Assets/Languages/{{Language}}/words/back.png
 --- !u!1 &4725021334305721758
 GameObject:
   m_ObjectHideFlags: 0
@@ -826,7 +827,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4725021334465675198}
   - component: {fileID: 4725021334465675192}
-  - component: {fileID: 4725021334465675193}
+  - component: {fileID: 1768361077703381635}
   m_Layer: 5
   m_Name: potrPerezagruzka
   m_TagString: Untagged
@@ -862,7 +863,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4725021334465675199}
   m_CullTransparentMesh: 0
---- !u!114 &4725021334465675193
+--- !u!114 &1768361077703381635
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -871,10 +872,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4725021334465675199}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: c16b42e699e45d647ae3cff972587017, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: ddbbcc8b52877794492601cb2cf70a2a, type: 2}
+  m_Material: {fileID: 2100000, guid: b54be2666c7e07647b9e99c1c072e64e, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -892,6 +893,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+  Path: Assets/Languages/{{Language}}/words/back.png
 --- !u!1 &4725021334479972416
 GameObject:
   m_ObjectHideFlags: 0
@@ -1203,9 +1205,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4725021334569300694}
   - component: {fileID: 4725021334569300688}
-  - component: {fileID: 4725021334569300689}
+  - component: {fileID: 371313981507378626}
   m_Layer: 5
-  m_Name: nazad
+  m_Name: back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1239,7 +1241,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4725021334569300695}
   m_CullTransparentMesh: 0
---- !u!114 &4725021334569300689
+--- !u!114 &371313981507378626
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1248,10 +1250,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4725021334569300695}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: c16b42e699e45d647ae3cff972587017, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: daf3b162e1f3d374288ecd6a3d55cdb3, type: 2}
+  m_Material: {fileID: 2100000, guid: b54be2666c7e07647b9e99c1c072e64e, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -1269,6 +1271,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+  Path: Assets/Languages/{{Language}}/words/back.png
 --- !u!1 &4725021334600926478
 GameObject:
   m_ObjectHideFlags: 0
@@ -2711,7 +2714,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 840, y: 216}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4725021334826204382
 CanvasRenderer:
@@ -3049,82 +3052,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1 &4725021334877211540
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4725021334877211543}
-  - component: {fileID: 4725021334877211537}
-  - component: {fileID: 4725021334877211542}
-  m_Layer: 5
-  m_Name: RFl
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &4725021334877211543
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4725021334877211540}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4725021336102535888}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 64, y: 50}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &4725021334877211537
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4725021334877211540}
-  m_CullTransparentMesh: 0
---- !u!114 &4725021334877211542
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4725021334877211540}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: b0c175aa6a9648b43a370ad0c87346c1, type: 2}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b2990837e1b678b48ac324f2b3ac8682, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &4725021334918839719
 GameObject:
   m_ObjectHideFlags: 0
@@ -3394,7 +3321,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 840, y: 216}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4725021334993555703
 CanvasRenderer:
@@ -3900,7 +3827,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 840, y: 216}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4725021335106436237
 CanvasRenderer:
@@ -5133,7 +5060,7 @@ RectTransform:
   - {fileID: 4725021335111015345}
   - {fileID: 4725021334479972419}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5326,7 +5253,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 840, y: 216}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4725021335513552371
 CanvasRenderer:
@@ -5421,7 +5348,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4725021335536495105}
   - component: {fileID: 4725021335536495107}
-  - component: {fileID: 4725021335536495104}
+  - component: {fileID: 6687151459962633969}
   m_Layer: 5
   m_Name: audio
   m_TagString: Untagged
@@ -5457,7 +5384,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4725021335536495110}
   m_CullTransparentMesh: 0
---- !u!114 &4725021335536495104
+--- !u!114 &6687151459962633969
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5466,10 +5393,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4725021335536495110}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: c16b42e699e45d647ae3cff972587017, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 011da713709f6124f8ab719c574f83ae, type: 2}
+  m_Material: {fileID: 2100000, guid: b54be2666c7e07647b9e99c1c072e64e, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -5487,6 +5414,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+  Path: Assets/Languages/{{Language}}/words/back.png
 --- !u!1 &4725021335541997631
 GameObject:
   m_ObjectHideFlags: 0
@@ -5920,9 +5848,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4725021335670899863}
   - component: {fileID: 4725021335670899857}
-  - component: {fileID: 4725021335670899862}
+  - component: {fileID: 6740352006137060870}
   m_Layer: 5
-  m_Name: gra
+  m_Name: game
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5956,7 +5884,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4725021335670899860}
   m_CullTransparentMesh: 0
---- !u!114 &4725021335670899862
+--- !u!114 &6740352006137060870
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5965,10 +5893,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4725021335670899860}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: c16b42e699e45d647ae3cff972587017, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 95dc511c950c9b3429e1e0eb8d58c611, type: 2}
+  m_Material: {fileID: 2100000, guid: b54be2666c7e07647b9e99c1c072e64e, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -5986,6 +5914,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+  Path: Assets/Languages/{{Language}}/words/back.png
 --- !u!1 &4725021335675881081
 GameObject:
   m_ObjectHideFlags: 0
@@ -6463,7 +6392,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4725021335736282345}
   - component: {fileID: 4725021335736282347}
-  - component: {fileID: 4725021335736282344}
+  - component: {fileID: 4709087843111793908}
   m_Layer: 5
   m_Name: upravlinia
   m_TagString: Untagged
@@ -6499,7 +6428,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4725021335736282350}
   m_CullTransparentMesh: 0
---- !u!114 &4725021335736282344
+--- !u!114 &4709087843111793908
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6508,10 +6437,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4725021335736282350}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: c16b42e699e45d647ae3cff972587017, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: cac5500cb91025b49b38386df276bc89, type: 2}
+  m_Material: {fileID: 2100000, guid: b54be2666c7e07647b9e99c1c072e64e, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -6529,6 +6458,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+  Path: Assets/Languages/{{Language}}/words/back.png
 --- !u!1 &4725021335739953954
 GameObject:
   m_ObjectHideFlags: 0
@@ -7471,7 +7401,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4725021336010303084}
   - component: {fileID: 4725021336010303086}
-  - component: {fileID: 4725021336010303087}
+  - component: {fileID: 571938032250377289}
   m_Layer: 5
   m_Name: nalashtuvania
   m_TagString: Untagged
@@ -7507,7 +7437,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4725021336010303085}
   m_CullTransparentMesh: 0
---- !u!114 &4725021336010303087
+--- !u!114 &571938032250377289
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7516,10 +7446,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4725021336010303085}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: c16b42e699e45d647ae3cff972587017, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: be4ac8e400158f940a8676f8c2f33b61, type: 2}
+  m_Material: {fileID: 2100000, guid: b54be2666c7e07647b9e99c1c072e64e, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -7537,6 +7467,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+  Path: Assets/Languages/{{Language}}/words/back.png
 --- !u!1 &4725021336025832169
 GameObject:
   m_ObjectHideFlags: 0
@@ -7929,7 +7860,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4725021336102535888}
   m_Layer: 5
-  m_Name: nalash
+  m_Name: Settings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7952,7 +7883,6 @@ RectTransform:
   - {fileID: 4725021335536495105}
   - {fileID: 4725021334289162133}
   - {fileID: 4725021335670899863}
-  - {fileID: 4725021334877211543}
   - {fileID: 4725021336010303084}
   - {fileID: 4725021334465675198}
   m_Father: {fileID: 4725021335508195059}
