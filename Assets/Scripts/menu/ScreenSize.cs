@@ -10,6 +10,9 @@ public class ScreenSize : MonoBehaviour
     }
     private void ChangeSizeAndPosition(RectTransform transform)
     {
+        if (transform is null)
+            return;
+
         if (transform.TryGetComponent(out RectTransform rectTransform))
         {
             rectTransform.sizeDelta = new Vector2(transform.sizeDelta.x / DefaultScreen.x * Screen.width, transform.sizeDelta.y / DefaultScreen.y * Screen.height);
@@ -19,7 +22,7 @@ public class ScreenSize : MonoBehaviour
         if (transform.TryGetComponent(out Text text))
             text.fontSize = text.fontSize * Screen.width / DefaultScreen.x;
 
-        foreach (RectTransform child in transform)
-            ChangeSizeAndPosition(child);
+        foreach (Transform child in transform)
+            ChangeSizeAndPosition(child as RectTransform);
     }
 }
