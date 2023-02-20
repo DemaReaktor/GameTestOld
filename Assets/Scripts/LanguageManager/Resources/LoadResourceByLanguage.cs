@@ -16,7 +16,7 @@ namespace Language.Resources
         /// {{language}} will be changed into value language</param>
         public static object LoadObject(string path, string language)
         {
-            path = path.Replace("{{language}}", language);
+            path = path.Replace("{{language}}", language).Replace("{{Language}}", language);
             object resource = AssetDatabase.LoadAssetAtPath(path, typeof(object));
 
             if (resource is null)
