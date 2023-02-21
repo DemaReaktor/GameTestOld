@@ -33,8 +33,8 @@ namespace Language.Resources
         public void SetImage(string language, string defaultLanguage)
         {
             //if object dont exist by path and language object will be loaded by default language
-            if (!LoadResourceByLanguage.TryLoadObject(Path, language,out object resource))
-                resource = LoadResourceByLanguage.LoadObject(Path, defaultLanguage);
+            if (!LoadResourceByLanguage.TryLoadObject(Path.Replace("{{Name}}",gameObject.name).Replace("{{name}}", gameObject.name), language,out object resource))
+                resource = LoadResourceByLanguage.LoadObject(Path.Replace("{{Name}}", gameObject.name).Replace("{{name}}", gameObject.name), defaultLanguage);
 
             sprite = Sprite.Create(resource as Texture2D, new Rect(0, 0, (resource as Texture2D).width, (resource as Texture2D).height), sprite != null ? sprite.pivot : new Vector2());
         }
