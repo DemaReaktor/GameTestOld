@@ -2,8 +2,6 @@ using UnityEngine;
 using UnityEditor;
 using System;
 using System.Linq;
-using System.Collections.Generic;
-using System.Reflection;
 
 namespace GameArchitecture
 {
@@ -53,10 +51,11 @@ namespace GameArchitecture
                                 characters[i] = managerConfigurations[i].MonoScript != null? new ManagerCharacter(managerConfigurations[i].MonoScript.GetClass(),managerConfigurations[i].Configuration): new ManagerCharacter(null, null);
 
                         //check is monoscript a IManager or IManager<>
-                        if (value.GetClass().IsClass && (value.GetClass().GetInterfaces().Any(i => i.Name == "IManager") || value.GetClass().GetInterfaces().Any(t => t.Name.Substring(0, t.Name.IndexOf('`')) == "IManager")))
+                        if (value.GetClass().IsClass && (value.GetClass().GetInterfaces().Any(i => i == typeof(IManager)) ||
+                            value.GetClass().GetInterfaces().Any(t => t.FullName.Contains('`') && t.FullName.Substring(0, t.FullName.IndexOf('`')) == "GameArchitecture.IManager")))
                         {
                             //if manager dont have interface IManagersValidation or IManagersValidation is and method Validate with characters return true
-                            if (!value.GetClass().GetInterfaces().Any(i => i.Name == "IManagersValidation") || (bool)(value.GetClass().GetMethod("Validate").Invoke(null, new object[] { characters })))
+                            if (!value.GetClass().GetInterfaces().Any(i => i == typeof(IManagersValidation)) || (bool)(value.GetClass().GetMethod("Validate").Invoke(null, new object[] { characters })))
                                 monoScript = value;
                         }
                         else
@@ -69,16 +68,17 @@ namespace GameArchitecture
                         IsConfiguration = false;
 
                         //if manager has configuration
-                        if (monoScript != null && !monoScript.GetClass().GetInterfaces().Any(i => i.Name == "IManager"))
+                        if (monoScript != null && !monoScript.GetClass().GetInterfaces().Any(i => i == typeof(IManager)))
                         {
                             IsConfiguration = true;
-                            Configuration = Activator.CreateInstance(monoScript.GetClass().GetInterfaces().Where(t => t.Name.Substring(0, t.Name.IndexOf('`')) == "IManager").First().GenericTypeArguments[0]);
+                            Configuration = Activator.CreateInstance(monoScript.GetClass().GetInterfaces().
+                                Where(t => t.FullName.Contains('`') && t.FullName.Substring(0, t.FullName.IndexOf('`')) == "GameArchitecture.IManager").First().GenericTypeArguments[0]);
                         }
                     }
                     else
                     {
                         //if manager has configuration
-                        IsConfiguration = monoScript != null && !monoScript.GetClass().GetInterfaces().Any(i => i.Name == "IManager");
+                        IsConfiguration = monoScript != null && !monoScript.GetClass().GetInterfaces().Any(i => i == typeof(IManager));
                         if (IsConfiguration)
                             Configuration = property.FindPropertyRelative("Configuration").managedReferenceValue;
                     }
@@ -141,7 +141,7 @@ namespace GameArchitecture
             MonoScript monoScript = property.FindPropertyRelative("MonoScript").objectReferenceValue as MonoScript;
 
             //if configuration is
-            if (monoScript != null && !monoScript.GetClass().GetInterfaces().Any(i => i.Name == "IManager"))
+            if (monoScript != null && !monoScript.GetClass().GetInterfaces().Any(i => i == typeof(IManager)))
                 return EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing + EditorGUI.GetPropertyHeight(property.FindPropertyRelative("Configuration"));
 
             return EditorGUIUtility.singleLineHeight;

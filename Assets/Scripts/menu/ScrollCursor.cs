@@ -9,6 +9,7 @@ public class ScrollCursor : MonoBehaviour
     public Graphic Image;
     public bool WhenNullHide = false;
     public Transform Transform;
+
     private List<RaycastResult> list;
     private PointerEventData pointerData;
     private RectTransform RectTransform;
