@@ -31,6 +31,8 @@ namespace GameArchitecture.Save
             //in order file could be created It should have format xml
             if (!configuration.FileName.EndsWith(".xml"))
                 configuration.FileName += ".xml";
+            if (!configuration.DefaultFileName.EndsWith(".xml"))
+                configuration.DefaultFileName += ".xml";
 
             Configuration = configuration;
             dictionary = new Dictionary<string, string>();
@@ -39,6 +41,10 @@ namespace GameArchitecture.Save
             //if file exist we will set data to dictionary
             if (File.Exists(Configuration.FileName))
                 using (var xml = new FileStream(Configuration.FileName, FileMode.Open, FileAccess.Read))
+                    (new XmlSerializer(typeof(Pair[])).Deserialize(xml) as Pair[]).ToList().ForEach(pair => LoadDictionary[pair.Key] = pair.Value);
+            else
+                if (File.Exists(Configuration.DefaultFileName))
+                using (var xml = new FileStream(Configuration.DefaultFileName, FileMode.Open, FileAccess.Read))
                     (new XmlSerializer(typeof(Pair[])).Deserialize(xml) as Pair[]).ToList().ForEach(pair => LoadDictionary[pair.Key] = pair.Value);
 
             foreach (var element in LoadDictionary)
