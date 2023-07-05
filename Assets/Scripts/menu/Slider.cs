@@ -1,27 +1,26 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 using GameArchitecture;
 using GameArchitecture.Save;
 
 public class Slider : MonoBehaviour , IPointerClickHandler
 {
-    public string Key;
-    public RectTransform Value;
-    public uint LevelsCount;
+    [SerializeField] protected string Key;
+    [SerializeField] protected RectTransform Field;
+    [SerializeField] protected uint LevelsCount;
+
+    public uint Value { get; private set; }
 
     private ISaveManager<SettingsConfiguration> saveManager;
-    float length;
+    private float length;
 
     void Start()
     {
-        if (Value is null)
+        if (Field is null)
             throw new Exception("Value should have ojbect");
 
-        length = ((transform as RectTransform).sizeDelta.x - Value.sizeDelta.x) / (LevelsCount-1);
+        length = ((transform as RectTransform).sizeDelta.x - Field.sizeDelta.x) / (LevelsCount-1);
 
         if (Game.TryGetManager(out saveManager) && saveManager.TryGet(out string value, Key) && uint.TryParse(value,out uint intValue))
             SetValue(intValue);
@@ -29,7 +28,7 @@ public class Slider : MonoBehaviour , IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        SetValue((uint)((eventData.position.x - (transform as RectTransform).anchoredPosition.x - Value.sizeDelta.x/2 /*+ length/2*/)/ length));
+        SetValue((uint)((eventData.position.x - (transform as RectTransform).anchoredPosition.x - Field.sizeDelta.x/2)/ length));
     }
 
     private void SetValue(uint value) {
@@ -37,11 +36,12 @@ public class Slider : MonoBehaviour , IPointerClickHandler
             value = 0;
         if (value >= LevelsCount)
             value = LevelsCount-1;
-        if (Value != null)
+        if (Field != null)
         {
-            Value.anchoredPosition = new Vector2(Value.sizeDelta.x * 0.5f + length * value, Value.anchoredPosition.y);
+            Field.anchoredPosition = new Vector2(Field.sizeDelta.x * 0.5f + length * value, Field.anchoredPosition.y);
             saveManager.Set(value.ToString(),Key);
             saveManager.Save();
         }
+        Value = value;
     }
 }
