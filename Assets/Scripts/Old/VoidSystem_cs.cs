@@ -15,7 +15,7 @@ public class VoidSystem_cs : MonoBehaviour
      public pauseeff_cs peff;
     [HideInInspector] public cnopkovod_cs cnv;
     [HideInInspector] public Audio_cs ac;
-    [HideInInspector] public zariad_cs zar;
+    [HideInInspector] public BatteryCharge zar;
 
     [SerializeField] Material mat1;
     [SerializeField] Material mat2;
@@ -33,7 +33,7 @@ public class VoidSystem_cs : MonoBehaviour
       cnv = this.transform.GetComponent<cnopkovod_cs>();
       ac = this.transform.GetComponent<Audio_cs>();
      xml = this.transform.GetComponent<xml_cs>();
-     zar = this.transform.GetComponent<zariad_cs>();
+     zar = this.transform.GetComponent<BatteryCharge>();
      mp = this.transform.GetComponent<mapOperator_cs>();
 
        

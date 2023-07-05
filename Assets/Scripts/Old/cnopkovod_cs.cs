@@ -89,7 +89,7 @@ public class cnopkovod_cs : MonoBehaviour
 
 
         if (pause)  
-            vs.zar.zariadka -= vs.zar.pausaa * Time.deltaTime;
+            vs.zar.charge -= vs.zar.pausaa * Time.deltaTime;
         
        
     }

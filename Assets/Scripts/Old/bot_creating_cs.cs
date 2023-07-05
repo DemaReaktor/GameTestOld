@@ -418,7 +418,7 @@ public class bot_creating_cs : MonoBehaviour
             {
                 pl.gravity = true;
                 pl.V += new Vector3(0, 2.5f, 0)+(cam.position- vs.kvant(botpos[i])) /(VoidSystem_cs.Dist(cam.position, vs.kvant(botpos[i])) +0.2f)*3;
-                vs.zar.zariadka -= vs.zar.vybux;
+                vs.zar.charge -= vs.zar.vybux;
                 vs.ac.zvudVimk(14);
             }
             vs.telep(n[i].transform,ref botpos[i]);

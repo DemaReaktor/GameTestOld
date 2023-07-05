@@ -27,15 +27,15 @@ public class mapOperator_cs : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(vs.xml.nal.Rvceb)&& vs.zar.map <= vs.zar.zariadka) { 
+        if (Input.GetKey(vs.xml.nal.Rvceb)&& vs.zar.map <= vs.zar.charge) { 
                 max = max < 4 ? max + Time.deltaTime : 4;
-            vs.zar.zariadka -= vs.zar.map * Time.deltaTime;
-            if(vs.zar.map > vs.zar.zariadka)
+            vs.zar.charge -= vs.zar.map * Time.deltaTime;
+            if(vs.zar.map > vs.zar.charge)
                 vs.cnv.zanovo("Режим <Всебачення>{статус: деактивовано;}.");
         }
         else
             max = max >0 ? max - Time.deltaTime : 0;
-        if (Input.GetKeyDown(vs.xml.nal.Rvceb) && vs.zar.map <= vs.zar.zariadka)
+        if (Input.GetKeyDown(vs.xml.nal.Rvceb) && vs.zar.map <= vs.zar.charge)
             vs.cnv.zanovo("Режим <Всебачення>{статус: активовано;}.");
 
         if (Input.GetKeyUp(vs.xml.nal.Rvceb))

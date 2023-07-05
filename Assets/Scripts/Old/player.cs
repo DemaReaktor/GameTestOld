@@ -109,9 +109,9 @@ public class player : MonoBehaviour
         {
 
             V = new Vector3();
-            if (Input.GetKey(vs.xml.nal.big) && vs.zar.pryskor * 5 <= vs.zar.zariadka)
+            if (Input.GetKey(vs.xml.nal.big) && vs.zar.pryskor * 5 <= vs.zar.charge)
             {
-                vs.zar.zariadka -= vs.zar.pryskor * Time.deltaTime;
+                vs.zar.charge -= vs.zar.pryskor * Time.deltaTime;
                 vs.ac.povilno = false;
                 sp = pryskor;
                 vs.ac.shvydko = true;
@@ -131,15 +131,15 @@ public class player : MonoBehaviour
             }
 
 
-            if (!Input.GetKey(vs.xml.nal.maybStrybok) || vs.zar.zariadka <= vs.zar.strybok)
+            if (!Input.GetKey(vs.xml.nal.maybStrybok) || vs.zar.charge <= vs.zar.strybok)
             {
                 bool g = false ;
-                if (Input.GetKey(vs.xml.nal.vpered) && vs.zar.zariadka >= vs.zar.xod)
+                if (Input.GetKey(vs.xml.nal.vpered) && vs.zar.charge >= vs.zar.xod)
                 {
                     if (!zxod)
                         vs.ac.xod = true;
                 g = true;
-                    vs.zar.zariadka -= Time.deltaTime * vs.zar.xod;
+                    vs.zar.charge -= Time.deltaTime * vs.zar.xod;
                     f += forward * speed * sp * Time.deltaTime;
 
                     if (Input.GetKey(vs.xml.nal.SPauk)) {
@@ -154,12 +154,12 @@ public class player : MonoBehaviour
                             f.y -= Time.deltaTime * speed * sp; }
 
                 }
-                if (Input.GetKey(vs.xml.nal.nazadR) && vs.zar.zariadka >= vs.zar.xod)
+                if (Input.GetKey(vs.xml.nal.nazadR) && vs.zar.charge >= vs.zar.xod)
                 {
                     if (!zxod)
                         vs.ac.xod = true;
                     g = true;
-                    vs.zar.zariadka -= Time.deltaTime * vs.zar.xod;
+                    vs.zar.charge -= Time.deltaTime * vs.zar.xod;
                     f -= forward * speed * sp * Time.deltaTime;
                     if (Input.GetKey(vs.xml.nal.SPauk))
                     {
@@ -175,20 +175,20 @@ public class player : MonoBehaviour
                     }
 
                 }
-                if (Input.GetKey(vs.xml.nal.vlivo) && vs.zar.zariadka >= vs.zar.xod)
+                if (Input.GetKey(vs.xml.nal.vlivo) && vs.zar.charge >= vs.zar.xod)
                 {
                     if (!zxod)
                         vs.ac.xod = true;
                     g = true;
-                    vs.zar.zariadka -= Time.deltaTime * vs.zar.xod;
+                    vs.zar.charge -= Time.deltaTime * vs.zar.xod;
                     f -= right * speed * sp * Time.deltaTime;
                 }
-                if (Input.GetKey(vs.xml.nal.vpravo) && vs.zar.zariadka >= vs.zar.xod)
+                if (Input.GetKey(vs.xml.nal.vpravo) && vs.zar.charge >= vs.zar.xod)
                 {
                     if (!zxod)
                         vs.ac.xod = true;
                     g = true;
-                    vs.zar.zariadka -= Time.deltaTime * vs.zar.xod;
+                    vs.zar.charge -= Time.deltaTime * vs.zar.xod;
                     f += right * speed * sp * Time.deltaTime;
                 }
                 zxod = g;
@@ -261,10 +261,10 @@ public class player : MonoBehaviour
         f = transform.position;
         for(int i=0;i<10;i++)
         f = vs.gravityno(f+tenpos);
-        if ((Input.GetKeyUp(vs.xml.nal.maybStrybok) || Input.GetKeyUp(vs.xml.nal.strybok)) && vs.zar.zariadka >= vs.zar.strybok && !gravity)
+        if ((Input.GetKeyUp(vs.xml.nal.maybStrybok) || Input.GetKeyUp(vs.xml.nal.strybok)) && vs.zar.charge >= vs.zar.strybok && !gravity)
         {
             vs.ac.strybokp();
-            vs.zar.zariadka -= vs.zar.strybok;
+            vs.zar.charge -= vs.zar.strybok;
            // if(Input.GetKeyUp(KeyCode.Space))
             V += new Vector3(0, 8.5f * Mathf.Sin((45-pov.x)  / 180 * Mathf.PI), 0);
 
@@ -307,7 +307,7 @@ public class player : MonoBehaviour
             fwiew = 20;
         }
         else
-            if(Input.GetKey(vs.xml.nal.big) && vs.zar.pryskor * 5 <= vs.zar.zariadka)
+            if(Input.GetKey(vs.xml.nal.big) && vs.zar.pryskor * 5 <= vs.zar.charge)
             fwiew = 80;
         else
              if (Input.GetKey(vs.xml.nal.povzania))

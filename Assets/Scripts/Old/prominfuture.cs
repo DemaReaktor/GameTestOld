@@ -16,9 +16,9 @@ public class prominfuture : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(vs.xml.nal.maybStrybok)&&(Input.GetKey(vs.xml.nal.vpered))&& vs.zar.zariadka>= vs.zar.promf)
+        if (Input.GetKey(vs.xml.nal.maybStrybok)&&(Input.GetKey(vs.xml.nal.vpered))&& vs.zar.charge>= vs.zar.promf)
         {
-            vs.zar.zariadka -= Time.deltaTime * vs.zar.promf;
+            vs.zar.charge -= Time.deltaTime * vs.zar.promf;
                 pos = new Vector3[5000];
             GetComponent<LineRenderer>().enabled = true;
             GetComponent<MeshRenderer>().enabled = true;

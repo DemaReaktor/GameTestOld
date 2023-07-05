@@ -6,7 +6,7 @@ public class zariadobj_cs : MonoBehaviour
 {
     public VoidSystem_cs vs;
    // public player pl;
-    public zariad_cs zar;
+    public BatteryCharge zar;
     public Cube_creating cc;
 
     public Transform cam;
@@ -130,9 +130,9 @@ else
         if (VoidSystem_cs.Dist(transform.position, player.transform.position) <= 2)
         {
             zariad = Random.Range(5, Random.Range(35, 98));
-            zar.zariadka += zariad;
-            if (zar.zariadka > 100)
-                zar.zariadka = 100;
+            zar.charge += zariad;
+            if (zar.charge > 100)
+                zar.charge = 100;
             int p = 0;
             Vector3Int[] mozh = new Vector3Int[1500];
             for (int y = 0; y < 6; y++)

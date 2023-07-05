@@ -129,7 +129,7 @@ public class gunOperator_cs : MonoBehaviour
             timestr[i] += Time.deltaTime;
         switch (k) {
             case 0:
-                if (Input.GetKey(vs.xml.nal.strilbaK) && vs.zar.zariadka >= vs.zar.strilba)
+                if (Input.GetKey(vs.xml.nal.strilbaK) && vs.zar.charge >= vs.zar.strilba)
                 razbros += Time.deltaTime *0.2f* kytrozhod;
                 else
                                     if (razbros > 0)
@@ -142,7 +142,7 @@ public class gunOperator_cs : MonoBehaviour
                 if (razbros > kytrozhod)
                     razbros = kytrozhod;
 
-                if (Input.GetKey(vs.xml.nal.strilbaK) && vs.zar.zariadka >= vs.zar.strilba * 10 && timestr[0] >= gunspeed1)
+                if (Input.GetKey(vs.xml.nal.strilbaK) && vs.zar.charge >= vs.zar.strilba * 10 && timestr[0] >= gunspeed1)
                 {
                     timestr[0] = 0;
                     per = 0;
@@ -156,7 +156,7 @@ public class gunOperator_cs : MonoBehaviour
                     if (Input.GetKey(vs.xml.nal.DdoZbroyi))
                     {
                         vs.ac.zvudVimk(12);
-                        vs.zar.zariadka -= vs.zar.strilba * 10;
+                        vs.zar.charge -= vs.zar.strilba * 10;
                         if (obj == 2)
                             vs.bcc.Delete(vs.bcc.n[u.x].transform, 8);
                         timestr[0] = -2;
@@ -164,7 +164,7 @@ public class gunOperator_cs : MonoBehaviour
                     else
                     {
                         vs.ac.STR();
-                        vs.zar.zariadka -= vs.zar.strilba;
+                        vs.zar.charge -= vs.zar.strilba;
                         if (obj == 2)
                             vs.bcc.Delete(vs.bcc.n[u.x].transform, 1);
                     }
@@ -189,7 +189,7 @@ public class gunOperator_cs : MonoBehaviour
                 perezariadka = timestr[k] /gunspeed1;
                 break;
             case 1:
-                if (Input.GetKeyDown(vs.xml.nal.strilbaK) && vs.zar.zariadka >= vs.zar.strilba*100 && timestr[1] >= 21)
+                if (Input.GetKeyDown(vs.xml.nal.strilbaK) && vs.zar.charge >= vs.zar.strilba*100 && timestr[1] >= 21)
                 {
                     stril(camerac.transform.position, camerac.transform.forward, camerac.transform.position, 0);
                     if (obj != 1) {
@@ -201,7 +201,7 @@ public class gunOperator_cs : MonoBehaviour
 
                         if (Input.GetKey(vs.xml.nal.DdoZbroyi))
                         {
-                            vs.zar.zariadka -= vs.zar.strilba * 90;
+                            vs.zar.charge -= vs.zar.strilba * 90;
                             for (int i = 0; i < vs.bcc.k; i++)
                             {
                                 float d = VoidSystem_cs.Dist(camerac.position, vs.bcc.n[i].transform.position);
@@ -221,7 +221,7 @@ public class gunOperator_cs : MonoBehaviour
                         }    else
                         {
                             vs.ac.zvudVimk(10);
-                            vs.zar.zariadka -= vs.zar.strilba * 60;
+                            vs.zar.charge -= vs.zar.strilba * 60;
                             for (int i = 0; i < vs.bcc.k; i++)
                             {
                                 float d = VoidSystem_cs.Dist(camerac.position, vs.bcc.n[i].transform.position);
@@ -236,7 +236,7 @@ public class gunOperator_cs : MonoBehaviour
 
                 break;
             case 2:
-                if (Input.GetKeyDown(vs.xml.nal.strilbaK) && vs.zar.zariadka >= vs.zar.magnit * 1.5f && timestr[2] >= 5)
+                if (Input.GetKeyDown(vs.xml.nal.strilbaK) && vs.zar.charge >= vs.zar.magnit * 1.5f && timestr[2] >= 5)
                 {
                     per = 0;
                     timestr[2] = 0;
@@ -248,14 +248,14 @@ public class gunOperator_cs : MonoBehaviour
                     magnit.GetComponent<magnit_cs>().pl = pl;
 
                     if (Input.GetKey(vs.xml.nal.DdoZbroyi)) {
-                        vs.zar.zariadka -= vs.zar.magnit*1.5f;
+                        vs.zar.charge -= vs.zar.magnit*1.5f;
                         stril(camerac.position, camerac.forward, camerac.position, 0);
                         magnit.GetComponent<magnit_cs>().time = 1.5f;
                             magnit.transform.position =obj!=1? opos: camerac.position + camerac.forward * 6;
                     }
                     else
                     {
-                        vs.zar.zariadka -= vs.zar.magnit;
+                        vs.zar.charge -= vs.zar.magnit;
                         magnit.transform.position = camerac.position;
                         magnit.GetComponent<magnit_cs>().time = 0;
                     } 

@@ -160,8 +160,8 @@ public class roznoseff_cs : MonoBehaviour
     {
         //r.GetComponent<RectTransform>().localScale = new Vector3(1,1,1);
         // g.GetComponent<RectTransform>().localScale = new Vector3(1,1,1);
-        if (vs.zar.zariadka < 35)
-            roznos +=( (35 - vs.zar.zariadka)  * 0.05f+4.95f )* Time.deltaTime;
+        if (vs.zar.charge < 35)
+            roznos +=( (35 - vs.zar.charge)  * 0.05f+4.95f )* Time.deltaTime;
         GetComponent<RectTransform>().localScale = new Vector3(1,1,1);
         if (roznos > 0)
         {

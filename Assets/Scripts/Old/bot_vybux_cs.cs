@@ -5,7 +5,7 @@ using UnityEngine;
 public class bot_vybux_cs : MonoBehaviour
 {
     public player pl;
-    public zariad_cs zar;
+    public BatteryCharge zar;
     public roznoseff_cs rozeff;
 
     Vector3[] tochky = new Vector3[322];
@@ -107,7 +107,7 @@ public class bot_vybux_cs : MonoBehaviour
             float d = VoidSystem_cs.Dist(player.transform.position, transform.position);// Mathf.Sqrt((player.transform.position.x - transform.position.x) * (player.transform.position.x - transform.position.x) + (player.transform.position.y - transform.position.y) * (player.transform.position.y - transform.position.y) + (player.transform.position.z - transform.position.z) * (player.transform.position.z - transform.position.z));
             if (d < 8)
             {
-                zar.zariadka -= zar.vybux * (1 - d * 0.125f);
+                zar.charge -= zar.vybux * (1 - d * 0.125f);
                 rozeff.roznos += 65 * (1 - d * 0.125f);
                 pl.gravity = true;
                 pl.V += (player.transform.position - transform.position + new Vector3(0, 0.5f, 0)) / d * 24 / (d + 1) + new Vector3(0, 2, 0);
