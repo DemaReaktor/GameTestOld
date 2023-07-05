@@ -26,7 +26,7 @@ public class Slider : MonoBehaviour , IPointerClickHandler
             SetValue(intValue);
     }
 
-    public void OnPointerClick(PointerEventData eventData)
+    public virtual void OnPointerClick(PointerEventData eventData)
     {
         SetValue((uint)((eventData.position.x - (transform as RectTransform).anchoredPosition.x - Field.sizeDelta.x/2)/ length));
     }
