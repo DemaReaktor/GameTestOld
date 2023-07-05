@@ -23,7 +23,7 @@ public class VoidSystem_cs : MonoBehaviour
 
     public int[,] h = new int[200, 200];
     public Transform player;
-    public void Star()
+    public void StartAfterXML()
     {
         pc = this.transform.GetComponent<pyliuka_cs>();
         cc = this.transform.GetComponent<Cube_creating>();

@@ -144,6 +144,8 @@ public class xml_cs : MonoBehaviour
             //    GetComponent<VoidSystem_cs>().pc.enabled = false;
             //}
         }
+
+        Transform.FindObjectOfType<VoidSystem_cs>().StartAfterXML();
     }
     public void zmina(XML obj,bool a=false)
     {
