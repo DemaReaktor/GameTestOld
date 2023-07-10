@@ -71,8 +71,8 @@ namespace GameArchitecture
                         if (monoScript != null && !monoScript.GetClass().GetInterfaces().Any(i => i == typeof(IManager)))
                         {
                             IsConfiguration = true;
-                            Configuration = Activator.CreateInstance(monoScript.GetClass().GetInterfaces().
-                                Where(t => t.FullName.Contains('`') && t.FullName.Substring(0, t.FullName.IndexOf('`')) == "GameArchitecture.IManager").First().GenericTypeArguments[0]);
+                            Configuration = Activator.CreateInstance(monoScript.GetClass().GetInterfaces().First(
+                                t => t.FullName.Substring(0, t.FullName.IndexOf('`')) == "GameArchitecture.IManager").GenericTypeArguments[0]);
                         }
                     }
                     else

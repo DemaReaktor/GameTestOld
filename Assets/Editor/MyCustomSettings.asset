@@ -12,5 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 261e1e3e6ce6b0c488be62cf07a53409, type: 3}
   m_Name: MyCustomSettings
   m_EditorClassIdentifier: 
-  m_Number: 42
-  m_SomeString: The answer to the universe
+  Configuration:
+    rid: 7114792646213894312
+  references:
+    version: 2
+    RefIds:
+    - rid: 7114792646213894312
+      type: {class: SettingsConfiguration, ns: GameArchitecture.Save, asm: Scripts}
+      data:
+        FileName: Settings
+        DefaultFileName: DefaultSettings
