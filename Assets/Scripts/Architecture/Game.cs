@@ -7,7 +7,7 @@ namespace GameArchitecture
     /// <summary>
     /// main class that has all managers
     /// </summary>
-    public class Game
+    public static class Game
     {
         private static LinkedList<Object> managers;
 
