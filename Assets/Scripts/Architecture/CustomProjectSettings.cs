@@ -10,8 +10,15 @@ namespace GameArchitecture
     {
         public const string CustomSettingsPath = "Assets/Editor/<<name>>.asset";
 
+        [Serializable]
+        public class SettingsContext
+        {
+            [SerializeReference]
+            public object Configuration;
+        }
+
         [SerializeReference]
-        public object Configuration;
+        public SettingsContext Context;
 
         internal static CustomProjectSettings GetOrCreateSettings(Type type)
         {
@@ -19,11 +26,17 @@ namespace GameArchitecture
             if (settings == null)
             {
                 settings = ScriptableObject.CreateInstance<CustomProjectSettings>();
-                settings.Configuration = Activator.CreateInstance(type);
+                settings.Context = new SettingsContext() { Configuration = Activator.CreateInstance(type) };
                 AssetDatabase.CreateAsset(settings, CustomSettingsPath.Replace("<<name>>", type.Name.Replace("Configuration", "")));
                 AssetDatabase.SaveAssets();
             }
             return settings;
+        }
+
+        internal static void Save(Type type, CustomProjectSettings settings)
+        {
+            AssetDatabase.SaveAssetIfDirty(settings);
+            //AssetDatabase.SaveAssets();
         }
 
         internal static SerializedObject GetSerializedSettings(Type type)
@@ -31,6 +44,14 @@ namespace GameArchitecture
             return new SerializedObject(GetOrCreateSettings(type));
         }
     }
+    //[CustomPropertyDrawer(typeof(CustomProjectSettings))]
+    //public class CustomProjectSettingsEditor : PropertyDrawer
+    //{
+    //    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+    //    {
+    //        EditorGUI.PropertyField(position, property.FindPropertyRelative("Context"), label, true);
+    //    }
+    //}
 
     public class ProjectSettingsRegister<T>
     {
@@ -42,16 +63,15 @@ namespace GameArchitecture
                 label = typeof(T).Name.Replace("Configuration", ""),
                 guiHandler = (searchContext) =>
                 {
+                    var settings = CustomProjectSettings.GetOrCreateSettings(typeof(T));
+                    var configuration = new SerializedObject(settings).FindProperty("Context").FindPropertyRelative("Configuration");
                     EditorGUILayout.Space();
                     EditorGUILayout.Space();
-                    EditorGUILayout.Space();
-                    EditorGUILayout.Space();
+                    EditorGUILayout.PropertyField(configuration, new GUIContent("Configuration"),true);
+                    settings.Context.Configuration = configuration.managedReferenceValue;
 
-                    var iterator = CustomProjectSettings.GetSerializedSettings(typeof(T)).GetIterator();
-                    iterator.NextVisible(true);
-                    iterator.NextVisible(true);
-                    while (iterator.NextVisible(true))
-                        EditorGUILayout.PropertyField(iterator);
+                    //if (EditorGUI.)
+                    //CustomProjectSettings.Save(typeof(T),settings);
                 },
                 keywords = new HashSet<string>(keys)
             };

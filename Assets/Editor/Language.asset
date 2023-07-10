@@ -12,12 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 261e1e3e6ce6b0c488be62cf07a53409, type: 3}
   m_Name: Language
   m_EditorClassIdentifier: 
-  Configuration:
-    rid: 7114792646213894374
+  Context:
+    rid: 7114792646213894421
   references:
     version: 2
     RefIds:
-    - rid: 7114792646213894374
+    - rid: 7114792646213894421
+      type: {class: CustomProjectSettings/SettingsContext, ns: GameArchitecture, asm: Scripts}
+      data:
+        Configuration:
+          rid: 7114792646213894422
+    - rid: 7114792646213894422
       type: {class: LanguageConfiguration, ns: Language, asm: Scripts}
       data:
         DefaulLanguage: English
