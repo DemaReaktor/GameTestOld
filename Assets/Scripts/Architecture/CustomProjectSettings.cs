@@ -6,19 +6,19 @@ using UnityEngine;
 
 namespace GameArchitecture
 {
-    class CustomSettings : ScriptableObject
+    class CustomProjectSettings : ScriptableObject
     {
         public const string CustomSettingsPath = "Assets/Editor/<<name>>.asset";
 
         [SerializeReference]
         public object Configuration;
 
-        internal static CustomSettings GetOrCreateSettings(Type type)
+        internal static CustomProjectSettings GetOrCreateSettings(Type type)
         {
-            var settings = AssetDatabase.LoadAssetAtPath<CustomSettings>(CustomSettingsPath.Replace("<<name>>", type.Name.Replace("Configuration", "")));
+            var settings = AssetDatabase.LoadAssetAtPath<CustomProjectSettings>(CustomSettingsPath.Replace("<<name>>", type.Name.Replace("Configuration", "")));
             if (settings == null)
             {
-                settings = ScriptableObject.CreateInstance<CustomSettings>();
+                settings = ScriptableObject.CreateInstance<CustomProjectSettings>();
                 settings.Configuration = Activator.CreateInstance(type);
                 AssetDatabase.CreateAsset(settings, CustomSettingsPath.Replace("<<name>>", type.Name.Replace("Configuration", "")));
                 AssetDatabase.SaveAssets();
@@ -32,7 +32,7 @@ namespace GameArchitecture
         }
     }
 
-    public class SettingsRegister<T>
+    public class ProjectSettingsRegister<T>
     {
         public static SettingsProvider CreateSettingsProvider()
         {
@@ -47,7 +47,7 @@ namespace GameArchitecture
                     EditorGUILayout.Space();
                     EditorGUILayout.Space();
 
-                    var iterator = CustomSettings.GetSerializedSettings(typeof(T)).GetIterator();
+                    var iterator = CustomProjectSettings.GetSerializedSettings(typeof(T)).GetIterator();
                     iterator.NextVisible(true);
                     iterator.NextVisible(true);
                     while (iterator.NextVisible(true))

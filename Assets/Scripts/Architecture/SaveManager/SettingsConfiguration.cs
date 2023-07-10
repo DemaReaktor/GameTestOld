@@ -14,7 +14,7 @@ namespace GameArchitecture.Save
         [SettingsProvider]
         public static SettingsProvider CreateSettingsProvider()
         {
-            return SettingsRegister<SettingsConfiguration>.CreateSettingsProvider();
+            return ProjectSettingsRegister<SettingsConfiguration>.CreateSettingsProvider();
         }
     }
 }
