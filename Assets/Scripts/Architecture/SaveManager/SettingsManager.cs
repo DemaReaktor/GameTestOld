@@ -52,7 +52,7 @@ namespace GameArchitecture.Save
 
             Save();
         }
-
+      
         public void Set<T>(T element, string key) => dictionary[key] = element.ToString();
 
         public bool TryGet<T>(out T element, string key) where T : class
