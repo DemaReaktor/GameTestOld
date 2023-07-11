@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEditor;
 using System;
 using System.Linq;
+using System.Reflection;
 
 namespace GameArchitecture
 {
@@ -81,12 +82,15 @@ namespace GameArchitecture
                     continue;
 
                 var type = monoscript.GetClass();
+                IEnumerable<MethodInfo> validations = null;
 
                 //fields without class or without IManager or IManager<> or with the same class will be removed
                 if (!type.IsClass ||
                     (!type.GetInterfaces().Any(i => i == typeof(IManager)) &&
                     !type.GetInterfaces().Any(t => t.FullName.Contains('`') && t.FullName.Substring(0, t.FullName.IndexOf('`')) == "GameArchitecture.IManager")) ||
-                    types.Contains(type))
+                    types.Contains(type) ||
+                    !Validate(type, types))
+                //(type.GetInterface("IManagersValidation") != null && !(bool)(type.GetMethod("ValidateManagers").Invoke(null, new object[] { types }))))
                 {
                     //last field will be null
                     if (i + 1 == SerializedProperty.arraySize)
@@ -106,5 +110,25 @@ namespace GameArchitecture
             serializedObject.ApplyModifiedProperties();
         }
 
+        private bool Validate(Type type, List<Type> types)
+        {
+            IEnumerable<MethodInfo> validations = type.GetMethods().Where(m => m.GetCustomAttributes(typeof(ManagerValidationAttribute), true).Length > 0);
+            if (validations.Count() == 0)
+                return true;
+
+            foreach (var method in validations)
+            {
+                try
+                {
+                    return (bool)(validations.First().Invoke(null, new object[] { types }));
+                }
+                catch
+                {
+                    continue;
+                }
+            }
+
+            return true;
+        }
     }
 }

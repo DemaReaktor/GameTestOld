@@ -7,7 +7,7 @@ using GameArchitecture.Save;
 
 namespace Language
 {
-    public class LanguageManager : ILanguageManager, IManagersValidation
+    public class LanguageManager : ILanguageManager
     {
         public LanguageConfiguration Configuration { get; private set; }
         /// <summary>
@@ -61,8 +61,9 @@ namespace Language
                 OnChangeLanguage?.Invoke(Language);
             }
         }
-
-        public static bool Validate(Type[] characters)
+                    
+        [ManagerValidation]
+        public static bool ValidateManagers(List<Type> characters)
         {
             //if one of managers is ISaveManager<SettingsConfiguration>
             foreach (var character in characters)
