@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: Language
   m_EditorClassIdentifier: 
   Context:
-    rid: 7114792667005321295
+    rid: 7114792667005321353
   references:
     version: 2
     RefIds:
-    - rid: 7114792667005321295
+    - rid: 7114792667005321353
       type: {class: CustomProjectSettings/SettingsContext, ns: GameArchitecture, asm: Scripts}
       data:
         Configuration:
-          rid: 7114792667005321296
-    - rid: 7114792667005321296
+          rid: 7114792667005321354
+    - rid: 7114792667005321354
       type: {class: LanguageConfiguration, ns: Language, asm: Scripts}
       data:
         DefaulLanguage: Ukrainian

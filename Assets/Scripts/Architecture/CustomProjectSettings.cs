@@ -9,8 +9,6 @@ namespace GameArchitecture
 {
     class CustomProjectSettings : ScriptableObject
     {
-        public const string CustomSettingsPath = "Assets/Editor/<<name>>.asset";
-
         [Serializable]
         public class SettingsContext
         {
@@ -23,20 +21,18 @@ namespace GameArchitecture
 
         internal static CustomProjectSettings GetOrCreateSettings(Type type)
         {
-            var settings = AssetDatabase.LoadAssetAtPath<CustomProjectSettings>(CustomSettingsPath.Replace("<<name>>", RemoveConfiguration(type.Name)));
+            var settings = AssetDatabase.LoadAssetAtPath<CustomProjectSettings>(GeneralConfiguration.GetAssetName(type));
             if (settings == null)
             {
                 settings = ScriptableObject.CreateInstance<CustomProjectSettings>();
                 settings.Context = new SettingsContext() { Configuration = Activator.CreateInstance(type) };
-                AssetDatabase.CreateAsset(settings, CustomSettingsPath.Replace("<<name>>", RemoveConfiguration(type.Name)));
+                AssetDatabase.CreateAsset(settings, GeneralConfiguration.GetAssetName(type));
                 AssetDatabase.SaveAssets();
             }
             return settings;
         }
 
-        internal static bool Exist(Type type) => AssetDatabase.LoadAssetAtPath<CustomProjectSettings>(CustomSettingsPath.Replace("<<name>>", RemoveConfiguration(type.Name))) != null;
-
-        internal static string RemoveConfiguration(string text) => text.Replace("Configuration", "");
+        internal static bool Exist(Type type) => AssetDatabase.LoadAssetAtPath<CustomProjectSettings>(GeneralConfiguration.GetAssetName(type)) != null;
     }
 
     public class CustomProjectSettingsProvider<T> : SettingsProvider
@@ -72,7 +68,7 @@ namespace GameArchitecture
         public static SettingsProvider CreateSettingsProvider()
         {
             var keys = new HashSet<string>(SettingsProvider.GetSearchKeywordsFromGUIContentProperties<T>().ToArray());
-            var provider = new CustomProjectSettingsProvider<T>($"Project/Configurations/{CustomProjectSettings.RemoveConfiguration(typeof(T).Name)}", SettingsScope.Project, keys);
+            var provider = new CustomProjectSettingsProvider<T>($"Project/Configurations/{typeof(T).Name.Replace("Configuration", "")}", SettingsScope.Project, keys);
 
             return provider;
         }

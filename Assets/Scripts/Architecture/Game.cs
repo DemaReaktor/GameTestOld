@@ -79,7 +79,7 @@ namespace GameArchitecture
             if (!IsInitialized)
                 throw new Exception("Game is not initialized. Add GameInitializer to Scene to initialize Game or wait when It will be initialized");
 
-            CustomProjectSettings settings = AssetDatabase.LoadAssetAtPath<CustomProjectSettings>(CustomProjectSettings.CustomSettingsPath.Replace("<<name>>", CustomProjectSettings.RemoveConfiguration(typeof(T).Name)));
+            CustomProjectSettings settings = AssetDatabase.LoadAssetAtPath<CustomProjectSettings>(GeneralConfiguration.GetAssetName(typeof(T)));
 
             if(settings is null)
                 throw new Exception("configuration of this type does not exist");
@@ -102,7 +102,7 @@ namespace GameArchitecture
             if (!IsInitialized)
                 return false;
 
-            CustomProjectSettings settings = AssetDatabase.LoadAssetAtPath<CustomProjectSettings>(CustomProjectSettings.CustomSettingsPath.Replace("<<name>>", CustomProjectSettings.RemoveConfiguration(typeof(T).Name)));
+            CustomProjectSettings settings = AssetDatabase.LoadAssetAtPath<CustomProjectSettings>(GeneralConfiguration.GetAssetName(typeof(T)));
 
             if (settings is null)
                 return false;
@@ -118,7 +118,7 @@ namespace GameArchitecture
         /// <returns>configuration</returns>
         public static object GetConfiguration(Type type)
         {
-            CustomProjectSettings settings = AssetDatabase.LoadAssetAtPath<CustomProjectSettings>(CustomProjectSettings.CustomSettingsPath.Replace("<<name>>", CustomProjectSettings.RemoveConfiguration(type.Name)));
+            CustomProjectSettings settings = AssetDatabase.LoadAssetAtPath<CustomProjectSettings>(GeneralConfiguration.GetAssetName(type));
 
             if (settings is null)
                 throw new Exception("configuration of this type does not exist");
@@ -134,7 +134,7 @@ namespace GameArchitecture
         {
             value = default;
 
-            CustomProjectSettings settings = AssetDatabase.LoadAssetAtPath<CustomProjectSettings>(CustomProjectSettings.CustomSettingsPath.Replace("<<name>>", CustomProjectSettings.RemoveConfiguration(type.Name)));
+            CustomProjectSettings settings = AssetDatabase.LoadAssetAtPath<CustomProjectSettings>(GeneralConfiguration.GetAssetName(type));
 
             if (settings is null)
                 return false;
