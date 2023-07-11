@@ -1,3 +1,4 @@
+using System;
 namespace GameArchitecture
 {
     /// <summary>
@@ -11,6 +12,6 @@ namespace GameArchitecture
         /// </summary>
         /// <param name="characters">characters of managers which have type of manager and configuration</param>
         /// <returns>true if characters gone rules</returns>
-        static bool Validate(ManagerCharacter[] characters) => true;
+        static bool Validate(Type[] characters) => true;
     }
 }
