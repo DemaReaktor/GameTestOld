@@ -30,14 +30,17 @@ namespace GameArchitecture
                 }
                 catch
                 {
-                    Debug.LogWarning($"GameInitializer has null propery in Managers array. Index of null property: {Managers.ToList().IndexOf(element)}");
+                    Debug.LogWarning($"GameInitializer has null property in Managers array. Index of null property: {Managers.ToList().IndexOf(element)}");
                     continue;
                 }
 
                 //if class of monoscipt has constuctor with arguments
                 //manager will not have ability to be created
                 if (type.GetConstructor(new Type[] { }) is null)
-                    throw new Exception("every manager should have constructor without arguments or don`t have constructors");
+                {
+                    Debug.LogError("every manager should have constructor without arguments or don`t have constructors");
+                    continue;
+                }
 
                 //create manager
                 System.Object t = Activator.CreateInstance(type);
@@ -52,7 +55,7 @@ namespace GameArchitecture
                 classes.AddLast(t);
             }
 
-            Game.Initialize(classes);
+            Game.Initialize(classes.ToHashSet());
         }
     }
     }

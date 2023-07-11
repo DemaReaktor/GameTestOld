@@ -1,6 +1,8 @@
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEditor;
+using UnityEngine;
 
 namespace GameArchitecture
 {
@@ -9,7 +11,7 @@ namespace GameArchitecture
     /// </summary>
     public static class Game
     {
-        private static LinkedList<Object> managers;
+        private static HashSet<object> managers;
 
         /// <summary>
         /// true if Game is ready to be used
@@ -20,22 +22,55 @@ namespace GameArchitecture
         /// </summary>
         public static event Action OnInitializeFinish;
 
-        internal static void Initialize(LinkedList<Object> managers)
+        internal static void Initialize(HashSet<object> managers)
         {
             Game.managers = managers;
             IsInitialized = true;
             OnInitializeFinish?.Invoke();
         }
+        /// <summary>
+        /// Allow initialize managers after Game has initialized.
+        /// </summary>
+        /// <param name="manager">manager</param>
+        public static void Initialize(IManager manager)
+        {
+            if (managers.Any(m => m.GetType()==manager.GetType()))
+            {
+                Debug.LogError("this manager already exist");
+                return;
+            }
 
+            manager.Initialize();
+        }
+        /// <summary>
+        /// Allow initialize managers after Game has initialized.
+        /// </summary>
+        /// <typeparam name="T">configuration</typeparam>
+        /// <param name="manager">manager</param>
+        public static void Initialize<T>(IManager<T> manager) where T : class
+        {
+            if (managers.Any(m => m.GetType() == manager.GetType()))
+            {
+                Debug.LogError("this manager already exist");
+                return;
+            }
+            if (!Game.TryGetConfiguration(out T configuration))
+            {
+                Debug.LogError("Configuration of this manager is not registered");
+                return;
+            }
+
+            manager.Initialize(configuration);
+        }
         /// <summary>
         /// get manager of current class
         /// throw exception if manager of this class is not exist in GameInitializer
         /// </summary>
         /// <typeparam name="T">type of manager that is needed</typeparam>
         /// <returns>manager</returns>
-        public static T GetManager<T>() where T:class
-        {                            
-            if(!IsInitialized)
+        public static T GetManager<T>() where T : class
+        {
+            if (!IsInitialized)
                 throw new Exception("Game is not initialized. Add GameInitializer to Scene to initialize Game or wait when It will be initialized");
 
             foreach (object element in managers)
@@ -51,7 +86,7 @@ namespace GameArchitecture
         /// <typeparam name="T">type of manager</typeparam>
         /// <param name="value"> manager</param>
         /// <returns>true if this manager exist</returns>
-        public static bool TryGetManager<T>(out T value) where T:class
+        public static bool TryGetManager<T>(out T value) where T : class
         {
             value = default;
 
@@ -81,7 +116,7 @@ namespace GameArchitecture
 
             CustomProjectSettings settings = AssetDatabase.LoadAssetAtPath<CustomProjectSettings>(GeneralConfiguration.GetAssetName(typeof(T)));
 
-            if(settings is null)
+            if (settings is null)
                 throw new Exception("configuration of this type does not exist");
 
             return settings.Context.Configuration as T;
