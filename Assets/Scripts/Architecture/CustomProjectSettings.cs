@@ -57,26 +57,39 @@ namespace GameArchitecture
     {
         public static SettingsProvider CreateSettingsProvider()
         {
-            var keys = SettingsProvider.GetSearchKeywordsFromGUIContentProperties<T>().ToArray();
-            var provider = new SettingsProvider($"Project/Configurations/{typeof(T).Name.Replace("Configuration", "")}", SettingsScope.Project)
-            {
-                label = typeof(T).Name.Replace("Configuration", ""),
-                guiHandler = (searchContext) =>
-                {
-                    var settings = CustomProjectSettings.GetOrCreateSettings(typeof(T));
-                    var configuration = new SerializedObject(settings).FindProperty("Context").FindPropertyRelative("Configuration");
-                    EditorGUILayout.Space();
-                    EditorGUILayout.Space();
-                    EditorGUILayout.PropertyField(configuration, new GUIContent("Configuration"),true);
-                    settings.Context.Configuration = configuration.managedReferenceValue;
-
-                    //if (EditorGUI.)
-                    //CustomProjectSettings.Save(typeof(T),settings);
-                },
-                keywords = new HashSet<string>(keys)
-            };
+            var provider = new ConfigurationSettingsProvider<T>($"Project/Configurations/{typeof(T).Name.Replace("Configuration", "")}", SettingsScope.Project,
+              new HashSet<string>(SettingsProvider.GetSearchKeywordsFromGUIContentProperties<T>().ToArray()));
 
             return provider;
+        }
+    }
+
+    public class ConfigurationSettingsProvider<T>: SettingsProvider
+    {
+        private object target;
+        private SerializedProperty configuration;
+        public ConfigurationSettingsProvider(string path, SettingsScope scopes, IEnumerable<string> keywords = null):base(path,scopes,keywords) {
+            label = typeof(T).Name.Replace("Configuration", "");
+            //keywords = new HashSet<string>(SettingsProvider.GetSearchKeywordsFromGUIContentProperties<T>().ToArray());
+        }
+
+        public override void OnGUI(string searchContext)
+        {
+            var settings = CustomProjectSettings.GetOrCreateSettings(typeof(T));
+            if(configuration is null)
+                configuration = new SerializedObject(settings).FindProperty("Context").FindPropertyRelative("Configuration");
+            EditorGUILayout.Space();
+            EditorGUILayout.Space();
+            EditorGUILayout.PropertyField(configuration, new GUIContent("Configuration"), true);
+            
+            settings.Context.Configuration = configuration.managedReferenceValue;
+
+            if (target is null || settings.Context.Configuration != target)
+                Debug.Log("yes");
+
+            target = settings.Context.Configuration;
+
+            AssetDatabase.SaveAssets();
         }
     }
 }

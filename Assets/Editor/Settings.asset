@@ -25,5 +25,5 @@ MonoBehaviour:
     - rid: 7114792646213894420
       type: {class: SettingsConfiguration, ns: GameArchitecture.Save, asm: Scripts}
       data:
-        FileName: Settings
+        FileName: Setting
         DefaultFileName: DefaultSettings
