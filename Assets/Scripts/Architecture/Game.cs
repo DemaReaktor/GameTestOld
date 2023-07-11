@@ -111,17 +111,12 @@ namespace GameArchitecture
         /// <returns>configuration</returns>
         public static T GetConfiguration<T>() where T : class
         {
-            if (!IsInitialized)
-                throw new Exception("Game is not initialized. Add GameInitializer to Scene to initialize Game or wait when It will be initialized");
-
             CustomProjectSettings settings = AssetDatabase.LoadAssetAtPath<CustomProjectSettings>(GeneralConfiguration.GetAssetName(typeof(T)));
 
             if (settings is null)
                 throw new Exception("configuration of this type does not exist");
 
             return settings.Context.Configuration as T;
-
-            throw new Exception("configuration of this type does not exist");
         }
 
         /// <summary>
@@ -133,18 +128,13 @@ namespace GameArchitecture
         public static bool TryGetConfiguration<T>(out T value) where T : class
         {
             value = default;
-
-            if (!IsInitialized)
-                return false;
-
             CustomProjectSettings settings = AssetDatabase.LoadAssetAtPath<CustomProjectSettings>(GeneralConfiguration.GetAssetName(typeof(T)));
 
             if (settings is null)
                 return false;
 
             value = settings.Context.Configuration as T;
-
-            return false;
+            return true;
         }
         /// <summary>
         /// get configuration of current class
@@ -168,15 +158,13 @@ namespace GameArchitecture
         public static bool TryGetConfiguration(Type type, out object value)
         {
             value = default;
-
             CustomProjectSettings settings = AssetDatabase.LoadAssetAtPath<CustomProjectSettings>(GeneralConfiguration.GetAssetName(type));
 
             if (settings is null)
                 return false;
 
             value = settings.Context.Configuration;
-
-            return false;
+            return true;
         }
     }
 }

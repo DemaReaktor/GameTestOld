@@ -9,21 +9,21 @@ namespace GameArchitecture
     {
         private const string defaultPath = "Assets/Configurations/";
         public string ConfigurationsPath = defaultPath;
-
+        private static GeneralConfiguration configuration = new GeneralConfiguration();
 
         [SettingsProvider]
         public static SettingsProvider CreateSettingsProvider()
         {
-            return CustomProjectSettingsProvider<GeneralConfiguration>.CreateSettingsProvider();
+            var value = CustomProjectSettingsProvider<GeneralConfiguration>.CreateSettingsProvider();
+            configuration = Game.GetConfiguration<GeneralConfiguration>();
+            return value;
         }
 
         public static string SettingsPath
         {
             get
             {
-                string path = defaultPath;
-                if (Game.TryGetConfiguration(out GeneralConfiguration generalConfiguration))
-                    path = generalConfiguration.ConfigurationsPath;
+                string path = configuration.ConfigurationsPath;
 
                 if (!AssetDatabase.IsValidFolder(path))
                 {
