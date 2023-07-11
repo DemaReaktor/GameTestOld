@@ -15,11 +15,6 @@ namespace GameArchitecture
         /// file that has manager
         /// </summary>
         public MonoScript MonoScript;
-        /// <summary>
-        /// class that has patametres of manager
-        /// Can be null
-        /// </summary>
-        [SerializeReference] public object Configuration;
     }
 
     [CustomPropertyDrawer(typeof(ManagerConfiguration))]
@@ -48,7 +43,7 @@ namespace GameArchitecture
                         //create characters of managers
                         ManagerCharacter[] characters = new ManagerCharacter[managerConfigurations.Length];
                         for (int i = 0; i < characters.Length; i++)
-                                characters[i] = managerConfigurations[i].MonoScript != null? new ManagerCharacter(managerConfigurations[i].MonoScript.GetClass(),managerConfigurations[i].Configuration): new ManagerCharacter(null, null);
+                                characters[i] = managerConfigurations[i].MonoScript != null? new ManagerCharacter(managerConfigurations[i].MonoScript.GetClass()): new ManagerCharacter(null);
 
                         //check is monoscript a IManager or IManager<>
                         if (value.GetClass().IsClass && (value.GetClass().GetInterfaces().Any(i => i == typeof(IManager)) ||
@@ -71,21 +66,16 @@ namespace GameArchitecture
                         if (monoScript != null && !monoScript.GetClass().GetInterfaces().Any(i => i == typeof(IManager)))
                         {
                             IsConfiguration = true;
-                            Configuration = Activator.CreateInstance(monoScript.GetClass().GetInterfaces().First(
-                                t => t.FullName.Substring(0, t.FullName.IndexOf('`')) == "GameArchitecture.IManager").GenericTypeArguments[0]);
                         }
                     }
                     else
                     {
                         //if manager has configuration
                         IsConfiguration = monoScript != null && !monoScript.GetClass().GetInterfaces().Any(i => i == typeof(IManager));
-                        if (IsConfiguration)
-                            Configuration = property.FindPropertyRelative("Configuration").managedReferenceValue;
                     }
                 }
             }
             public bool IsConfiguration { get; private set; }
-            public object Configuration { get; set; }
         }
 
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
@@ -125,14 +115,6 @@ namespace GameArchitecture
 
             property.FindPropertyRelative("MonoScript").objectReferenceValue = manager.MonoScript;
 
-            if (manager.IsConfiguration)
-            {
-                EditorGUI.PropertyField(new Rect(position.x, position.y + EditorGUIUtility.singleLineHeight, position.width, EditorGUIUtility.singleLineHeight), property.FindPropertyRelative("Configuration"), new GUIContent(
-                    manager.Configuration.GetType().Name), true);
-
-                property.FindPropertyRelative("Configuration").managedReferenceValue = manager.Configuration;
-            }
-
             EditorGUI.EndProperty();
         }
 
@@ -153,7 +135,7 @@ namespace GameArchitecture
     public class ManagerCharacter
     {
         public Type ManagerType { get; private set; }
-        public object Configuration { get; private set; }
-        public ManagerCharacter(Type managerType, object configuration) { ManagerType = managerType; Configuration = configuration; }
+        //public object Configuration { get; private set; }
+        public ManagerCharacter(Type managerType) { ManagerType = managerType;  }
     }
 }
