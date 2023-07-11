@@ -3,6 +3,8 @@ using System;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using System.IO;
+using UnityEngine.UIElements;
 
 namespace GameArchitecture
 {
@@ -22,74 +24,58 @@ namespace GameArchitecture
 
         internal static CustomProjectSettings GetOrCreateSettings(Type type)
         {
-            var settings = AssetDatabase.LoadAssetAtPath<CustomProjectSettings>(CustomSettingsPath.Replace("<<name>>", type.Name.Replace("Configuration", "")));
+            var settings = AssetDatabase.LoadAssetAtPath<CustomProjectSettings>(CustomSettingsPath.Replace("<<name>>", RemoveConfiguration(type.Name)));
             if (settings == null)
             {
                 settings = ScriptableObject.CreateInstance<CustomProjectSettings>();
                 settings.Context = new SettingsContext() { Configuration = Activator.CreateInstance(type) };
-                AssetDatabase.CreateAsset(settings, CustomSettingsPath.Replace("<<name>>", type.Name.Replace("Configuration", "")));
+                AssetDatabase.CreateAsset(settings, CustomSettingsPath.Replace("<<name>>", RemoveConfiguration(type.Name)));
                 AssetDatabase.SaveAssets();
             }
             return settings;
         }
 
-        internal static void Save(Type type, CustomProjectSettings settings)
-        {
-            AssetDatabase.SaveAssetIfDirty(settings);
-            //AssetDatabase.SaveAssets();
-        }
+        internal static bool Exist(Type type) => AssetDatabase.LoadAssetAtPath<CustomProjectSettings>(CustomSettingsPath.Replace("<<name>>", RemoveConfiguration(type.Name))) != null;
 
-        internal static SerializedObject GetSerializedSettings(Type type)
-        {
-            return new SerializedObject(GetOrCreateSettings(type));
-        }
-    }
-    //[CustomPropertyDrawer(typeof(CustomProjectSettings))]
-    //public class CustomProjectSettingsEditor : PropertyDrawer
-    //{
-    //    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
-    //    {
-    //        EditorGUI.PropertyField(position, property.FindPropertyRelative("Context"), label, true);
-    //    }
-    //}
-
-    public class ProjectSettingsRegister<T>
-    {
-        public static SettingsProvider CreateSettingsProvider()
-        {
-            var provider = new ConfigurationSettingsProvider<T>($"Project/Configurations/{typeof(T).Name.Replace("Configuration", "")}", SettingsScope.Project,
-              new HashSet<string>(SettingsProvider.GetSearchKeywordsFromGUIContentProperties<T>().ToArray()));
-
-            return provider;
-        }
+        internal static string RemoveConfiguration(string text) => text.Replace("Configuration", "");
     }
 
-    public class ConfigurationSettingsProvider<T>: SettingsProvider
+    public class CustomProjectSettingsProvider<T> : SettingsProvider
     {
-        private object target;
-        private SerializedProperty configuration;
-        public ConfigurationSettingsProvider(string path, SettingsScope scopes, IEnumerable<string> keywords = null):base(path,scopes,keywords) {
+        private SerializedObject serializedObject;
+        public CustomProjectSettingsProvider(string path, SettingsScope scopes, IEnumerable<string> keywords = null) : base(path, scopes, keywords)
+        {
             label = typeof(T).Name.Replace("Configuration", "");
-            //keywords = new HashSet<string>(SettingsProvider.GetSearchKeywordsFromGUIContentProperties<T>().ToArray());
+        }
+
+        public override void OnActivate(string searchContext, VisualElement rootElement)
+        {
+            SetProperties();
+            base.OnActivate(searchContext, rootElement);
         }
 
         public override void OnGUI(string searchContext)
         {
-            var settings = CustomProjectSettings.GetOrCreateSettings(typeof(T));
-            if(configuration is null)
-                configuration = new SerializedObject(settings).FindProperty("Context").FindPropertyRelative("Configuration");
+            if (!CustomProjectSettings.Exist(typeof(T)))
+                SetProperties();
+
             EditorGUILayout.Space();
             EditorGUILayout.Space();
-            EditorGUILayout.PropertyField(configuration, new GUIContent("Configuration"), true);
-            
-            settings.Context.Configuration = configuration.managedReferenceValue;
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("Context").FindPropertyRelative("Configuration"), new GUIContent("Configuration"), true);
 
-            if (target is null || settings.Context.Configuration != target)
-                Debug.Log("yes");
+            serializedObject.ApplyModifiedProperties();
+        }
 
-            target = settings.Context.Configuration;
+        void SetProperties()
+        {
+            serializedObject = new SerializedObject(CustomProjectSettings.GetOrCreateSettings(typeof(T)));
+        }
+        public static SettingsProvider CreateSettingsProvider()
+        {
+            var keys = new HashSet<string>(SettingsProvider.GetSearchKeywordsFromGUIContentProperties<T>().ToArray());
+            var provider = new CustomProjectSettingsProvider<T>($"Project/Configurations/{CustomProjectSettings.RemoveConfiguration(typeof(T).Name)}", SettingsScope.Project, keys);
 
-            AssetDatabase.SaveAssets();
+            return provider;
         }
     }
 }
