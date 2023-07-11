@@ -117,17 +117,6 @@ namespace GameArchitecture
 
             EditorGUI.EndProperty();
         }
-
-        public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
-        {
-            MonoScript monoScript = property.FindPropertyRelative("MonoScript").objectReferenceValue as MonoScript;
-
-            //if configuration is
-            if (monoScript != null && !monoScript.GetClass().GetInterfaces().Any(i => i == typeof(IManager)))
-                return EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing + EditorGUI.GetPropertyHeight(property.FindPropertyRelative("Configuration"));
-
-            return EditorGUIUtility.singleLineHeight;
-        }
     }
     /// <summary>
     /// this class has information about manager - type and his configuration

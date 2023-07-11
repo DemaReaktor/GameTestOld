@@ -46,7 +46,8 @@ namespace GameArchitecture
                 if (type.GetInterface("IManager") != null)
                     t.GetType().GetMethod("Initialize").Invoke(t, new object[] { });
                 else
-                    t.GetType().GetMethod("Initialize").Invoke(t, new object[] { element.Configuration });
+                    t.GetType().GetMethod("Initialize").Invoke(t, new object[] { Game.GetConfiguration(type.GetInterfaces().First(
+                                t => t.FullName.Contains('`') && t.FullName.Substring(0, t.FullName.IndexOf('`')) == "GameArchitecture.IManager").GenericTypeArguments[0]) });
 
                 classes.AddLast(t);
             }

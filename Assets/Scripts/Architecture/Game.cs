@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using System.Collections.Generic;
+using UnityEditor;
 
 namespace GameArchitecture
 {
@@ -10,7 +11,6 @@ namespace GameArchitecture
     public static class Game
     {
         private static LinkedList<Object> managers;
-        private static LinkedList<Object> configurations;
 
         /// <summary>
         /// true if Game is ready to be used
@@ -80,9 +80,12 @@ namespace GameArchitecture
             if (!IsInitialized)
                 throw new Exception("Game is not initialized. Add GameInitializer to Scene to initialize Game or wait when It will be initialized");
 
-            foreach (object element in configurations)
-                if (element as T != null)
-                    return element as T;
+            CustomProjectSettings settings = AssetDatabase.LoadAssetAtPath<CustomProjectSettings>(CustomProjectSettings.CustomSettingsPath.Replace("<<name>>", CustomProjectSettings.RemoveConfiguration(typeof(T).Name)));
+
+            if(settings is null)
+                throw new Exception("configuration of this type does not exist");
+
+            return settings.Context.Configuration as T;
 
             throw new Exception("configuration of this type does not exist");
         }
@@ -100,12 +103,44 @@ namespace GameArchitecture
             if (!IsInitialized)
                 return false;
 
-            foreach (object element in configurations)
-                if (element as T != null)
-                {
-                    value = element as T;
-                    return true;
-                }
+            CustomProjectSettings settings = AssetDatabase.LoadAssetAtPath<CustomProjectSettings>(CustomProjectSettings.CustomSettingsPath.Replace("<<name>>", CustomProjectSettings.RemoveConfiguration(typeof(T).Name)));
+
+            if (settings is null)
+                return false;
+
+            value = settings.Context.Configuration as T;
+
+            return false;
+        }
+        /// <summary>
+        /// get configuration of current class
+        /// throw exception if configuration of this class is not exist in GameInitializer
+        /// </summary>
+        /// <returns>configuration</returns>
+        public static object GetConfiguration(Type type)
+        {
+            CustomProjectSettings settings = AssetDatabase.LoadAssetAtPath<CustomProjectSettings>(CustomProjectSettings.CustomSettingsPath.Replace("<<name>>", CustomProjectSettings.RemoveConfiguration(type.Name)));
+
+            if (settings is null)
+                throw new Exception("configuration of this type does not exist");
+
+            return settings.Context.Configuration;
+        }
+        /// <summary>
+        /// set configuration of current class to value
+        /// </summary>
+        /// <param name="value"> configuration</param>
+        /// <returns>true if this configuration exist</returns>
+        public static bool TryGetConfiguration(Type type, out object value)
+        {
+            value = default;
+
+            CustomProjectSettings settings = AssetDatabase.LoadAssetAtPath<CustomProjectSettings>(CustomProjectSettings.CustomSettingsPath.Replace("<<name>>", CustomProjectSettings.RemoveConfiguration(type.Name)));
+
+            if (settings is null)
+                return false;
+
+            value = settings.Context.Configuration;
 
             return false;
         }

@@ -31,8 +31,6 @@ namespace GameArchitecture
                 settings.Context = new SettingsContext() { Configuration = Activator.CreateInstance(type) };
                 AssetDatabase.CreateAsset(settings, CustomSettingsPath.Replace("<<name>>", RemoveConfiguration(type.Name)));
                 AssetDatabase.SaveAssets();
-
-
             }
             return settings;
         }
