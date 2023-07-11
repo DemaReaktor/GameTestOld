@@ -58,8 +58,6 @@ namespace GameArchitecture
             Game.Initialize(classes.ToHashSet());
         }
     }
-    //[CustomEditor(typeof(GameInitializer))]
-    //public class GameInitializerEditor : Editor
     [CustomEditor(typeof(GameInitializer))]
     public class GameInitializerEditor : Editor
     {
@@ -70,69 +68,42 @@ namespace GameArchitecture
             SerializedProperty = serializedObject.FindProperty("Managers");
         }
         public override void OnInspectorGUI()
-        //public override void OnInspectorGUI()
         {
             serializedObject.Update();
-            for (int i = SerializedProperty.arraySize-1; i >0; i++)
-            //var r = property.FindPropertyRelative("Mangers");
-            //for (int i = 0; i < property.FindPropertyRelative("Mangers").arraySize; i++)
-            {
-                //var monoscript = SerializedProperty.GetArrayElementAtIndex(i).objectReferenceValue as MonoScript;
-                //if (monoscript is null ||
-                //    (monoscript.GetClass().IsClass && (monoscript.GetClass().GetInterfaces().Any(i => i == typeof(IManager)) || (
-                //        monoscript.GetClass().GetInterfaces().Any(t => t.FullName.Contains('`') && t.FullName.Substring(0, t.FullName.IndexOf('`')) == "GameArchitecture.IManager")))))
-                //    continue;
 
-                //SerializedProperty.DeleteArrayElementAtIndex(i);
-                //SerializedProperty.arraySize--;
+            List<Type> types = new List<Type>();
+            for (int i = 0; i < SerializedProperty.arraySize; i++)
+            {
+                var monoscript = SerializedProperty.GetArrayElementAtIndex(i).objectReferenceValue as MonoScript;
+
+                //fields with null will not be removed
+                if (monoscript is null)
+                    continue;
+
+                var type = monoscript.GetClass();
+
+                //fields without class or without IManager or IManager<> or with the same class will be removed
+                if (!type.IsClass ||
+                    (!type.GetInterfaces().Any(i => i == typeof(IManager)) &&
+                    !type.GetInterfaces().Any(t => t.FullName.Contains('`') && t.FullName.Substring(0, t.FullName.IndexOf('`')) == "GameArchitecture.IManager")) ||
+                    types.Contains(type))
+                {
+                    //last field will be null
+                    if (i + 1 == SerializedProperty.arraySize)
+                    {
+                        SerializedProperty.GetArrayElementAtIndex(i).objectReferenceValue = null;
+                        break;
+                    }
+
+                    SerializedProperty.DeleteArrayElementAtIndex(i--);
+                    continue;
+                }
+
+                //add class to list to check the same classes
+                types.Add(monoscript.GetClass());
             }
             EditorGUILayout.PropertyField(SerializedProperty);
-
-
             serializedObject.ApplyModifiedProperties();
-            //EditorGUILayout.PropertyField(r);
-            //EditorGUILayout.PropertyField(serializedObject.FindProperty("Managers"));
-            //EditorGUI.BeginProperty(position, label, property);
-
-            //MonoScript[] array = property.FindPropertyRelative("Managers").managedReferenceValue as MonoScript[];
-
-            //MonoScript monoScript = property.FindPropertyRelative("Managers").objectReferenceValue as MonoScript;
-            //ManagerProperty manager = new ManagerProperty(property);
-
-            //set monoscript
-            //manager.MonoScript = EditorGUI.ObjectField(new Rect(position.x, position.y, position.width, EditorGUIUtility.singleLineHeight),
-            //new GUIContent(monoScript is null ? "Null" : monoScript.name, "class should be direved by IManager or IManager<(any object)>"), property.FindPropertyRelative("MonoScript").objectReferenceValue, typeof(MonoScript), false) as MonoScript;
-
-            //void DeleteCopyElement()
-            //{
-            //    //get types of all managers in GameInitializer
-            //    Type[] list = new Type[array.Length];
-            //    for (int i = 0; i < array.Length; i++)
-            //            list[i] = array[i] is null?null: array[i].GetClass();
-
-            //    //if here are the same types of managers in GameInitializer
-            //    for (int x = array.Length - 1; x > 0; x--)
-            //        for (int i = 0; i < x; i++)
-            //        {
-            //                if (list[x] == list[i] && list[x] != null)
-            //            {
-            //                //delete last manager of two same managers
-            //                array[x] = null;
-
-            //                Debug.LogWarning("GameInitializer can not have the same managers (if you just add new element to array you can ignore this)");
-            //            }
-            //        }
-            //}
-            //DeleteCopyElement();
-
-            //property.serializedObject.Update();
-
-            //foreach(var element in array)
-            //    if(element != null)
-            //        property.
-            //        property.FindPropertyRelative("Managers").fin
-            ////property.FindPropertyRelative("MonoScript").objectReferenceValue = manager.MonoScript;
-
         }
 
     }
