@@ -1,3 +1,6 @@
+using GameArchitecture;
+using UnityEditor;
+
 namespace Language
 {
     public class LanguageConfiguration
@@ -10,5 +13,11 @@ namespace Language
         /// all languages which are in game for now
         /// </summary>
         public string[] AllLanguages;
+
+        [SettingsProvider]
+        public static SettingsProvider CreateSettingsProvider()
+        {
+            return CustomProjectSettingsProvider<LanguageConfiguration>.CreateSettingsProvider();
+        }
     }
 }

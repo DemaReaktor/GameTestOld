@@ -3030,26 +3030,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Managers:
-  - MonoScript: {fileID: 11500000, guid: 4133b7698baf5b5408e666fbac1f89d3, type: 3}
-    Configuration:
-      rid: 1053532742752403473
-  - MonoScript: {fileID: 11500000, guid: a67878d19a517e64c9a63f08bd05d269, type: 3}
-    Configuration:
-      rid: 1053532742752403479
-  references:
-    version: 2
-    RefIds:
-    - rid: 1053532742752403473
-      type: {class: SettingsConfiguration, ns: GameArchitecture.Save, asm: Scripts}
-      data:
-        FileName: Settings
-        DefaultFileName: DefaultSettings
-    - rid: 1053532742752403479
-      type: {class: LanguageConfiguration, ns: Language, asm: Scripts}
-      data:
-        DefaulLanguage: Ukrainian
-        AllLanguages:
-        - English
+  - {fileID: 11500000, guid: 4133b7698baf5b5408e666fbac1f89d3, type: 3}
+  - {fileID: 11500000, guid: a67878d19a517e64c9a63f08bd05d269, type: 3}
 --- !u!213 &666005582
 Sprite:
   m_ObjectHideFlags: 0

@@ -7,7 +7,7 @@ using GameArchitecture.Save;
 
 namespace Language
 {
-    public class LanguageManager : ILanguageManager, IManagersValidation
+    public class LanguageManager : ILanguageManager
     {
         public LanguageConfiguration Configuration { get; private set; }
         /// <summary>
@@ -61,12 +61,13 @@ namespace Language
                 OnChangeLanguage?.Invoke(Language);
             }
         }
-
-        public static bool Validate(ManagerCharacter[] characters)
+                    
+        [ManagerValidation]
+        public static bool ValidateManagers(List<Type> characters)
         {
             //if one of managers is ISaveManager<SettingsConfiguration>
             foreach (var character in characters)
-                if (character.ManagerType!=null && character.ManagerType.GetInterfaces().Any(i=> i.Name == typeof(ISaveManager<SettingsConfiguration>).Name))
+                if (character.GetInterfaces().Any(i=> i == typeof(ISaveManager<SettingsConfiguration>)))
                     return true;
 
             Debug.Log("LanguageManger can`t be added because GameInitializer should have ISaveManager<SettingsConfiguration> for LanguageManger");

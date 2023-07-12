@@ -1,10 +1,12 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using GameArchitecture;
 using GameArchitecture.Save;
 
-public class Slider : MonoBehaviour , IPointerClickHandler
+[RequireComponent(typeof(RectTransform))]
+public class Slider : MonoBehaviour, IPointerDownHandler, IPointerMoveHandler
 {
     [SerializeField] protected string Key;
     [SerializeField] protected RectTransform Field;
@@ -14,34 +16,52 @@ public class Slider : MonoBehaviour , IPointerClickHandler
 
     private ISaveManager<SettingsConfiguration> saveManager;
     private float length;
+    private bool isMouseDown;
+    private RectTransform rectTransform;
 
     void Start()
     {
         if (Field is null)
             throw new Exception("Value should have ojbect");
 
-        length = ((transform as RectTransform).sizeDelta.x - Field.sizeDelta.x) / (LevelsCount-1);
+        rectTransform = transform as RectTransform;
+        length = (rectTransform.sizeDelta.x - Field.sizeDelta.x) / (LevelsCount-1);
 
-        if (Game.TryGetManager(out saveManager) && saveManager.TryGet(out string value, Key) && uint.TryParse(value,out uint intValue))
+        if (Game.TryGetManager(out saveManager) && saveManager.TryGet(out string value, Key) && int.TryParse(value,out int intValue))
             SetValue(intValue);
+
+        isMouseDown = false;
     }
 
-    public virtual void OnPointerClick(PointerEventData eventData)
+    public virtual void OnPointerDown(PointerEventData eventData)
     {
-        SetValue((uint)((eventData.position.x - (transform as RectTransform).anchoredPosition.x - Field.sizeDelta.x/2)/ length));
+        isMouseDown = true;
+        StartCoroutine(CheckMouseUp());
+    }
+    public virtual void OnPointerMove(PointerEventData eventData)
+    {
+        if(isMouseDown && Input.GetKey(KeyCode.Mouse0))
+            SetValue((int)((eventData.position.x - rectTransform.anchoredPosition.x - Field.sizeDelta.x / 2) / length));
+    }
+    private IEnumerator CheckMouseUp()
+    {
+        while (!Input.GetKeyUp(KeyCode.Mouse0))
+            yield return null;
+            
+        isMouseDown = false;
     }
 
-    private void SetValue(uint value) {
+    private void SetValue(int value) {
         if (value < 0)
             value = 0;
         if (value >= LevelsCount)
-            value = LevelsCount-1;
+            value = (int)LevelsCount;
         if (Field != null)
         {
             Field.anchoredPosition = new Vector2(Field.sizeDelta.x * 0.5f + length * value, Field.anchoredPosition.y);
             saveManager.Set(value.ToString(),Key);
             saveManager.Save();
         }
-        Value = value;
+        Value = (uint)value;
     }
 }
