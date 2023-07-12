@@ -7,6 +7,7 @@ using UnityEngine.UIElements;
 
 namespace GameArchitecture
 {
+#if UNITY_EDITOR
     class CustomProjectSettings : ScriptableObject
     {
         [Serializable]
@@ -21,18 +22,18 @@ namespace GameArchitecture
 
         internal static CustomProjectSettings GetOrCreateSettings(Type type)
         {
-            var settings = AssetDatabase.LoadAssetAtPath<CustomProjectSettings>(GeneralConfiguration.GetAssetName(type));
+            var settings = AssetDatabase.LoadAssetAtPath<CustomProjectSettings>(GeneralConfiguration.GetAssetNameForEditor(type));
             if (settings == null)
             {
                 settings = ScriptableObject.CreateInstance<CustomProjectSettings>();
                 settings.Context = new SettingsContext() { Configuration = Activator.CreateInstance(type) };
-                AssetDatabase.CreateAsset(settings, GeneralConfiguration.GetAssetName(type));
+                AssetDatabase.CreateAsset(settings, GeneralConfiguration.GetAssetNameForEditor(type));
                 AssetDatabase.SaveAssets();
             }
             return settings;
         }
 
-        internal static bool Exist(Type type) => AssetDatabase.LoadAssetAtPath<CustomProjectSettings>(GeneralConfiguration.GetAssetName(type)) != null;
+        internal static bool Exist(Type type) => Resources.Load<CustomProjectSettings>(GeneralConfiguration.GetAssetName(type)) != null;
     }
 
     public class CustomProjectSettingsProvider<T> : SettingsProvider
@@ -65,12 +66,14 @@ namespace GameArchitecture
         {
             serializedObject = new SerializedObject(CustomProjectSettings.GetOrCreateSettings(typeof(T)));
         }
-        public static SettingsProvider CreateSettingsProvider()
+        public static SettingsProvider CreateConfiguration()
         {
             var keys = new HashSet<string>(SettingsProvider.GetSearchKeywordsFromGUIContentProperties<T>().ToArray());
             var provider = new CustomProjectSettingsProvider<T>($"Project/Configurations/{typeof(T).Name.Replace("Configuration", "")}", SettingsScope.Project, keys);
+            CustomProjectSettings.GetOrCreateSettings(typeof(T));
 
             return provider;
         }
     }
+#endif
 }

@@ -59,6 +59,8 @@ namespace GameArchitecture
             Game.Initialize(classes.ToHashSet());
         }
     }
+
+#if UNITY_EDITOR
     [CustomEditor(typeof(GameInitializer))]
     public class GameInitializerEditor : Editor
     {
@@ -129,4 +131,5 @@ namespace GameArchitecture
             return true;
         }
     }
+#endif
 }

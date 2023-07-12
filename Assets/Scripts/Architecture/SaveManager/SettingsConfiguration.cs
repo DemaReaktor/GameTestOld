@@ -11,10 +11,12 @@ namespace GameArchitecture.Save
         public string FileName = "Settings";
         public string DefaultFileName = "DefaultSettings";
 
+#if UNITY_EDITOR
         [SettingsProvider]
         public static SettingsProvider CreateSettingsProvider()
         {
-            return CustomProjectSettingsProvider<SettingsConfiguration>.CreateSettingsProvider();
+            return CustomProjectSettingsProvider<SettingsConfiguration>.CreateConfiguration();
         }
+#endif
     }
 }

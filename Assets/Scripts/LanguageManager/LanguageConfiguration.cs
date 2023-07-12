@@ -14,10 +14,12 @@ namespace Language
         /// </summary>
         public string[] AllLanguages;
 
+#if UNITY_EDITOR
         [SettingsProvider]
         public static SettingsProvider CreateSettingsProvider()
         {
-            return CustomProjectSettingsProvider<LanguageConfiguration>.CreateSettingsProvider();
+            return CustomProjectSettingsProvider<LanguageConfiguration>.CreateConfiguration();
         }
+#endif
     }
 }

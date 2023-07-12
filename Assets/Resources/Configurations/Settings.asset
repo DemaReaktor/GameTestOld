@@ -10,21 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 261e1e3e6ce6b0c488be62cf07a53409, type: 3}
-  m_Name: Language
+  m_Name: Settings
   m_EditorClassIdentifier: 
   Context:
-    rid: 7114792667005321295
+    rid: 7114792691925254458
   references:
     version: 2
     RefIds:
-    - rid: 7114792667005321295
+    - rid: 7114792691925254458
       type: {class: CustomProjectSettings/SettingsContext, ns: GameArchitecture, asm: Scripts}
       data:
         Configuration:
-          rid: 7114792667005321296
-    - rid: 7114792667005321296
-      type: {class: LanguageConfiguration, ns: Language, asm: Scripts}
+          rid: 7114792691925254459
+    - rid: 7114792691925254459
+      type: {class: SettingsConfiguration, ns: GameArchitecture.Save, asm: Scripts}
       data:
-        DefaulLanguage: Ukrainian
-        AllLanguages:
-        - English
+        FileName: Settings
+        DefaultFileName: DefaultSettings

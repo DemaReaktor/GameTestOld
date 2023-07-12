@@ -33,6 +33,7 @@ public class Slider : MonoBehaviour, IPointerDownHandler, IPointerMoveHandler
         isMouseDown = false;
     }
 
+    #region events
     public virtual void OnPointerDown(PointerEventData eventData)
     {
         isMouseDown = true;
@@ -50,6 +51,7 @@ public class Slider : MonoBehaviour, IPointerDownHandler, IPointerMoveHandler
             
         isMouseDown = false;
     }
+    #endregion
 
     private void SetValue(int value) {
         if (value < 0)

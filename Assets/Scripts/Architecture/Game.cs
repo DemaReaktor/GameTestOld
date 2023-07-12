@@ -1,7 +1,6 @@
 using System;
 using System.Linq;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 namespace GameArchitecture
@@ -111,7 +110,7 @@ namespace GameArchitecture
         /// <returns>configuration</returns>
         public static T GetConfiguration<T>() where T : class
         {
-            CustomProjectSettings settings = AssetDatabase.LoadAssetAtPath<CustomProjectSettings>(GeneralConfiguration.GetAssetName(typeof(T)));
+            CustomProjectSettings settings = Resources.Load<CustomProjectSettings>(GeneralConfiguration.GetAssetName(typeof(T)));
 
             if (settings is null)
                 throw new Exception("configuration of this type does not exist");
@@ -128,7 +127,7 @@ namespace GameArchitecture
         public static bool TryGetConfiguration<T>(out T value) where T : class
         {
             value = default;
-            CustomProjectSettings settings = AssetDatabase.LoadAssetAtPath<CustomProjectSettings>(GeneralConfiguration.GetAssetName(typeof(T)));
+            CustomProjectSettings settings = Resources.Load<CustomProjectSettings>(GeneralConfiguration.GetAssetName(typeof(T)));
 
             if (settings is null)
                 return false;
@@ -143,7 +142,7 @@ namespace GameArchitecture
         /// <returns>configuration</returns>
         public static object GetConfiguration(Type type)
         {
-            CustomProjectSettings settings = AssetDatabase.LoadAssetAtPath<CustomProjectSettings>(GeneralConfiguration.GetAssetName(type));
+            CustomProjectSettings settings = Resources.Load<CustomProjectSettings>(GeneralConfiguration.GetAssetName(type));
 
             if (settings is null)
                 throw new Exception("configuration of this type does not exist");
@@ -158,7 +157,7 @@ namespace GameArchitecture
         public static bool TryGetConfiguration(Type type, out object value)
         {
             value = default;
-            CustomProjectSettings settings = AssetDatabase.LoadAssetAtPath<CustomProjectSettings>(GeneralConfiguration.GetAssetName(type));
+            CustomProjectSettings settings = Resources.Load<CustomProjectSettings>(GeneralConfiguration.GetAssetName(type));
 
             if (settings is null)
                 return false;
