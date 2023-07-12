@@ -82,7 +82,6 @@ namespace GameArchitecture
                     continue;
 
                 var type = monoscript.GetClass();
-                IEnumerable<MethodInfo> validations = null;
 
                 //fields without class or without IManager or IManager<> or with the same class will be removed
                 if (!type.IsClass ||
@@ -90,7 +89,6 @@ namespace GameArchitecture
                     !type.GetInterfaces().Any(t => t.FullName.Contains('`') && t.FullName.Substring(0, t.FullName.IndexOf('`')) == "GameArchitecture.IManager")) ||
                     types.Contains(type) ||
                     !Validate(type, types))
-                //(type.GetInterface("IManagersValidation") != null && !(bool)(type.GetMethod("ValidateManagers").Invoke(null, new object[] { types }))))
                 {
                     //last field will be null
                     if (i + 1 == SerializedProperty.arraySize)
