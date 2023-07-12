@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: Settings
   m_EditorClassIdentifier: 
   Context:
-    rid: 7114792691925254458
+    rid: 7114792699191885828
   references:
     version: 2
     RefIds:
-    - rid: 7114792691925254458
+    - rid: 7114792699191885828
       type: {class: CustomProjectSettings/SettingsContext, ns: GameArchitecture, asm: Scripts}
       data:
         Configuration:
-          rid: 7114792691925254459
-    - rid: 7114792691925254459
+          rid: 7114792699191885829
+    - rid: 7114792699191885829
       type: {class: SettingsConfiguration, ns: GameArchitecture.Save, asm: Scripts}
       data:
         FileName: Settings

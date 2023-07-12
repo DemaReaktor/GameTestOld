@@ -25,6 +25,7 @@ namespace GameArchitecture
             var settings = AssetDatabase.LoadAssetAtPath<CustomProjectSettings>(GeneralConfiguration.GetAssetNameForEditor(type));
             if (settings == null)
             {
+                Debug.Log(GeneralConfiguration.GetAssetNameForEditor(type).ToString() + "1");
                 settings = ScriptableObject.CreateInstance<CustomProjectSettings>();
                 settings.Context = new SettingsContext() { Configuration = Activator.CreateInstance(type) };
                 AssetDatabase.CreateAsset(settings, GeneralConfiguration.GetAssetNameForEditor(type));
@@ -38,7 +39,7 @@ namespace GameArchitecture
 
     public class CustomProjectSettingsProvider<T> : SettingsProvider
     {
-        private SerializedObject serializedObject;
+        protected SerializedObject serializedObject;
         public CustomProjectSettingsProvider(string path, SettingsScope scopes, IEnumerable<string> keywords = null) : base(path, scopes, keywords)
         {
             label = typeof(T).Name.Replace("Configuration", "");
@@ -66,7 +67,7 @@ namespace GameArchitecture
         {
             serializedObject = new SerializedObject(CustomProjectSettings.GetOrCreateSettings(typeof(T)));
         }
-        public static SettingsProvider CreateConfiguration()
+        public static SettingsProvider CreateSettingsProvider()
         {
             var keys = new HashSet<string>(SettingsProvider.GetSearchKeywordsFromGUIContentProperties<T>().ToArray());
             var provider = new CustomProjectSettingsProvider<T>($"Project/Configurations/{typeof(T).Name.Replace("Configuration", "")}", SettingsScope.Project, keys);

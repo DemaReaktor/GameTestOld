@@ -18,7 +18,7 @@ namespace Language
         [SettingsProvider]
         public static SettingsProvider CreateSettingsProvider()
         {
-            return CustomProjectSettingsProvider<LanguageConfiguration>.CreateConfiguration();
+            return CustomProjectSettingsProvider<LanguageConfiguration>.CreateSettingsProvider();
         }
 #endif
     }

@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: General
   m_EditorClassIdentifier: 
   Context:
-    rid: 7114792699191885826
+    rid: 7114792696876105994
   references:
     version: 2
     RefIds:
-    - rid: 7114792699191885826
+    - rid: 7114792696876105994
       type: {class: CustomProjectSettings/SettingsContext, ns: GameArchitecture, asm: Scripts}
       data:
         Configuration:
-          rid: 7114792699191885827
-    - rid: 7114792699191885827
+          rid: 7114792696876105995
+    - rid: 7114792696876105995
       type: {class: GeneralConfiguration, ns: GameArchitecture, asm: Scripts}
       data:
         configurationsFolder: Configurations
