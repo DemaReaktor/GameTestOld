@@ -3,10 +3,9 @@
 
 #not ignore gitignore assets and settings
 !/.gitignore
+!/readme.md
 !/Nalashtuvania.xml
 !/[Aa]ssets
 
 #ignore meta files
 *.meta
-#too big file
-/[Aa]ssets/riveny1.avi
