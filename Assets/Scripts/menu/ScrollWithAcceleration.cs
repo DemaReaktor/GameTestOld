@@ -38,7 +38,7 @@ public class ScrollWithAcceleration : ScrollRect
         }
     }
 }
-
+#if UNITY_EDITOR
 [CustomEditor(typeof(ScrollWithAcceleration))]
 public class ScrollWithAccelerationEditor : ScrollRectEditor
 {
@@ -63,3 +63,4 @@ public class ScrollWithAccelerationEditor : ScrollRectEditor
            "ScrollSensitivity can not be negative by Acceleration if this value is true"), serializedObject.FindProperty("NonNegative").boolValue);
     }
 }
+#endif

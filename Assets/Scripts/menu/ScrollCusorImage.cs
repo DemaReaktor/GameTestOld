@@ -33,6 +33,8 @@ public class ScrollCusorImage : Image
         }
     }
 }
+
+#if UNITY_EDITOR
 [CustomEditor(typeof(ScrollCusorImage))]
 public class ScrollCusorImageEditor : ImageEditor
 {
@@ -46,4 +48,7 @@ public class ScrollCusorImageEditor : ImageEditor
         (serializedObject.targetObject as ScrollCusorImage).KeyCodeSetterSprite = EditorGUILayout.ObjectField(new GUIContent("KeyCodeSetterSprite", ""),
             serializedObject.FindProperty("KeyCodeSetterSprite").objectReferenceValue, typeof(Sprite), true) as Sprite;
     }
+
 }
+#endif
+

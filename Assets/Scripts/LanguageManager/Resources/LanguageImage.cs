@@ -39,6 +39,8 @@ namespace Language.Resources
             sprite = Sprite.Create(resource as Texture2D, new Rect(0, 0, (resource as Texture2D).width, (resource as Texture2D).height), sprite != null ? sprite.pivot : new Vector2());
         }
     }
+
+#if UNITY_EDITOR
     [CustomEditor(typeof(LanguageImage))]
     public class LanguageImageEditor : ImageEditor
     {
@@ -51,4 +53,5 @@ namespace Language.Resources
                 " If texture with this path and language in ILanguageManager dont exist texture will be loaded with default language"), serializedObject.FindProperty("Path").stringValue);
         }
     }
+#endif
 }
