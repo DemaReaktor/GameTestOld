@@ -8,7 +8,7 @@ namespace GameArchitecture
     /// object that do special things in game
     /// can be initialized using GameInitializer to be in Game
     /// </summary>
-    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="T">Configuration of manager</typeparam>
     public interface IManager<T> where T : class
     {
         T Configuration { get; }
@@ -18,16 +18,5 @@ namespace GameArchitecture
         /// <param name="configuration"> this value set configuration to this manager
         /// configuration save parametres of manager</param>
         void Initialize(T configuration);
-    }
-    /// <summary>
-    /// object that do special things in game
-    /// can be initialized using GameInitializer to be in Game
-    /// </summary>
-    public interface IManager 
-    {
-        /// <summary>
-        /// this method will be invoked at awake if this manager is added to gameInitializer
-        /// </summary>
-        void Initialize();
     }
 }

@@ -24,22 +24,14 @@ namespace GameArchitecture
         internal static void Initialize(HashSet<object> managers)
         {
             Game.managers = managers;
+
+            //initialize all managers
+            foreach(var manager in managers)
+                manager.GetType().GetMethod("Initialize").Invoke(manager, new object[] { Game.GetConfiguration(manager.GetType().GetInterfaces().First(
+                                t => t.FullName.Contains('`') && t.FullName.Substring(0, t.FullName.IndexOf('`')) == "GameArchitecture.IManager").GenericTypeArguments[0]) });
+
             IsInitialized = true;
             OnInitializeFinish?.Invoke();
-        }
-        /// <summary>
-        /// Allow initialize managers after Game has initialized.
-        /// </summary>
-        /// <param name="manager">manager</param>
-        public static void Initialize(IManager manager)
-        {
-            if (managers.Any(m => m.GetType()==manager.GetType()))
-            {
-                Debug.LogError("this manager already exist");
-                return;
-            }
-
-            manager.Initialize();
         }
         /// <summary>
         /// Allow initialize managers after Game has initialized.

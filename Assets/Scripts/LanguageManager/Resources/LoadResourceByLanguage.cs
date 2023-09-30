@@ -6,7 +6,7 @@ namespace Language.Resources
     /// <summary>
     /// has static methods for loading objects by path and language
     /// </summary>
-    public class LoadResourceByLanguage
+    public static class LoadResourceByLanguage
     {
         /// <summary>
         /// load object by path and language

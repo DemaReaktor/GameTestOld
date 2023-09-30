@@ -34,18 +34,18 @@ namespace Language
             Configuration = configuration;
 
             if (Configuration.AllLanguages is null)
-                Configuration.AllLanguages = new string[] { Configuration.DefaulLanguage };
+                Configuration.AllLanguages = new string[] { Configuration.DefaultLanguage };
 
             //if defaulta language is not in array It will be setted
-            if (!Configuration.AllLanguages.Contains(Configuration.DefaulLanguage))
+            if (!Configuration.AllLanguages.Contains(Configuration.DefaultLanguage))
             {
                 List<string> languages = Configuration.AllLanguages.ToList();
-                languages.Add(Configuration.DefaulLanguage);
+                languages.Add(Configuration.DefaultLanguage);
 
                 Configuration.AllLanguages = languages.ToArray();
             }
 
-            language = Configuration.DefaulLanguage;
+            language = Configuration.DefaultLanguage;
 
             //when game finish initialization this manager set language which is in ISaveManager
             Game.OnInitializeFinish += SetLanguage;

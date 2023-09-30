@@ -32,7 +32,6 @@ RectTransform:
   m_Children:
   - {fileID: 2205375602391992984}
   m_Father: {fileID: 2205375603165409182}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -56,10 +55,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 138668640884508768}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c16b42e699e45d647ae3cff972587017, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ea6ec8b88b39444997eb8b0397ac83c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: b54be2666c7e07647b9e99c1c072e64e, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -77,7 +76,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
-  Path: Assets/Languages/{{Language}}/words/{{name}}.png
+  Path: Assets/Languages/{{Language}}/words/difficulty.png
 --- !u!1 &1596637989527703204
 GameObject:
   m_ObjectHideFlags: 0
@@ -112,7 +111,6 @@ RectTransform:
   - {fileID: 4725021334826204380}
   - {fileID: 4725021334993555701}
   m_Father: {fileID: 4725021335656646987}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -173,7 +171,6 @@ RectTransform:
   m_Children:
   - {fileID: 8163927881149659193}
   m_Father: {fileID: 2205375603208040622}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -212,7 +209,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8163927880283448378}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -236,10 +232,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2205375602387235973}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c16b42e699e45d647ae3cff972587017, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ea6ec8b88b39444997eb8b0397ac83c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: b54be2666c7e07647b9e99c1c072e64e, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -298,7 +294,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 3578208088640532227}
+  m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -337,7 +333,7 @@ GameObject:
   - component: {fileID: 2205375602391992984}
   - component: {fileID: 2205375602391992990}
   - component: {fileID: 2205375602391992985}
-  - component: {fileID: 6837892325177722183}
+  - component: {fileID: 7037283115845026570}
   m_Layer: 5
   m_Name: value
   m_TagString: Untagged
@@ -359,7 +355,6 @@ RectTransform:
   m_Children:
   - {fileID: 6837892324299920301}
   m_Father: {fileID: 138668640884508771}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -404,7 +399,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6837892325177722183
+--- !u!114 &7037283115845026570
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -413,7 +408,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2205375602391992987}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fea359c2b8456314aa8ff0391c2e0567, type: 3}
+  m_Script: {fileID: 11500000, guid: 84292379ac437594d8feaedf06303e9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Key: Difficulty
@@ -452,7 +447,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4143714330924692530}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -510,16 +504,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 2205375602430926194}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d590c0b413ea81747bd92902d1d6f953, type: 3}
+  m_Script: {fileID: 11500000, guid: b2db56e6bf13a9f4c8ee887fe2d27a28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Key: Forward
-  OnKeyCodeUp:
+  OnKeyCode:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8163927880998183782}
-        m_TargetAssemblyTypeName: KeyCodeSaver, Scripts
-        m_MethodName: SetKeyCode
+      - m_Target: {fileID: 2205375602430926192}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
+        m_MethodName: set_text
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -538,16 +532,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 2205375602430926194}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80dbac2e5140c2141a95b74b83cf6e74, type: 3}
+  m_Script: {fileID: 11500000, guid: cb7e6c3ece5223342b24b21ec70f5e6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Key: Forward
-  OnKeyCode:
+  OnKeyCodeUp:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2205375602430926192}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
-        m_MethodName: set_text
+      - m_Target: {fileID: 8163927880998183782}
+        m_TargetAssemblyTypeName: KeyCodeController.KeyCodeSaver, Scripts
+        m_MethodName: SetKeyCode
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -589,7 +583,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8163927880283448378}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -613,10 +606,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2205375602675751368}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c16b42e699e45d647ae3cff972587017, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ea6ec8b88b39444997eb8b0397ac83c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: b54be2666c7e07647b9e99c1c072e64e, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -675,7 +668,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 6498299171559847645}
+  m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -734,7 +727,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4725021336102535888}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -758,10 +750,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2205375602882499744}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c16b42e699e45d647ae3cff972587017, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ea6ec8b88b39444997eb8b0397ac83c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: b54be2666c7e07647b9e99c1c072e64e, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -779,7 +771,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
-  Path: Assets/Languages/{{Language}}/words/Reloading.png
+  Path: Assets/Languages/{{Language}}/words/reloading.png
 --- !u!1 &2205375602900992863
 GameObject:
   m_ObjectHideFlags: 0
@@ -811,7 +803,6 @@ RectTransform:
   m_Children:
   - {fileID: 6221272568903233327}
   m_Father: {fileID: 4725021335508195059}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -827,17 +818,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 2205375602900992863}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 884a9165ce393ab43977b42225990f3e, type: 3}
+  m_Script: {fileID: 11500000, guid: c8c4ce1159134c9418f590ba8e5ef070, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Content: {fileID: 8163927880998183779}
   m_Horizontal: 0
-  m_Vertical: 1
-  m_MovementType: 2
+  m_Vertical: 0
+  m_MovementType: 1
   m_Elasticity: 0.1
-  m_Inertia: 0
+  m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 35
+  m_ScrollSensitivity: 1
   m_Viewport: {fileID: 6221272568903233327}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 0}
@@ -885,7 +876,6 @@ RectTransform:
   - {fileID: 8163927880415356964}
   - {fileID: 4725021335179961000}
   m_Father: {fileID: 4725021335508195059}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -948,7 +938,6 @@ RectTransform:
   - {fileID: 8163927881739898796}
   - {fileID: 138668640884508771}
   m_Father: {fileID: 4725021335508195059}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1010,7 +999,6 @@ RectTransform:
   m_Children:
   - {fileID: 1596637989888205047}
   m_Father: {fileID: 4725021335508195059}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1026,17 +1014,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 2205375603208040617}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 884a9165ce393ab43977b42225990f3e, type: 3}
+  m_Script: {fileID: 11500000, guid: c8c4ce1159134c9418f590ba8e5ef070, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Content: {fileID: 8163927881149659193}
   m_Horizontal: 0
-  m_Vertical: 1
-  m_MovementType: 2
+  m_Vertical: 0
+  m_MovementType: 1
   m_Elasticity: 0.1
-  m_Inertia: 0
+  m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 35
+  m_ScrollSensitivity: 1
   m_Viewport: {fileID: 1596637989888205047}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 0}
@@ -1082,7 +1070,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8163927880283448378}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -1106,10 +1093,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2205375603822456715}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c16b42e699e45d647ae3cff972587017, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ea6ec8b88b39444997eb8b0397ac83c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: b54be2666c7e07647b9e99c1c072e64e, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -1168,7 +1155,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 181057419412780313}
+  m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -1228,7 +1215,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8163927880283448378}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -1252,10 +1238,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2205375603956465945}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c16b42e699e45d647ae3cff972587017, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ea6ec8b88b39444997eb8b0397ac83c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: b54be2666c7e07647b9e99c1c072e64e, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -1314,7 +1300,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 271408265540572654}
+  m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -1374,7 +1360,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8163927880283448378}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -1398,10 +1383,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2205375604161497073}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c16b42e699e45d647ae3cff972587017, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ea6ec8b88b39444997eb8b0397ac83c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: b54be2666c7e07647b9e99c1c072e64e, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -1460,7 +1445,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 2185299984673529835}
+  m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -1520,7 +1505,6 @@ RectTransform:
   m_Children:
   - {fileID: 8163927880341576244}
   m_Father: {fileID: 8163927880998183779}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -1544,10 +1528,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3544925118576192781}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c16b42e699e45d647ae3cff972587017, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ea6ec8b88b39444997eb8b0397ac83c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: b54be2666c7e07647b9e99c1c072e64e, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -1565,7 +1549,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
-  Path: Assets/Languages/{{Language}}/words/{{Name}}.png
+  Path: Assets/Languages/{{Language}}/words/{{name}}.png
 --- !u!1 &3544925118687912494
 GameObject:
   m_ObjectHideFlags: 0
@@ -1598,7 +1582,6 @@ RectTransform:
   m_Children:
   - {fileID: 8163927880830941320}
   m_Father: {fileID: 8163927880998183779}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -1622,10 +1605,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3544925118687912494}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c16b42e699e45d647ae3cff972587017, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ea6ec8b88b39444997eb8b0397ac83c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: b54be2666c7e07647b9e99c1c072e64e, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -1643,7 +1626,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
-  Path: Assets/Languages/{{Language}}/words/{{Name}}.png
+  Path: Assets/Languages/{{Language}}/words/{{name}}.png
 --- !u!1 &3544925118709089637
 GameObject:
   m_ObjectHideFlags: 0
@@ -1676,7 +1659,6 @@ RectTransform:
   m_Children:
   - {fileID: 8163927881853473106}
   m_Father: {fileID: 8163927880998183779}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -1700,10 +1682,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3544925118709089637}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c16b42e699e45d647ae3cff972587017, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ea6ec8b88b39444997eb8b0397ac83c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: b54be2666c7e07647b9e99c1c072e64e, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -1721,7 +1703,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
-  Path: Assets/Languages/{{Language}}/words/{{Name}}.png
+  Path: Assets/Languages/{{Language}}/words/{{name}}.png
 --- !u!1 &3544925118791582877
 GameObject:
   m_ObjectHideFlags: 0
@@ -1754,7 +1736,6 @@ RectTransform:
   m_Children:
   - {fileID: 8163927880107469102}
   m_Father: {fileID: 8163927880998183779}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -1778,10 +1759,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3544925118791582877}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c16b42e699e45d647ae3cff972587017, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ea6ec8b88b39444997eb8b0397ac83c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: b54be2666c7e07647b9e99c1c072e64e, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -1799,7 +1780,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
-  Path: Assets/Languages/{{Language}}/words/{{Name}}.png
+  Path: Assets/Languages/{{Language}}/words/{{name}}.png
 --- !u!1 &3544925118823346391
 GameObject:
   m_ObjectHideFlags: 0
@@ -1832,7 +1813,6 @@ RectTransform:
   m_Children:
   - {fileID: 8163927881860752204}
   m_Father: {fileID: 8163927880998183779}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -1856,10 +1836,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3544925118823346391}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c16b42e699e45d647ae3cff972587017, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ea6ec8b88b39444997eb8b0397ac83c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: b54be2666c7e07647b9e99c1c072e64e, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -1877,7 +1857,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
-  Path: Assets/Languages/{{Language}}/words/{{Name}}.png
+  Path: Assets/Languages/{{Language}}/words/{{name}}.png
 --- !u!1 &3544925118903000257
 GameObject:
   m_ObjectHideFlags: 0
@@ -1910,7 +1890,6 @@ RectTransform:
   m_Children:
   - {fileID: 8163927880741979055}
   m_Father: {fileID: 8163927881149659193}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -1934,10 +1913,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3544925118903000257}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c16b42e699e45d647ae3cff972587017, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ea6ec8b88b39444997eb8b0397ac83c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: b54be2666c7e07647b9e99c1c072e64e, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -1988,7 +1967,6 @@ RectTransform:
   m_Children:
   - {fileID: 8163927881606774794}
   m_Father: {fileID: 8163927880998183779}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -2012,10 +1990,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3544925118992299002}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c16b42e699e45d647ae3cff972587017, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ea6ec8b88b39444997eb8b0397ac83c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: b54be2666c7e07647b9e99c1c072e64e, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -2033,7 +2011,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
-  Path: Assets/Languages/{{Language}}/words/{{Name}}.png
+  Path: Assets/Languages/{{Language}}/words/{{name}}.png
 --- !u!1 &3544925119028282668
 GameObject:
   m_ObjectHideFlags: 0
@@ -2066,7 +2044,6 @@ RectTransform:
   m_Children:
   - {fileID: 8163927881634898504}
   m_Father: {fileID: 8163927880998183779}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -2090,10 +2067,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3544925119028282668}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c16b42e699e45d647ae3cff972587017, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ea6ec8b88b39444997eb8b0397ac83c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: b54be2666c7e07647b9e99c1c072e64e, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -2111,7 +2088,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
-  Path: Assets/Languages/{{Language}}/words/{{Name}}.png
+  Path: Assets/Languages/{{Language}}/words/{{name}}.png
 --- !u!1 &3544925119426776914
 GameObject:
   m_ObjectHideFlags: 0
@@ -2144,7 +2121,6 @@ RectTransform:
   m_Children:
   - {fileID: 8163927881882173409}
   m_Father: {fileID: 8163927880998183779}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -2168,10 +2144,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3544925119426776914}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c16b42e699e45d647ae3cff972587017, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ea6ec8b88b39444997eb8b0397ac83c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: b54be2666c7e07647b9e99c1c072e64e, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -2189,7 +2165,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
-  Path: Assets/Languages/{{Language}}/words/{{Name}}.png
+  Path: Assets/Languages/{{Language}}/words/{{name}}.png
 --- !u!1 &3544925120023481257
 GameObject:
   m_ObjectHideFlags: 0
@@ -2222,7 +2198,6 @@ RectTransform:
   m_Children:
   - {fileID: 8163927881167414152}
   m_Father: {fileID: 8163927880998183779}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -2246,10 +2221,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3544925120023481257}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c16b42e699e45d647ae3cff972587017, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ea6ec8b88b39444997eb8b0397ac83c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: b54be2666c7e07647b9e99c1c072e64e, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -2267,7 +2242,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
-  Path: Assets/Languages/{{Language}}/words/{{Name}}.png
+  Path: Assets/Languages/{{Language}}/words/{{name}}.png
 --- !u!1 &3544925120044095253
 GameObject:
   m_ObjectHideFlags: 0
@@ -2300,7 +2275,6 @@ RectTransform:
   m_Children:
   - {fileID: 8163927880563716819}
   m_Father: {fileID: 8163927880998183779}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -2324,10 +2298,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3544925120044095253}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c16b42e699e45d647ae3cff972587017, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ea6ec8b88b39444997eb8b0397ac83c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: b54be2666c7e07647b9e99c1c072e64e, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -2345,7 +2319,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
-  Path: Assets/Languages/{{Language}}/words/{{Name}}.png
+  Path: Assets/Languages/{{Language}}/words/{{name}}.png
 --- !u!1 &3544925120072271099
 GameObject:
   m_ObjectHideFlags: 0
@@ -2378,7 +2352,6 @@ RectTransform:
   m_Children:
   - {fileID: 8163927881927156879}
   m_Father: {fileID: 8163927880998183779}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -2402,10 +2375,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3544925120072271099}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c16b42e699e45d647ae3cff972587017, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ea6ec8b88b39444997eb8b0397ac83c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: b54be2666c7e07647b9e99c1c072e64e, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -2423,7 +2396,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
-  Path: Assets/Languages/{{Language}}/words/{{Name}}.png
+  Path: Assets/Languages/{{Language}}/words/{{name}}.png
 --- !u!1 &3544925120085013631
 GameObject:
   m_ObjectHideFlags: 0
@@ -2456,7 +2429,6 @@ RectTransform:
   m_Children:
   - {fileID: 8163927881241368050}
   m_Father: {fileID: 8163927880998183779}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -2480,10 +2452,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3544925120085013631}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c16b42e699e45d647ae3cff972587017, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ea6ec8b88b39444997eb8b0397ac83c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: b54be2666c7e07647b9e99c1c072e64e, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -2501,7 +2473,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
-  Path: Assets/Languages/{{Language}}/words/{{Name}}.png
+  Path: Assets/Languages/{{Language}}/words/{{name}}.png
 --- !u!1 &3544925120093914663
 GameObject:
   m_ObjectHideFlags: 0
@@ -2534,7 +2506,6 @@ RectTransform:
   m_Children:
   - {fileID: 8163927880755296944}
   m_Father: {fileID: 8163927880998183779}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -2558,10 +2529,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3544925120093914663}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c16b42e699e45d647ae3cff972587017, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ea6ec8b88b39444997eb8b0397ac83c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: b54be2666c7e07647b9e99c1c072e64e, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -2579,7 +2550,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
-  Path: Assets/Languages/{{Language}}/words/{{Name}}.png
+  Path: Assets/Languages/{{Language}}/words/{{name}}.png
 --- !u!1 &3544925120250355847
 GameObject:
   m_ObjectHideFlags: 0
@@ -2612,7 +2583,6 @@ RectTransform:
   m_Children:
   - {fileID: 8163927881804406546}
   m_Father: {fileID: 8163927880998183779}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -2636,10 +2606,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3544925120250355847}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c16b42e699e45d647ae3cff972587017, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ea6ec8b88b39444997eb8b0397ac83c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: b54be2666c7e07647b9e99c1c072e64e, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -2657,7 +2627,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
-  Path: Assets/Languages/{{Language}}/words/{{Name}}.png
+  Path: Assets/Languages/{{Language}}/words/{{name}}.png
 --- !u!1 &3544925120322106112
 GameObject:
   m_ObjectHideFlags: 0
@@ -2690,7 +2660,6 @@ RectTransform:
   m_Children:
   - {fileID: 8163927881242364026}
   m_Father: {fileID: 8163927880998183779}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -2714,10 +2683,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3544925120322106112}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c16b42e699e45d647ae3cff972587017, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ea6ec8b88b39444997eb8b0397ac83c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: b54be2666c7e07647b9e99c1c072e64e, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -2735,7 +2704,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
-  Path: Assets/Languages/{{Language}}/words/{{Name}}.png
+  Path: Assets/Languages/{{Language}}/words/{{name}}.png
 --- !u!1 &4143714330924692531
 GameObject:
   m_ObjectHideFlags: 0
@@ -2768,7 +2737,6 @@ RectTransform:
   m_Children:
   - {fileID: 2205375602430926195}
   m_Father: {fileID: 8163927880998183779}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -2792,10 +2760,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4143714330924692531}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c16b42e699e45d647ae3cff972587017, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ea6ec8b88b39444997eb8b0397ac83c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: b54be2666c7e07647b9e99c1c072e64e, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -2813,7 +2781,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
-  Path: Assets/Languages/{{Language}}/words/{{Name}}.png
+  Path: Assets/Languages/{{Language}}/words/{{name}}.png
 --- !u!1 &4725021334190877882
 GameObject:
   m_ObjectHideFlags: 0
@@ -2826,7 +2794,7 @@ GameObject:
   - component: {fileID: 4725021334190877879}
   - component: {fileID: 4725021334190877876}
   m_Layer: 5
-  m_Name: povekr
+  m_Name: FullSize
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2845,7 +2813,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4725021335179961000}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2900,6 +2867,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4725021334355419535}
   - component: {fileID: 4725021334355419534}
+  - component: {fileID: 8395730850262589512}
   m_Layer: 5
   m_Name: Languages
   m_TagString: Untagged
@@ -2922,7 +2890,6 @@ RectTransform:
   - {fileID: 4725021334501014049}
   - {fileID: 4725021334991695185}
   m_Father: {fileID: 4725021335656646987}
-  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2937,6 +2904,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4725021334355419532}
   m_CullTransparentMesh: 0
+--- !u!114 &8395730850262589512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4725021334355419532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e296333db43df0d4894668e9d6b48486, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4725021334427515186
 GameObject:
   m_ObjectHideFlags: 0
@@ -2968,7 +2947,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4725021335179961000}
-  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3025,7 +3003,6 @@ GameObject:
   - component: {fileID: 4725021334501014051}
   - component: {fileID: 4725021334501014048}
   - component: {fileID: 2205375602880090419}
-  - component: {fileID: 2205375602880090418}
   m_Layer: 5
   m_Name: Ukrainian
   m_TagString: Untagged
@@ -3046,7 +3023,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4725021334355419535}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3135,7 +3111,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2205375602880090418}
+      - m_Target: {fileID: 8395730850262589512}
         m_TargetAssemblyTypeName: Language.Resources.Language, Scripts
         m_MethodName: SetLanguage
         m_Mode: 5
@@ -3171,18 +3147,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &2205375602880090418
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4725021334501014054}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da5f08acec38f874faf6a5290db2e9ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4725021334541242324
 GameObject:
   m_ObjectHideFlags: 0
@@ -3215,7 +3179,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4725021335508195059}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3239,7 +3202,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4725021334541242324}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e838075f40f1ee640824e2f8995c2a9b, type: 3}
+  m_Script: {fileID: 11500000, guid: 0800fea1e61855447832d11401b0c50e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Image: {fileID: 6903770369858274684}
@@ -3254,7 +3217,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4725021334541242324}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 509058d9fc4430546839d209d3a4a3f9, type: 3}
+  m_Script: {fileID: 11500000, guid: 6f52f602a59411b4084ad7fb6e98fba9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -3275,9 +3238,8 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
-  DefaultSprite: {fileID: 21300000, guid: ef273ecac3a5d0f4caca1f56a85d620d, type: 3}
-  KeyCodeSetterSprite: {fileID: 21300000, guid: 58d3a98d01a759a43b27ef0a763561be,
-    type: 3}
+  DefaultSprite: {fileID: 21300000, guid: 2d3547db46eb9ce44b082a0b6c615063, type: 3}
+  KeyCodeSetterSprite: {fileID: 21300000, guid: 55b8bb50b50b5364280104865c795b0c, type: 3}
 --- !u!1 &4725021334630908891
 GameObject:
   m_ObjectHideFlags: 0
@@ -3309,7 +3271,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4725021335179961000}
-  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3386,7 +3347,6 @@ RectTransform:
   m_Children:
   - {fileID: 8790865396751357309}
   m_Father: {fileID: 8163927880998183779}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -3410,10 +3370,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4725021334664369833}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c16b42e699e45d647ae3cff972587017, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ea6ec8b88b39444997eb8b0397ac83c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: b54be2666c7e07647b9e99c1c072e64e, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -3431,7 +3391,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
-  Path: Assets/Languages/{{Language}}/words/back.png
+  Path: Assets/Languages/{{Language}}/words/{{name}}.png
 --- !u!1 &4725021334712453256
 GameObject:
   m_ObjectHideFlags: 0
@@ -3444,7 +3404,7 @@ GameObject:
   - component: {fileID: 4725021334712453253}
   - component: {fileID: 2205375603069526891}
   m_Layer: 5
-  m_Name: maybutniyStrybok
+  m_Name: Jump With Normal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3464,7 +3424,6 @@ RectTransform:
   m_Children:
   - {fileID: 8790865396378945510}
   m_Father: {fileID: 8163927880998183779}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -3488,10 +3447,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4725021334712453256}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c16b42e699e45d647ae3cff972587017, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ea6ec8b88b39444997eb8b0397ac83c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: b54be2666c7e07647b9e99c1c072e64e, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -3509,7 +3468,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
-  Path: Assets/Languages/{{Language}}/words/back.png
+  Path: Assets/Languages/{{Language}}/words/{{name}}.png
 --- !u!1 &4725021334826204381
 GameObject:
   m_ObjectHideFlags: 0
@@ -3542,7 +3501,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1596637989527703227}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3566,10 +3524,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4725021334826204381}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c16b42e699e45d647ae3cff972587017, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ea6ec8b88b39444997eb8b0397ac83c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: b54be2666c7e07647b9e99c1c072e64e, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -3628,7 +3586,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 4725021334826204377}
+  m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -3687,7 +3645,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4725021335179961000}
-  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3764,7 +3721,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4725021334355419535}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3853,7 +3809,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2205375602880090418}
+      - m_Target: {fileID: 8395730850262589512}
         m_TargetAssemblyTypeName: Language.Resources.Language, Scripts
         m_MethodName: SetLanguage
         m_Mode: 5
@@ -3921,7 +3877,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1596637989527703227}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3945,10 +3900,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4725021334993555706}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c16b42e699e45d647ae3cff972587017, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ea6ec8b88b39444997eb8b0397ac83c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: b54be2666c7e07647b9e99c1c072e64e, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -4007,7 +3962,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 4725021334993555702}
+  m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
@@ -4043,7 +3998,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1596637989527703227}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4067,14 +4021,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 4725021335106436240}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c16b42e699e45d647ae3cff972587017, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ea6ec8b88b39444997eb8b0397ac83c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: b54be2666c7e07647b9e99c1c072e64e, type: 2}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 0
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -4129,7 +4083,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 3137301808149885741}
+  m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
@@ -4164,7 +4118,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4725021335179961000}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4246,7 +4199,6 @@ RectTransform:
   - {fileID: 4725021334427515181}
   - {fileID: 4725021336244150785}
   m_Father: {fileID: 2205375603130830846}
-  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -4272,7 +4224,7 @@ GameObject:
   - component: {fileID: 4725021335508195059}
   - component: {fileID: 4725021335508195058}
   - component: {fileID: 4725021335508195055}
-  - component: {fileID: 5983917624896741801}
+  - component: {fileID: 7807075673298956045}
   m_Layer: 5
   m_Name: Menu
   m_TagString: Untagged
@@ -4300,7 +4252,6 @@ RectTransform:
   - {fileID: 2205375603208040622}
   - {fileID: 2205375602900992860}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4411,7 +4362,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &5983917624896741801
+--- !u!114 &7807075673298956045
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4420,7 +4371,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4725021335508195056}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58a1523b67d85b34d99a2e89de4b1c54, type: 3}
+  m_Script: {fileID: 11500000, guid: 1ce0879ccb7806f43926cdad4f0087ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   IncludeChild: 1
@@ -4456,7 +4407,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1596637989527703227}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4480,10 +4430,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4725021335513552374}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c16b42e699e45d647ae3cff972587017, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ea6ec8b88b39444997eb8b0397ac83c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: b54be2666c7e07647b9e99c1c072e64e, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -4542,7 +4492,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 4725021335513552370}
+  m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
@@ -4577,7 +4527,6 @@ RectTransform:
   - {fileID: 1596637989527703227}
   - {fileID: 4725021334355419535}
   m_Father: {fileID: 4725021335508195059}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4615,7 +4564,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4725021335179961000}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4691,7 +4639,6 @@ RectTransform:
   - {fileID: 2205375602882499745}
   - {fileID: 8163927880283448378}
   m_Father: {fileID: 4725021335508195059}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4729,7 +4676,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4725021335179961000}
-  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4804,7 +4750,6 @@ RectTransform:
   m_Children:
   - {fileID: 8163927880998183779}
   m_Father: {fileID: 2205375602900992860}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4842,7 +4787,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2205375602391992984}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4920,7 +4864,6 @@ RectTransform:
   m_Children:
   - {fileID: 8163927881837829159}
   m_Father: {fileID: 8163927880027743319}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4974,10 +4917,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8163927879817665989}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fea359c2b8456314aa8ff0391c2e0567, type: 3}
+  m_Script: {fileID: 11500000, guid: 84292379ac437594d8feaedf06303e9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Key: Audio
+  Key: audio
   Field: {fileID: 8163927881837829159}
   LevelsCount: 100
 --- !u!1 &8163927879831125805
@@ -5011,7 +4954,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8163927880963029219}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5088,7 +5030,6 @@ RectTransform:
   m_Children:
   - {fileID: 8163927879817666010}
   m_Father: {fileID: 8163927881149659193}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -5112,10 +5053,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8163927880027743318}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c16b42e699e45d647ae3cff972587017, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ea6ec8b88b39444997eb8b0397ac83c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: b54be2666c7e07647b9e99c1c072e64e, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -5167,7 +5108,6 @@ RectTransform:
   m_Children:
   - {fileID: 8163927881701384295}
   m_Father: {fileID: 8163927881706153607}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5221,10 +5161,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8163927880048497911}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fea359c2b8456314aa8ff0391c2e0567, type: 3}
+  m_Script: {fileID: 11500000, guid: 84292379ac437594d8feaedf06303e9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Key: Going sound
+  Key: going
   Field: {fileID: 8163927881701384295}
   LevelsCount: 100
 --- !u!1 &8163927880107469097
@@ -5260,7 +5200,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3544925118791582850}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5318,16 +5257,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 8163927880107469097}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d590c0b413ea81747bd92902d1d6f953, type: 3}
+  m_Script: {fileID: 11500000, guid: b2db56e6bf13a9f4c8ee887fe2d27a28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Key: VisionSystem
-  OnKeyCodeUp:
+  OnKeyCode:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8163927880998183782}
-        m_TargetAssemblyTypeName: KeyCodeSaver, Scripts
-        m_MethodName: SetKeyCode
+      - m_Target: {fileID: 8163927880107469101}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
+        m_MethodName: set_text
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5346,16 +5285,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 8163927880107469097}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80dbac2e5140c2141a95b74b83cf6e74, type: 3}
+  m_Script: {fileID: 11500000, guid: cb7e6c3ece5223342b24b21ec70f5e6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Key: VisionSystem
-  OnKeyCode:
+  OnKeyCodeUp:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8163927880107469101}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
-        m_MethodName: set_text
+      - m_Target: {fileID: 8163927880998183782}
+        m_TargetAssemblyTypeName: KeyCodeController.KeyCodeSaver, Scripts
+        m_MethodName: SetKeyCode
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5397,7 +5336,6 @@ RectTransform:
   m_Children:
   - {fileID: 8163927880405059590}
   m_Father: {fileID: 2205375603130830846}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -5421,10 +5359,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8163927880123557093}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c16b42e699e45d647ae3cff972587017, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ea6ec8b88b39444997eb8b0397ac83c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: b54be2666c7e07647b9e99c1c072e64e, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -5476,7 +5414,6 @@ RectTransform:
   m_Children:
   - {fileID: 8163927881070844962}
   m_Father: {fileID: 8163927880285559531}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5530,10 +5467,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8163927880153602242}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fea359c2b8456314aa8ff0391c2e0567, type: 3}
+  m_Script: {fileID: 11500000, guid: 84292379ac437594d8feaedf06303e9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Key: Audio of bots
+  Key: audio of bots
   Field: {fileID: 8163927881070844962}
   LevelsCount: 100
 --- !u!1 &8163927880272570378
@@ -5569,7 +5506,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8163927881654162206}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5627,16 +5563,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 8163927880272570378}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d590c0b413ea81747bd92902d1d6f953, type: 3}
+  m_Script: {fileID: 11500000, guid: b2db56e6bf13a9f4c8ee887fe2d27a28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Key: Fire
-  OnKeyCodeUp:
+  OnKeyCode:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8163927880998183782}
-        m_TargetAssemblyTypeName: KeyCodeSaver, Scripts
-        m_MethodName: SetKeyCode
+      - m_Target: {fileID: 8163927880272570378}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
+        m_MethodName: set_text
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5655,16 +5591,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 8163927880272570378}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80dbac2e5140c2141a95b74b83cf6e74, type: 3}
+  m_Script: {fileID: 11500000, guid: cb7e6c3ece5223342b24b21ec70f5e6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Key: Fire
-  OnKeyCode:
+  OnKeyCodeUp:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8163927880272570382}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
-        m_MethodName: set_text
+      - m_Target: {fileID: 8163927880998183782}
+        m_TargetAssemblyTypeName: KeyCodeController.KeyCodeSaver, Scripts
+        m_MethodName: SetKeyCode
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5709,7 +5645,6 @@ RectTransform:
   - {fileID: 2205375602387235978}
   - {fileID: 2205375603822456712}
   m_Father: {fileID: 4725021336102535888}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5772,7 +5707,6 @@ RectTransform:
   m_Children:
   - {fileID: 8163927880153602243}
   m_Father: {fileID: 8163927881149659193}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -5796,10 +5730,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8163927880285559530}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c16b42e699e45d647ae3cff972587017, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ea6ec8b88b39444997eb8b0397ac83c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: b54be2666c7e07647b9e99c1c072e64e, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -5851,7 +5785,6 @@ RectTransform:
   m_Children:
   - {fileID: 8163927880534291536}
   m_Father: {fileID: 8163927881937721138}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5905,27 +5838,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8163927880297290749}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29960aa7f239efc408a462245224cad7, type: 3}
+  m_Script: {fileID: 11500000, guid: 84292379ac437594d8feaedf06303e9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Key: Music
+  Key: music
   Field: {fileID: 8163927880534291536}
   LevelsCount: 100
-  OnChangeValue:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4725021335508195055}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: set_volume
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &8163927880297969113
 GameObject:
   m_ObjectHideFlags: 0
@@ -5959,7 +5877,6 @@ RectTransform:
   m_Children:
   - {fileID: 8163927881638049320}
   m_Father: {fileID: 8163927880415356964}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6013,7 +5930,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8163927880297969113}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fea359c2b8456314aa8ff0391c2e0567, type: 3}
+  m_Script: {fileID: 11500000, guid: 84292379ac437594d8feaedf06303e9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Key: Special Effects Quality
@@ -6052,7 +5969,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3544925118576192882}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6110,16 +6026,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 8163927880341576247}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d590c0b413ea81747bd92902d1d6f953, type: 3}
+  m_Script: {fileID: 11500000, guid: b2db56e6bf13a9f4c8ee887fe2d27a28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Key: Right
-  OnKeyCodeUp:
+  OnKeyCode:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8163927880998183782}
-        m_TargetAssemblyTypeName: KeyCodeSaver, Scripts
-        m_MethodName: SetKeyCode
+      - m_Target: {fileID: 8163927880341576247}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
+        m_MethodName: set_text
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6138,16 +6054,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 8163927880341576247}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80dbac2e5140c2141a95b74b83cf6e74, type: 3}
+  m_Script: {fileID: 11500000, guid: cb7e6c3ece5223342b24b21ec70f5e6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Key: Right
-  OnKeyCode:
+  OnKeyCodeUp:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8163927880341576203}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
-        m_MethodName: set_text
+      - m_Target: {fileID: 8163927880998183782}
+        m_TargetAssemblyTypeName: KeyCodeController.KeyCodeSaver, Scripts
+        m_MethodName: SetKeyCode
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6189,7 +6105,6 @@ RectTransform:
   m_Children:
   - {fileID: 8163927880828016264}
   m_Father: {fileID: 8163927881149659193}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -6213,10 +6128,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8163927880389887205}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c16b42e699e45d647ae3cff972587017, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ea6ec8b88b39444997eb8b0397ac83c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: b54be2666c7e07647b9e99c1c072e64e, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -6267,7 +6182,6 @@ RectTransform:
   m_Children:
   - {fileID: 8163927880963029219}
   m_Father: {fileID: 8163927881149659193}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -6291,10 +6205,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8163927880396511948}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c16b42e699e45d647ae3cff972587017, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ea6ec8b88b39444997eb8b0397ac83c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: b54be2666c7e07647b9e99c1c072e64e, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -6346,7 +6260,6 @@ RectTransform:
   m_Children:
   - {fileID: 8163927880447158247}
   m_Father: {fileID: 8163927880123557114}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6400,7 +6313,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8163927880405059585}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fea359c2b8456314aa8ff0391c2e0567, type: 3}
+  m_Script: {fileID: 11500000, guid: 84292379ac437594d8feaedf06303e9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Key: Texture Quality
@@ -6438,7 +6351,6 @@ RectTransform:
   m_Children:
   - {fileID: 8163927880297969118}
   m_Father: {fileID: 2205375603130830846}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -6462,10 +6374,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8163927880415356967}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c16b42e699e45d647ae3cff972587017, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ea6ec8b88b39444997eb8b0397ac83c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: b54be2666c7e07647b9e99c1c072e64e, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -6516,7 +6428,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8163927881149659193}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -6540,10 +6451,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8163927880418006864}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c16b42e699e45d647ae3cff972587017, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ea6ec8b88b39444997eb8b0397ac83c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: b54be2666c7e07647b9e99c1c072e64e, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -6602,7 +6513,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 8163927880418006871}
+  m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -6661,7 +6572,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8163927880405059590}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -6737,7 +6647,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8163927880297290738}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -6815,7 +6724,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3544925120044095258}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6873,16 +6781,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 8163927880563716818}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d590c0b413ea81747bd92902d1d6f953, type: 3}
+  m_Script: {fileID: 11500000, guid: b2db56e6bf13a9f4c8ee887fe2d27a28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Key: Crawl
-  OnKeyCodeUp:
+  OnKeyCode:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8163927880998183782}
-        m_TargetAssemblyTypeName: KeyCodeSaver, Scripts
-        m_MethodName: SetKeyCode
+      - m_Target: {fileID: 8163927880563716818}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
+        m_MethodName: set_text
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6901,16 +6809,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 8163927880563716818}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80dbac2e5140c2141a95b74b83cf6e74, type: 3}
+  m_Script: {fileID: 11500000, guid: cb7e6c3ece5223342b24b21ec70f5e6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Key: Crawl
-  OnKeyCode:
+  OnKeyCodeUp:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8163927880563716822}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
-        m_MethodName: set_text
+      - m_Target: {fileID: 8163927880998183782}
+        m_TargetAssemblyTypeName: KeyCodeController.KeyCodeSaver, Scripts
+        m_MethodName: SetKeyCode
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6953,7 +6861,6 @@ RectTransform:
   m_Children:
   - {fileID: 8163927881827471938}
   m_Father: {fileID: 3544925118903000262}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7007,10 +6914,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8163927880741979054}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fea359c2b8456314aa8ff0391c2e0567, type: 3}
+  m_Script: {fileID: 11500000, guid: 84292379ac437594d8feaedf06303e9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Key: Fire sound
+  Key: fire
   Field: {fileID: 8163927881827471938}
   LevelsCount: 100
 --- !u!1 &8163927880755296947
@@ -7046,7 +6953,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3544925120093914660}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7104,16 +7010,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 8163927880755296947}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d590c0b413ea81747bd92902d1d6f953, type: 3}
+  m_Script: {fileID: 11500000, guid: b2db56e6bf13a9f4c8ee887fe2d27a28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Key: SlowDownSystem
-  OnKeyCodeUp:
+  OnKeyCode:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8163927880998183782}
-        m_TargetAssemblyTypeName: KeyCodeSaver, Scripts
-        m_MethodName: SetKeyCode
+      - m_Target: {fileID: 8163927880755296947}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
+        m_MethodName: set_text
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7132,16 +7038,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 8163927880755296947}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80dbac2e5140c2141a95b74b83cf6e74, type: 3}
+  m_Script: {fileID: 11500000, guid: cb7e6c3ece5223342b24b21ec70f5e6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Key: SlowDownSystem
-  OnKeyCode:
+  OnKeyCodeUp:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8163927880755296951}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
-        m_MethodName: set_text
+      - m_Target: {fileID: 8163927880998183782}
+        m_TargetAssemblyTypeName: KeyCodeController.KeyCodeSaver, Scripts
+        m_MethodName: SetKeyCode
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7184,7 +7090,6 @@ RectTransform:
   m_Children:
   - {fileID: 8163927881753609438}
   m_Father: {fileID: 8163927880389887226}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7238,10 +7143,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8163927880828016267}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fea359c2b8456314aa8ff0391c2e0567, type: 3}
+  m_Script: {fileID: 11500000, guid: 84292379ac437594d8feaedf06303e9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Key: Contusion sound
+  Key: contusion
   Field: {fileID: 8163927881753609438}
   LevelsCount: 100
 --- !u!1 &8163927880830941323
@@ -7277,7 +7182,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3544925118687912495}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7335,16 +7239,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 8163927880830941323}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d590c0b413ea81747bd92902d1d6f953, type: 3}
+  m_Script: {fileID: 11500000, guid: b2db56e6bf13a9f4c8ee887fe2d27a28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Key: Weapon1
-  OnKeyCodeUp:
+  OnKeyCode:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8163927880998183782}
-        m_TargetAssemblyTypeName: KeyCodeSaver, Scripts
-        m_MethodName: SetKeyCode
+      - m_Target: {fileID: 8163927880830941323}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
+        m_MethodName: set_text
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7363,16 +7267,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 8163927880830941323}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80dbac2e5140c2141a95b74b83cf6e74, type: 3}
+  m_Script: {fileID: 11500000, guid: cb7e6c3ece5223342b24b21ec70f5e6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Key: Weapon1
-  OnKeyCode:
+  OnKeyCodeUp:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8163927880830941327}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
-        m_MethodName: set_text
+      - m_Target: {fileID: 8163927880998183782}
+        m_TargetAssemblyTypeName: KeyCodeController.KeyCodeSaver, Scripts
+        m_MethodName: SetKeyCode
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7414,7 +7318,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2205375603130830846}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -7438,10 +7341,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8163927880877151470}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c16b42e699e45d647ae3cff972587017, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ea6ec8b88b39444997eb8b0397ac83c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: b54be2666c7e07647b9e99c1c072e64e, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -7500,7 +7403,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 8163927880877151469}
+  m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -7561,7 +7464,6 @@ RectTransform:
   m_Children:
   - {fileID: 8163927879831125794}
   m_Father: {fileID: 8163927880396511949}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7615,10 +7517,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8163927880963029218}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fea359c2b8456314aa8ff0391c2e0567, type: 3}
+  m_Script: {fileID: 11500000, guid: 84292379ac437594d8feaedf06303e9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Key: Punches sound
+  Key: punches
   Field: {fileID: 8163927879831125794}
   LevelsCount: 100
 --- !u!1 &8163927880998183778
@@ -7672,7 +7574,6 @@ RectTransform:
   - {fileID: 3544925118791582850}
   - {fileID: 3544925120093914660}
   m_Father: {fileID: 6221272568903233327}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -7712,7 +7613,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8163927880998183778}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b0b31e3862973843bb4aac2bbae38fd, type: 3}
+  m_Script: {fileID: 11500000, guid: 2b3c660fa3d222d47b9ab4d07047178a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8163927881070844973
@@ -7746,7 +7647,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8163927880153602243}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -7829,7 +7729,6 @@ RectTransform:
   - {fileID: 8163927880396511949}
   - {fileID: 8163927880389887226}
   m_Father: {fileID: 1596637989888205047}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -7893,7 +7792,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3544925120023481262}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7951,16 +7849,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 8163927881167414155}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d590c0b413ea81747bd92902d1d6f953, type: 3}
+  m_Script: {fileID: 11500000, guid: b2db56e6bf13a9f4c8ee887fe2d27a28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Key: Run
-  OnKeyCodeUp:
+  OnKeyCode:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8163927880998183782}
-        m_TargetAssemblyTypeName: KeyCodeSaver, Scripts
-        m_MethodName: SetKeyCode
+      - m_Target: {fileID: 8163927881167414155}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
+        m_MethodName: set_text
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7979,16 +7877,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 8163927881167414155}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80dbac2e5140c2141a95b74b83cf6e74, type: 3}
+  m_Script: {fileID: 11500000, guid: cb7e6c3ece5223342b24b21ec70f5e6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Key: Run
-  OnKeyCode:
+  OnKeyCodeUp:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8163927881167414159}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
-        m_MethodName: set_text
+      - m_Target: {fileID: 8163927880998183782}
+        m_TargetAssemblyTypeName: KeyCodeController.KeyCodeSaver, Scripts
+        m_MethodName: SetKeyCode
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8031,7 +7929,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3544925120085013628}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8089,16 +7986,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 8163927881241368061}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d590c0b413ea81747bd92902d1d6f953, type: 3}
+  m_Script: {fileID: 11500000, guid: b2db56e6bf13a9f4c8ee887fe2d27a28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Key: Weapon2
-  OnKeyCodeUp:
+  OnKeyCode:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8163927880998183782}
-        m_TargetAssemblyTypeName: KeyCodeSaver, Scripts
-        m_MethodName: SetKeyCode
+      - m_Target: {fileID: 8163927881241368061}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
+        m_MethodName: set_text
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8117,16 +8014,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 8163927881241368061}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80dbac2e5140c2141a95b74b83cf6e74, type: 3}
+  m_Script: {fileID: 11500000, guid: cb7e6c3ece5223342b24b21ec70f5e6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Key: Weapon2
-  OnKeyCode:
+  OnKeyCodeUp:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8163927881241368049}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
-        m_MethodName: set_text
+      - m_Target: {fileID: 8163927880998183782}
+        m_TargetAssemblyTypeName: KeyCodeController.KeyCodeSaver, Scripts
+        m_MethodName: SetKeyCode
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8169,7 +8066,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3544925120322106113}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8227,16 +8123,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 8163927881242364005}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d590c0b413ea81747bd92902d1d6f953, type: 3}
+  m_Script: {fileID: 11500000, guid: b2db56e6bf13a9f4c8ee887fe2d27a28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Key: Scope
-  OnKeyCodeUp:
+  OnKeyCode:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8163927880998183782}
-        m_TargetAssemblyTypeName: KeyCodeSaver, Scripts
-        m_MethodName: SetKeyCode
+      - m_Target: {fileID: 8163927881242364005}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
+        m_MethodName: set_text
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8255,16 +8151,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 8163927881242364005}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80dbac2e5140c2141a95b74b83cf6e74, type: 3}
+  m_Script: {fileID: 11500000, guid: cb7e6c3ece5223342b24b21ec70f5e6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Key: Scope
-  OnKeyCode:
+  OnKeyCodeUp:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8163927881242364025}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
-        m_MethodName: set_text
+      - m_Target: {fileID: 8163927880998183782}
+        m_TargetAssemblyTypeName: KeyCodeController.KeyCodeSaver, Scripts
+        m_MethodName: SetKeyCode
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8306,7 +8202,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8163927880998183779}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -8330,10 +8225,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8163927881519760099}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c16b42e699e45d647ae3cff972587017, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ea6ec8b88b39444997eb8b0397ac83c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: b54be2666c7e07647b9e99c1c072e64e, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -8392,7 +8287,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 8163927881519760102}
+  m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -8453,7 +8348,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3544925118992299003}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8511,16 +8405,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 8163927881606774837}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d590c0b413ea81747bd92902d1d6f953, type: 3}
+  m_Script: {fileID: 11500000, guid: b2db56e6bf13a9f4c8ee887fe2d27a28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Key: Weapon4
-  OnKeyCodeUp:
+  OnKeyCode:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8163927880998183782}
-        m_TargetAssemblyTypeName: KeyCodeSaver, Scripts
-        m_MethodName: SetKeyCode
+      - m_Target: {fileID: 8163927881606774837}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
+        m_MethodName: set_text
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8539,16 +8433,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 8163927881606774837}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80dbac2e5140c2141a95b74b83cf6e74, type: 3}
+  m_Script: {fileID: 11500000, guid: cb7e6c3ece5223342b24b21ec70f5e6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Key: Weapon4
-  OnKeyCode:
+  OnKeyCodeUp:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8163927881606774793}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
-        m_MethodName: set_text
+      - m_Target: {fileID: 8163927880998183782}
+        m_TargetAssemblyTypeName: KeyCodeController.KeyCodeSaver, Scripts
+        m_MethodName: SetKeyCode
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8591,7 +8485,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3544925119028282669}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8649,16 +8542,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 8163927881634898507}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d590c0b413ea81747bd92902d1d6f953, type: 3}
+  m_Script: {fileID: 11500000, guid: b2db56e6bf13a9f4c8ee887fe2d27a28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Key: Back
-  OnKeyCodeUp:
+  OnKeyCode:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8163927880998183782}
-        m_TargetAssemblyTypeName: KeyCodeSaver, Scripts
-        m_MethodName: SetKeyCode
+      - m_Target: {fileID: 8163927881634898511}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
+        m_MethodName: set_text
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8677,16 +8570,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 8163927881634898507}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80dbac2e5140c2141a95b74b83cf6e74, type: 3}
+  m_Script: {fileID: 11500000, guid: cb7e6c3ece5223342b24b21ec70f5e6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Key: Back
-  OnKeyCode:
+  OnKeyCodeUp:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8163927881634898511}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
-        m_MethodName: set_text
+      - m_Target: {fileID: 8163927880998183782}
+        m_TargetAssemblyTypeName: KeyCodeController.KeyCodeSaver, Scripts
+        m_MethodName: SetKeyCode
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8727,7 +8620,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8163927880297969118}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -8804,7 +8696,6 @@ RectTransform:
   m_Children:
   - {fileID: 8163927880272570379}
   m_Father: {fileID: 8163927880998183779}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -8828,10 +8719,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8163927881654162201}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c16b42e699e45d647ae3cff972587017, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ea6ec8b88b39444997eb8b0397ac83c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: b54be2666c7e07647b9e99c1c072e64e, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -8849,7 +8740,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
-  Path: Assets/Languages/{{Language}}/words/{{Name}}.png
+  Path: Assets/Languages/{{Language}}/words/{{name}}.png
 --- !u!1 &8163927881701384294
 GameObject:
   m_ObjectHideFlags: 0
@@ -8881,7 +8772,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8163927880048497908}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -8958,7 +8848,6 @@ RectTransform:
   m_Children:
   - {fileID: 8163927880048497908}
   m_Father: {fileID: 8163927881149659193}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -8982,10 +8871,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8163927881706153606}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c16b42e699e45d647ae3cff972587017, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ea6ec8b88b39444997eb8b0397ac83c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: b54be2666c7e07647b9e99c1c072e64e, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -9036,7 +8925,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2205375603165409182}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -9060,10 +8948,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8163927881739898799}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c16b42e699e45d647ae3cff972587017, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ea6ec8b88b39444997eb8b0397ac83c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: b54be2666c7e07647b9e99c1c072e64e, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -9122,7 +9010,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 8163927881739898786}
+  m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -9181,7 +9069,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8163927880828016264}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -9259,7 +9146,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3544925120250355844}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9317,16 +9203,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 8163927881804406557}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d590c0b413ea81747bd92902d1d6f953, type: 3}
+  m_Script: {fileID: 11500000, guid: b2db56e6bf13a9f4c8ee887fe2d27a28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Key: Jump
-  OnKeyCodeUp:
+  OnKeyCode:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8163927880998183782}
-        m_TargetAssemblyTypeName: KeyCodeSaver, Scripts
-        m_MethodName: SetKeyCode
+      - m_Target: {fileID: 8163927881804406557}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
+        m_MethodName: set_text
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9345,16 +9231,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 8163927881804406557}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80dbac2e5140c2141a95b74b83cf6e74, type: 3}
+  m_Script: {fileID: 11500000, guid: cb7e6c3ece5223342b24b21ec70f5e6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Key: Jump
-  OnKeyCode:
+  OnKeyCodeUp:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8163927881804406545}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
-        m_MethodName: set_text
+      - m_Target: {fileID: 8163927880998183782}
+        m_TargetAssemblyTypeName: KeyCodeController.KeyCodeSaver, Scripts
+        m_MethodName: SetKeyCode
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9395,7 +9281,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8163927880741979055}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -9471,7 +9356,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8163927879817666010}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -9549,7 +9433,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3544925118709089642}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9607,16 +9490,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 8163927881853473117}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d590c0b413ea81747bd92902d1d6f953, type: 3}
+  m_Script: {fileID: 11500000, guid: b2db56e6bf13a9f4c8ee887fe2d27a28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Key: ExtraWeapon
-  OnKeyCodeUp:
+  OnKeyCode:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8163927880998183782}
-        m_TargetAssemblyTypeName: KeyCodeSaver, Scripts
-        m_MethodName: SetKeyCode
+      - m_Target: {fileID: 8163927881853473117}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
+        m_MethodName: set_text
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9635,16 +9518,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 8163927881853473117}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80dbac2e5140c2141a95b74b83cf6e74, type: 3}
+  m_Script: {fileID: 11500000, guid: cb7e6c3ece5223342b24b21ec70f5e6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Key: ExtraWeapon
-  OnKeyCode:
+  OnKeyCodeUp:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8163927881853473105}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
-        m_MethodName: set_text
+      - m_Target: {fileID: 8163927880998183782}
+        m_TargetAssemblyTypeName: KeyCodeController.KeyCodeSaver, Scripts
+        m_MethodName: SetKeyCode
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9687,7 +9570,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3544925118823346388}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9745,16 +9627,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 8163927881860752207}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d590c0b413ea81747bd92902d1d6f953, type: 3}
+  m_Script: {fileID: 11500000, guid: b2db56e6bf13a9f4c8ee887fe2d27a28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Key: Pause
-  OnKeyCodeUp:
+  OnKeyCode:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8163927880998183782}
-        m_TargetAssemblyTypeName: KeyCodeSaver, Scripts
-        m_MethodName: SetKeyCode
+      - m_Target: {fileID: 8163927881860752207}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
+        m_MethodName: set_text
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9773,16 +9655,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 8163927881860752207}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80dbac2e5140c2141a95b74b83cf6e74, type: 3}
+  m_Script: {fileID: 11500000, guid: cb7e6c3ece5223342b24b21ec70f5e6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Key: Pause
-  OnKeyCode:
+  OnKeyCodeUp:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8163927881860752195}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
-        m_MethodName: set_text
+      - m_Target: {fileID: 8163927880998183782}
+        m_TargetAssemblyTypeName: KeyCodeController.KeyCodeSaver, Scripts
+        m_MethodName: SetKeyCode
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9825,7 +9707,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3544925119426776915}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9883,16 +9764,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 8163927881882173408}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d590c0b413ea81747bd92902d1d6f953, type: 3}
+  m_Script: {fileID: 11500000, guid: b2db56e6bf13a9f4c8ee887fe2d27a28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Key: Weapon3
-  OnKeyCodeUp:
+  OnKeyCode:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8163927880998183782}
-        m_TargetAssemblyTypeName: KeyCodeSaver, Scripts
-        m_MethodName: SetKeyCode
+      - m_Target: {fileID: 8163927881882173408}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
+        m_MethodName: set_text
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9911,16 +9792,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 8163927881882173408}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80dbac2e5140c2141a95b74b83cf6e74, type: 3}
+  m_Script: {fileID: 11500000, guid: cb7e6c3ece5223342b24b21ec70f5e6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Key: Weapon3
-  OnKeyCode:
+  OnKeyCodeUp:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8163927881882173412}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
-        m_MethodName: set_text
+      - m_Target: {fileID: 8163927880998183782}
+        m_TargetAssemblyTypeName: KeyCodeController.KeyCodeSaver, Scripts
+        m_MethodName: SetKeyCode
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9963,7 +9844,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3544925120072271096}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -10021,16 +9901,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 8163927881927156878}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d590c0b413ea81747bd92902d1d6f953, type: 3}
+  m_Script: {fileID: 11500000, guid: b2db56e6bf13a9f4c8ee887fe2d27a28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Key: Left
-  OnKeyCodeUp:
+  OnKeyCode:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8163927880998183782}
-        m_TargetAssemblyTypeName: KeyCodeSaver, Scripts
-        m_MethodName: SetKeyCode
+      - m_Target: {fileID: 8163927881927156866}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
+        m_MethodName: set_text
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10049,16 +9929,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 8163927881927156878}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80dbac2e5140c2141a95b74b83cf6e74, type: 3}
+  m_Script: {fileID: 11500000, guid: cb7e6c3ece5223342b24b21ec70f5e6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Key: Left
-  OnKeyCode:
+  OnKeyCodeUp:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8163927881927156866}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
-        m_MethodName: set_text
+      - m_Target: {fileID: 8163927880998183782}
+        m_TargetAssemblyTypeName: KeyCodeController.KeyCodeSaver, Scripts
+        m_MethodName: SetKeyCode
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10100,7 +9980,6 @@ RectTransform:
   m_Children:
   - {fileID: 8163927880297290738}
   m_Father: {fileID: 8163927881149659193}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -10124,10 +10003,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8163927881937721149}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c16b42e699e45d647ae3cff972587017, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ea6ec8b88b39444997eb8b0397ac83c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: b54be2666c7e07647b9e99c1c072e64e, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -10177,7 +10056,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4725021334712453259}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -10257,7 +10135,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4725021334664369832}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

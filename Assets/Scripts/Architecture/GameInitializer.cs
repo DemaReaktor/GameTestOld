@@ -46,13 +46,6 @@ namespace GameArchitecture
                 //create manager
                 System.Object t = Activator.CreateInstance(type);
 
-                //invoke method Initialize
-                if (type.GetInterface("IManager") != null)
-                    t.GetType().GetMethod("Initialize").Invoke(t, new object[] { });
-                else
-                    t.GetType().GetMethod("Initialize").Invoke(t, new object[] { Game.GetConfiguration(type.GetInterfaces().First(
-                                t => t.FullName.Contains('`') && t.FullName.Substring(0, t.FullName.IndexOf('`')) == "GameArchitecture.IManager").GenericTypeArguments[0]) });
-
                 classes.AddLast(t);
             }
 
@@ -85,10 +78,9 @@ namespace GameArchitecture
 
                 var type = monoscript.GetClass();
 
-                //fields without class or without IManager or IManager<> or with the same class will be removed
+                //fields without class or without IManager<> or with the same class will be removed
                 if (!type.IsClass ||
-                    (!type.GetInterfaces().Any(i => i == typeof(IManager)) &&
-                    !type.GetInterfaces().Any(t => t.FullName.Contains('`') && t.FullName.Substring(0, t.FullName.IndexOf('`')) == "GameArchitecture.IManager")) ||
+                    !type.GetInterfaces().Any(t => t.FullName.Contains('`') && t.FullName.Substring(0, t.FullName.IndexOf('`')) == "GameArchitecture.IManager") ||
                     types.Contains(type) ||
                     !Validate(type, types))
                 {

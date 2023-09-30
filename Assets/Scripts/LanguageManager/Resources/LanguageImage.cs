@@ -21,8 +21,8 @@ namespace Language.Resources
 
             if (Game.TryGetManager(out ILanguageManager languageManager))
             {
-                languageManager.OnChangeLanguage += (string language) => SetImage(language,languageManager.Configuration.DefaulLanguage);
-                SetImage(languageManager.Language, languageManager.Configuration.DefaulLanguage);
+                languageManager.OnChangeLanguage += (string language) => SetImage(language,languageManager.Configuration.DefaultLanguage);
+                SetImage(languageManager.Language, languageManager.Configuration.DefaultLanguage);
             }
         }
 

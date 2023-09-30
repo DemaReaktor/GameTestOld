@@ -9,20 +9,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 261e1e3e6ce6b0c488be62cf07a53409, type: 3}
+  m_Script: {fileID: 11500000, guid: ca45c3d0c118f624d8a4b86d77392e6c, type: 3}
   m_Name: General
   m_EditorClassIdentifier: 
   Context:
-    rid: 7114792699191885826
+    rid: 7094377364158152704
   references:
     version: 2
     RefIds:
-    - rid: 7114792699191885826
+    - rid: 7094377364158152704
       type: {class: CustomProjectSettings/SettingsContext, ns: GameArchitecture, asm: Scripts}
       data:
         Configuration:
-          rid: 7114792699191885827
-    - rid: 7114792699191885827
+          rid: 7094377364158152705
+    - rid: 7094377364158152705
       type: {class: GeneralConfiguration, ns: GameArchitecture, asm: Scripts}
       data:
         configurationsFolder: Configurations

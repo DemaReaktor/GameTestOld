@@ -8,7 +8,7 @@ namespace Language
         /// <summary>
         /// language which is used when game start or when some language dont have resources
         /// </summary>
-        public string DefaulLanguage = "English";
+        public string DefaultLanguage = "English";
         /// <summary>
         /// all languages which are in game for now
         /// </summary>

@@ -46,7 +46,7 @@ public class LanguageImageEditor : Editor
 {
     private void OnEnable()
     {
-        if ((serializedObject.targetObject as ScrollCursor).Image is null && (serializedObject.targetObject as ScrollCursor).TryGetComponent(out Graphic graphic))
+        if ((serializedObject.targetObject as ScrollCursor).Image is null && (serializedObject.targetObject as Component).TryGetComponent(out Graphic graphic))
             (serializedObject.targetObject as ScrollCursor).Image = graphic;
     }
 }
