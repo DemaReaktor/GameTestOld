@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Text
-  m_Shader: {fileID: 4800000, guid: d9c7117597e2a5846a3592185c639b95, type: 3}
+  m_Shader: {fileID: 4800000, guid: 2e3e4da0d209c0243ac5d893179011df, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -82,7 +82,7 @@ Material:
     m_Colors:
     - _Col: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Coordinate: {r: 1627.1118, g: -95.559204, b: 0, a: 0}
+    - _Coordinate: {r: 428.2, g: -58.799988, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _R: {r: 1584.7413, g: -109.98328, b: 0, a: 0}
   m_BuildTextureStacks: []

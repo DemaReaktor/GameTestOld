@@ -13,14 +13,14 @@ public class ScreenSize : MonoBehaviour
         if (transform is null)
             return;
 
-        if (transform.TryGetComponent(out RectTransform rectTransform))
-        {
-            rectTransform.sizeDelta = new Vector2(transform.sizeDelta.x / DefaultScreen.x * Screen.width, transform.sizeDelta.y / DefaultScreen.y * Screen.height);
-            rectTransform.anchoredPosition = new Vector2(transform.anchoredPosition.x / DefaultScreen.x * Screen.width, transform.anchoredPosition.y / DefaultScreen.y * Screen.height);
-        }
+        transform.sizeDelta = new Vector2(transform.sizeDelta.x / DefaultScreen.x * Screen.width, transform.sizeDelta.y / DefaultScreen.y * Screen.height);
+        transform.anchoredPosition = new Vector2(transform.anchoredPosition.x / DefaultScreen.x * Screen.width, transform.anchoredPosition.y / DefaultScreen.y * Screen.height);
 
         if (transform.TryGetComponent(out Text text))
             text.fontSize = text.fontSize * Screen.width / DefaultScreen.x;
+
+        if(transform.TryGetComponent(out GridLayoutGroup gridLayoutGroup))
+            gridLayoutGroup.cellSize = gridLayoutGroup.cellSize * Screen.width / DefaultScreen.x;
 
         foreach (Transform child in transform)
             ChangeSizeAndPosition(child as RectTransform);
